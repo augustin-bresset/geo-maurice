@@ -1,0 +1,575 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4850376,
+          -20.1723203
+        ]
+      },
+      "properties": {
+        "id": 160507747,
+        "name": "Chinese Cultural Centre",
+        "amenity": "community_centre"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          63.4324379,
+          -19.6748604
+        ]
+      },
+      "properties": {
+        "id": 372014057,
+        "name": "Anse Aux Anglais Community Center",
+        "amenity": "community_centre"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5264416,
+          -20.3187235
+        ]
+      },
+      "properties": {
+        "id": 406528329,
+        "name": "City House Curepipe",
+        "amenity": "community_centre"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.6589275,
+          -20.172128
+        ]
+      },
+      "properties": {
+        "id": 472056501,
+        "name": "Brisee verdiere community center",
+        "amenity": "community_centre"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.7307521,
+          -20.1711177
+        ]
+      },
+      "properties": {
+        "id": 472375789,
+        "name": "Poste de Flacq Community Center",
+        "amenity": "community_centre"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5138953,
+          -20.1613581
+        ]
+      },
+      "properties": {
+        "id": 495660334,
+        "name": "Centre Idriss Goomany",
+        "amenity": "community_centre"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5124399,
+          -20.163739
+        ]
+      },
+      "properties": {
+        "id": 495753580,
+        "name": "Islamic Cultural Centre",
+        "amenity": "community_centre"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.586861,
+          -20.4648961
+        ]
+      },
+      "properties": {
+        "id": 495855622,
+        "name": "Anjuman Hall",
+        "amenity": "community_centre"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4792278,
+          -20.1690711
+        ]
+      },
+      "properties": {
+        "id": 495863229,
+        "name": "Vallijée Community Centre",
+        "amenity": "community_centre"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5102646,
+          -20.1523729
+        ]
+      },
+      "properties": {
+        "id": 495937514,
+        "name": "Camp Yoloff Community Centre",
+        "amenity": "community_centre"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4836062,
+          -20.2502812
+        ]
+      },
+      "properties": {
+        "id": 510580700,
+        "name": "Belle Rose Social Hall & Multipurpose Complex",
+        "amenity": "community_centre"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4851134,
+          -20.1660375
+        ]
+      },
+      "properties": {
+        "id": 626101580,
+        "name": "Hindu House",
+        "amenity": "community_centre"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.7748967,
+          -20.1983277
+        ]
+      },
+      "properties": {
+        "id": 677858683,
+        "name": "Belle Mare Community Center",
+        "amenity": "community_centre"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.7433724,
+          -20.2300759
+        ]
+      },
+      "properties": {
+        "id": 769059424,
+        "name": "Unknown",
+        "amenity": "community_centre"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5775039,
+          -20.1045013
+        ]
+      },
+      "properties": {
+        "id": 852913780,
+        "name": "Unknown",
+        "amenity": "community_centre"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5269679,
+          -20.3005246
+        ]
+      },
+      "properties": {
+        "id": 921498223,
+        "name": "Community centre of Eau-coulée",
+        "amenity": "community_centre"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.6940898,
+          -20.1075842
+        ]
+      },
+      "properties": {
+        "id": 1005526923,
+        "name": "Rivière du Rempart Youth Centre",
+        "amenity": "community_centre"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.6233949,
+          -20.0189339
+        ]
+      },
+      "properties": {
+        "id": 1008795089,
+        "name": "Petit Raffray Social Welfare Centre",
+        "amenity": "community_centre"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.7254521,
+          -20.1986494
+        ]
+      },
+      "properties": {
+        "id": 1008795090,
+        "name": "Riche Mare Community Centre",
+        "amenity": "community_centre"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.6746516,
+          -20.1739983
+        ]
+      },
+      "properties": {
+        "id": 1008795091,
+        "name": "Bon Accueil Community Center",
+        "amenity": "community_centre"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.7366457,
+          -20.2134948
+        ]
+      },
+      "properties": {
+        "id": 1008795093,
+        "name": "Bramsthan Social Welfare Center",
+        "amenity": "community_centre"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.6489231,
+          -20.247152
+        ]
+      },
+      "properties": {
+        "id": 1008795094,
+        "name": "Medine Camp de Masque Recreational Shelter",
+        "amenity": "community_centre"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.3730204,
+          -20.3618768
+        ]
+      },
+      "properties": {
+        "id": 1008816893,
+        "name": "Black River Youth Centre",
+        "amenity": "community_centre"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4849117,
+          -20.2603507
+        ]
+      },
+      "properties": {
+        "id": 1009237667,
+        "name": "St Jean",
+        "amenity": "community_centre"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          63.4281114,
+          -19.7161371
+        ]
+      },
+      "properties": {
+        "id": 1019965768,
+        "name": "Unknown",
+        "amenity": "community_centre"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          63.4265446,
+          -19.7434865
+        ]
+      },
+      "properties": {
+        "id": 1020938052,
+        "name": "Centre Polyvalent Anse Baleine",
+        "amenity": "community_centre"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          63.4410253,
+          -19.7109099
+        ]
+      },
+      "properties": {
+        "id": 1024423350,
+        "name": "Unknown",
+        "amenity": "community_centre"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4751227,
+          -20.3036871
+        ]
+      },
+      "properties": {
+        "id": 1026078997,
+        "name": "La Caverne Community Center",
+        "amenity": "community_centre"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4250591,
+          -20.2809748
+        ]
+      },
+      "properties": {
+        "id": 1106283246,
+        "name": "Beaux-Songes Community Center SILWF",
+        "amenity": "community_centre"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4178616,
+          -20.28507
+        ]
+      },
+      "properties": {
+        "id": 1111803048,
+        "name": "Unknown",
+        "amenity": "community_centre"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4249207,
+          -20.2809825
+        ]
+      },
+      "properties": {
+        "id": 1112538880,
+        "name": "Beau Songe Community Centre (S.I.L.W.F)",
+        "amenity": "community_centre"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4249005,
+          -20.2808772
+        ]
+      },
+      "properties": {
+        "id": 1112538881,
+        "name": "Beau Songe Community Centre(S.I.L.W.F)",
+        "amenity": "community_centre"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4792858,
+          -20.1689506
+        ]
+      },
+      "properties": {
+        "id": 1149499555,
+        "name": "Unknown",
+        "amenity": "community_centre"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4877145,
+          -20.2934168
+        ]
+      },
+      "properties": {
+        "id": 1215255062,
+        "name": "Multipurpose Complex Clairfond",
+        "amenity": "community_centre"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4987406,
+          -20.2698636
+        ]
+      },
+      "properties": {
+        "id": 1342100372,
+        "name": "GLM",
+        "amenity": "community_centre"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.6972976,
+          -20.3916107
+        ]
+      },
+      "properties": {
+        "id": 1435834072,
+        "name": "Unknown",
+        "amenity": "community_centre"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.7254881,
+          -20.1865052
+        ]
+      },
+      "properties": {
+        "id": 1436459222,
+        "name": "Central Flacq Multipurpose Hall building",
+        "amenity": "community_centre"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.3792805,
+          -20.3918109
+        ]
+      },
+      "properties": {
+        "id": 1443925424,
+        "name": "Petite Riviere Noire Community Hall",
+        "amenity": "community_centre"
+      }
+    }
+  ]
+}

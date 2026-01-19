@@ -1,0 +1,227 @@
+import React, { useState } from 'react';
+import './ControlPanel.css';
+import { Settings, RefreshCw, Eye, EyeOff, BarChart2, Layers, Save, Trash2 } from 'lucide-react';
+
+export function ControlPanel({
+    groups,
+    config,
+    setConfig,
+    onRecalculate,
+    loading,
+    progress,
+    // New props for profiles
+    profiles = [],
+    activeProfileId,
+    onLoadProfile,
+    onSaveProfile,
+    onDeleteProfile,
+    viewMode,
+    setViewMode
+}) {
+    // DEBUG: console log to inspect props
+    if (!groups) {
+        console.error("ControlPanel: groups prop is missing!", { groups, config });
+    }
+
+    // Toggle state for internal UI sections
+    // Ensure groups is an object before using Object.keys
+    const initialExpanded = groups ? Object.keys(groups).reduce((acc, k) => ({ ...acc, [k]: true }), {}) : {};
+    const [expandedCats, setExpandedCats] = useState(initialExpanded);
+
+    const toggleCat = (cat) => setExpandedCats(prev => ({ ...prev, [cat]: !prev[cat] }));
+
+    const updateConfig = (label, field, val) => {
+        setConfig(prev => ({
+            ...prev,
+            [label]: {
+                ...prev[label],
+                [field]: val
+            }
+        }));
+    };
+
+    const toggleCategoryAll = (cat, field) => {
+        // Toggle based on first item's state or just force true/false?
+        // Let's check if all are true, then set false, else set true
+        const labels = groups[cat];
+        const allTrue = labels.every(l => config[l]?.[field]);
+        const newVal = !allTrue;
+
+        setConfig(prev => {
+            const next = { ...prev };
+            labels.forEach(l => {
+                if (!next[l]) next[l] = { visible: true, score: true, weight: 1 };
+                next[l] = { ...next[l], [field]: newVal };
+            });
+            return next;
+        });
+    };
+
+    const handleSaveClick = () => {
+        const name = prompt("Nom du nouveau profil :");
+        if (name) {
+            onSaveProfile(name);
+        }
+    };
+
+    return (
+        <div className="control-panel">
+            <div className="panel-header">
+                <h2>Maurice Accessibilité</h2>
+                <Settings size={18} color="#666" />
+            </div>
+
+            {/* Profile Section */}
+            <div className="profile-section" style={{ padding: '10px 16px', borderBottom: '1px solid #eee' }}>
+                <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+                    <select
+                        value={activeProfileId}
+                        onChange={(e) => onLoadProfile(e.target.value)}
+                        style={{ flex: 1, padding: '4px', borderRadius: 4, border: '1px solid #ccc' }}
+                    >
+                        {profiles.map(p => (
+                            <option key={p.id} value={p.id}>
+                                {p.name} {p.isCustom ? '(Custom)' : ''}
+                            </option>
+                        ))}
+                        {activeProfileId === 'custom_unsaved' && <option value="custom_unsaved" disabled>-- Modifié --</option>}
+                    </select>
+
+                    <button
+                        onClick={handleSaveClick}
+                        title="Sauvegarder comme nouveau profil"
+                        style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4 }}
+                    >
+                        <Save size={16} color="#333" />
+                    </button>
+
+                    {profiles.find(p => p.id === activeProfileId)?.isCustom && (
+                        <button
+                            onClick={() => {
+                                if (confirm('Supprimer ce profil ?')) onDeleteProfile(activeProfileId);
+                            }}
+                            title="Supprimer ce profil"
+                            style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4 }}
+                        >
+                            <Trash2 size={16} color="#e41a1c" />
+                        </button>
+                    )}
+                </div>
+            </div>
+
+            {/* View Mode Switcher */}
+            <div style={{ padding: '10px 16px', borderBottom: '1px solid #eee', background: '#fff' }}>
+                <div style={{ fontSize: '0.85rem', fontWeight: 'bold', marginBottom: 8, color: '#555' }}>Mode d'affichage</div>
+                <div style={{ display: 'flex', gap: 8 }}>
+                    <button
+                        onClick={() => setViewMode('accessibility')}
+                        style={{
+                            flex: 1, padding: '6px', cursor: 'pointer',
+                            borderRadius: 4, border: '1px solid #ccc',
+                            background: viewMode === 'accessibility' ? '#3498db' : '#f8f9fa',
+                            color: viewMode === 'accessibility' ? 'white' : '#333',
+                            fontWeight: viewMode === 'accessibility' ? 'bold' : 'normal'
+                        }}
+                    >
+                        Accessibilité
+                    </button>
+                    <button
+                        onClick={() => setViewMode('population')}
+                        style={{
+                            flex: 1, padding: '6px', cursor: 'pointer',
+                            borderRadius: 4, border: '1px solid #ccc',
+                            background: viewMode === 'population' ? '#e67e22' : '#f8f9fa',
+                            color: viewMode === 'population' ? 'white' : '#333',
+                            fontWeight: viewMode === 'population' ? 'bold' : 'normal'
+                        }}
+                    >
+                        Population
+                    </button>
+                </div>
+            </div>
+
+            {
+                loading && (
+                    <div style={{ padding: '10px 16px', background: '#f9f9f9', borderBottom: '1px solid #eee' }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 4, fontSize: 12 }}>
+                            <span>Chargement des données...</span>
+                            <span>{Math.round(progress)}%</span>
+                        </div>
+                        <div style={{ width: '100%', height: 4, background: '#eee', borderRadius: 2 }}>
+                            <div style={{ width: `${progress}%`, height: '100%', background: '#4ada4a', borderRadius: 2, transition: 'width 0.2s' }}></div>
+                        </div>
+                    </div>
+                )
+            }
+
+            <div className="panel-content">
+                {Object.keys(groups).map(cat => (
+                    <div key={cat} className="category-block">
+                        <div className="category-header">
+                            <div style={{ display: 'flex', alignItems: 'center', gap: 8, cursor: 'pointer' }} onClick={() => toggleCat(cat)}>
+                                <span className="category-title">{cat}</span>
+                            </div>
+                            <div className="control-group">
+                                <button title="Toggle Visibility" onClick={() => toggleCategoryAll(cat, 'visible')} style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
+                                    <Eye size={14} />
+                                </button>
+                                <button title="Toggle Score" onClick={() => toggleCategoryAll(cat, 'score')} style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
+                                    <BarChart2 size={14} />
+                                </button>
+                            </div>
+                        </div>
+
+                        {expandedCats[cat] && groups[cat].map(label => {
+                            const c = config[label] || { visible: true, score: true, weight: 1 };
+                            return (
+                                <div key={label} className="amenity-row">
+                                    <div className="amenity-header">
+                                        <span className="amenity-name">{label.replace(/_/g, ' ')}</span>
+                                        <div className="amenity-controls">
+                                            <label className="control-group" title="Afficher sur la carte">
+                                                <input
+                                                    type="checkbox"
+                                                    checked={c.visible}
+                                                    onChange={e => updateConfig(label, 'visible', e.target.checked)}
+                                                />
+                                                <Eye size={14} />
+                                            </label>
+                                            <label className="control-group" title="Inclure dans le score">
+                                                <input
+                                                    type="checkbox"
+                                                    checked={c.score}
+                                                    onChange={e => updateConfig(label, 'score', e.target.checked)}
+                                                />
+                                                <BarChart2 size={14} />
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    {c.score && (
+                                        <div className="weight-slider-container">
+                                            <span style={{ fontSize: 10, minWidth: 60 }}>Portée: {c.weight} km</span>
+                                            <input
+                                                type="range"
+                                                className="weight-slider"
+                                                min="0" max="100" step="1"
+                                                value={c.weight}
+                                                onChange={e => updateConfig(label, 'weight', parseFloat(e.target.value))}
+                                                title={`Portée d'influence: ${c.weight} km`}
+                                            />
+                                        </div>
+                                    )}
+                                </div>
+                            );
+                        })}
+                    </div>
+                ))}
+            </div>
+
+            <div className="action-bar">
+                <button className="btn-primary" onClick={onRecalculate} disabled={loading}>
+                    {loading ? 'Chargement...' : 'Recalculer la Heatmap'}
+                </button>
+            </div>
+        </div >
+    );
+}

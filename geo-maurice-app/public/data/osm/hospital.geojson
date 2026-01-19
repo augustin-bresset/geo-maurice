@@ -1,0 +1,440 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5928237,
+          -20.4051165
+        ]
+      },
+      "properties": {
+        "id": 224268361,
+        "name": "Jawaharnal Nehru Hospital",
+        "amenity": "hospital"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4957036,
+          -20.2322621
+        ]
+      },
+      "properties": {
+        "id": 270988980,
+        "name": "Clinique Mauricienne",
+        "amenity": "hospital"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.6841827,
+          -20.1484778
+        ]
+      },
+      "properties": {
+        "id": 371851055,
+        "name": "Primary School",
+        "amenity": "hospital"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5020279,
+          -20.1690032
+        ]
+      },
+      "properties": {
+        "id": 372014045,
+        "name": "Dr Abdool Gaffoor Jeetoo Hospital",
+        "amenity": "hospital"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.6852655,
+          -20.0592359
+        ]
+      },
+      "properties": {
+        "id": 413639896,
+        "name": "Poudre d'Or Hospital",
+        "amenity": "hospital"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.6617225,
+          -20.2837632
+        ]
+      },
+      "properties": {
+        "id": 445169724,
+        "name": "Health Center Montagne Blanche",
+        "amenity": "hospital"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4845467,
+          -20.2811393
+        ]
+      },
+      "properties": {
+        "id": 495859065,
+        "name": "New Cancer Centre",
+        "amenity": "hospital"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5593412,
+          -20.0967639
+        ]
+      },
+      "properties": {
+        "id": 647952709,
+        "name": "Sir Seewoosagur Ramgoolam National Hospital",
+        "amenity": "hospital"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.7750326,
+          -20.197226
+        ]
+      },
+      "properties": {
+        "id": 677855079,
+        "name": "Belle Mare Community Health Centre",
+        "amenity": "hospital"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4762798,
+          -20.2781931
+        ]
+      },
+      "properties": {
+        "id": 784216854,
+        "name": "Victoria Hospital",
+        "amenity": "hospital"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5037267,
+          -20.2219342
+        ]
+      },
+      "properties": {
+        "id": 784220266,
+        "name": "Moka eye hospital",
+        "amenity": "hospital"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5598746,
+          -20.008544
+        ]
+      },
+      "properties": {
+        "id": 784223084,
+        "name": "Clinique du Nord",
+        "amenity": "hospital"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4969293,
+          -20.1306758
+        ]
+      },
+      "properties": {
+        "id": 784225078,
+        "name": "Clinique du Nord",
+        "amenity": "hospital"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5976184,
+          -20.0288668
+        ]
+      },
+      "properties": {
+        "id": 784242066,
+        "name": "The Vale Area Health Centre",
+        "amenity": "hospital"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5554675,
+          -20.0605188
+        ]
+      },
+      "properties": {
+        "id": 784244087,
+        "name": "Triolet Medi Clinic",
+        "amenity": "hospital"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5681865,
+          -20.0693202
+        ]
+      },
+      "properties": {
+        "id": 784246258,
+        "name": "Health Centre",
+        "amenity": "hospital"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.7031896,
+          -20.4112472
+        ]
+      },
+      "properties": {
+        "id": 784247368,
+        "name": "Mahebourg Hospital",
+        "amenity": "hospital"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.6844295,
+          -20.1482964
+        ]
+      },
+      "properties": {
+        "id": 784247534,
+        "name": "Primary Health Care",
+        "amenity": "hospital"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.6619686,
+          -20.1781319
+        ]
+      },
+      "properties": {
+        "id": 784247848,
+        "name": "Lady Sushil Ramgoolam medi clinic",
+        "amenity": "hospital"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4815704,
+          -20.1661772
+        ]
+      },
+      "properties": {
+        "id": 1033859389,
+        "name": "Sihha Medical Centre",
+        "amenity": "hospital"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.512413,
+          -20.3085538
+        ]
+      },
+      "properties": {
+        "id": 1167730094,
+        "name": "Mediclinique Floreal",
+        "amenity": "hospital"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4958585,
+          -20.2997217
+        ]
+      },
+      "properties": {
+        "id": 1213566565,
+        "name": "Dr Nndagopen Narayanen",
+        "amenity": "hospital"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.488535,
+          -20.3016089
+        ]
+      },
+      "properties": {
+        "id": 1214403419,
+        "name": "JMR | Clinique Dentaire. (Dr. Jaumeer)",
+        "amenity": "hospital"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.496003,
+          -20.2983043
+        ]
+      },
+      "properties": {
+        "id": 1214458326,
+        "name": "Clinique du Sommeil et du Stresse",
+        "amenity": "hospital"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4957499,
+          -20.2981425
+        ]
+      },
+      "properties": {
+        "id": 1214458327,
+        "name": "Clinique du sommeil et stresse",
+        "amenity": "hospital"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4896738,
+          -20.300135
+        ]
+      },
+      "properties": {
+        "id": 1215253180,
+        "name": "Sri Sathya Sai Baba Centre of Vacoas",
+        "amenity": "hospital"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5091729,
+          -20.2873552
+        ]
+      },
+      "properties": {
+        "id": 1222927163,
+        "name": "Dr Abbas Medical Centre",
+        "amenity": "hospital"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5620289,
+          -20.0965736
+        ]
+      },
+      "properties": {
+        "id": 1360829132,
+        "name": "ssrn hospital",
+        "amenity": "hospital"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          63.4298084,
+          -19.6803814
+        ]
+      },
+      "properties": {
+        "id": 8125062,
+        "name": "Hôpital de Crève-Cœur",
+        "amenity": "hospital"
+      }
+    }
+  ]
+}

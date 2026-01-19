@@ -1,0 +1,275 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.523209,
+          -20.3181438
+        ]
+      },
+      "properties": {
+        "id": 223523808,
+        "name": "Collège Royal de Curepipe",
+        "amenity": "college"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4700621,
+          -20.1749753
+        ]
+      },
+      "properties": {
+        "id": 305510575,
+        "name": "Bhujhoharry college",
+        "amenity": "college"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4727989,
+          -20.4915558
+        ]
+      },
+      "properties": {
+        "id": 372150943,
+        "name": "Unknown",
+        "amenity": "college"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4947643,
+          -20.2973067
+        ]
+      },
+      "properties": {
+        "id": 445163992,
+        "name": "Dr Maurice Cure State Secondary School",
+        "amenity": "college"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4722484,
+          -20.2430392
+        ]
+      },
+      "properties": {
+        "id": 475489173,
+        "name": "New Eton College",
+        "amenity": "college"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5952501,
+          -20.3983721
+        ]
+      },
+      "properties": {
+        "id": 508778504,
+        "name": "Unity College",
+        "amenity": "college"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4801664,
+          -20.2591375
+        ]
+      },
+      "properties": {
+        "id": 574299842,
+        "name": "Gaetan Raynal State College",
+        "amenity": "college"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          63.3954145,
+          -19.7312404
+        ]
+      },
+      "properties": {
+        "id": 743191854,
+        "name": "Marechal College",
+        "amenity": "college"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          63.4206929,
+          -19.6818412
+        ]
+      },
+      "properties": {
+        "id": 1020003451,
+        "name": "Rodrigues College",
+        "amenity": "college"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          63.4479218,
+          -19.7421469
+        ]
+      },
+      "properties": {
+        "id": 1021069552,
+        "name": "College Songes",
+        "amenity": "college"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          63.4595312,
+          -19.708905
+        ]
+      },
+      "properties": {
+        "id": 1024421955,
+        "name": "Grande Montagne College",
+        "amenity": "college"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          63.4298019,
+          -19.7096197
+        ]
+      },
+      "properties": {
+        "id": 1041352720,
+        "name": "Le Chou College",
+        "amenity": "college"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          63.4438428,
+          -19.70453
+        ]
+      },
+      "properties": {
+        "id": 1041352728,
+        "name": "Mont Lubin College",
+        "amenity": "college"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4968275,
+          -20.2961437
+        ]
+      },
+      "properties": {
+        "id": 1215016920,
+        "name": "Seewa Bappoo State Secondary School",
+        "amenity": "college"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.480397,
+          -20.3121383
+        ]
+      },
+      "properties": {
+        "id": 1215309437,
+        "name": "Saint helena",
+        "amenity": "college"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4792032,
+          -20.3155272
+        ]
+      },
+      "properties": {
+        "id": 1215323337,
+        "name": "Vacoas state secondary school",
+        "amenity": "college"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.486627,
+          -20.2889731
+        ]
+      },
+      "properties": {
+        "id": 1215341029,
+        "name": "Jss Academy of Higher Education and Research, Mauritius",
+        "amenity": "college"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.6336175,
+          -20.0974596
+        ]
+      },
+      "properties": {
+        "id": 1376427656,
+        "name": "Mauritius Institute of Training and Development Piton",
+        "amenity": "college"
+      }
+    }
+  ]
+}

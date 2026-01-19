@@ -1,0 +1,380 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5171416,
+          -20.3132994
+        ]
+      },
+      "properties": {
+        "id": 421671909,
+        "name": "C-Care Darné",
+        "amenity": "clinic"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5145213,
+          -20.1625474
+        ]
+      },
+      "properties": {
+        "id": 495657120,
+        "name": "City Clinic",
+        "amenity": "clinic"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5034184,
+          -20.3132989
+        ]
+      },
+      "properties": {
+        "id": 495764618,
+        "name": "Florial medi clinic",
+        "amenity": "clinic"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5804643,
+          -20.0195703
+        ]
+      },
+      "properties": {
+        "id": 495848204,
+        "name": "Unknown",
+        "amenity": "clinic"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5719632,
+          -20.3787442
+        ]
+      },
+      "properties": {
+        "id": 508782865,
+        "name": "Unilab LTD",
+        "amenity": "clinic"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5260874,
+          -20.3296123
+        ]
+      },
+      "properties": {
+        "id": 508815021,
+        "name": "Muscular Dystrophy Association",
+        "amenity": "clinic"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.3699241,
+          -20.2766014
+        ]
+      },
+      "properties": {
+        "id": 508882349,
+        "name": "Clinique de L'Occident",
+        "amenity": "clinic"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.3764965,
+          -20.2757701
+        ]
+      },
+      "properties": {
+        "id": 509022817,
+        "name": "St. Patrick Clinic",
+        "amenity": "clinic"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.3679748,
+          -20.2808827
+        ]
+      },
+      "properties": {
+        "id": 509044660,
+        "name": "Esthétique",
+        "amenity": "clinic"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4132769,
+          -20.2572817
+        ]
+      },
+      "properties": {
+        "id": 509340467,
+        "name": "Bambous Area Health Centre",
+        "amenity": "clinic"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4645694,
+          -20.2843335
+        ]
+      },
+      "properties": {
+        "id": 510217508,
+        "name": "Bassin Community Health Centre",
+        "amenity": "clinic"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4717737,
+          -20.2369251
+        ]
+      },
+      "properties": {
+        "id": 510821930,
+        "name": "Medical Centre",
+        "amenity": "clinic"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4662434,
+          -20.242546
+        ]
+      },
+      "properties": {
+        "id": 633713779,
+        "name": "Dispensaire de Buckingham",
+        "amenity": "clinic"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.772643,
+          -20.1817942
+        ]
+      },
+      "properties": {
+        "id": 677854653,
+        "name": "Sterilisation clinic",
+        "amenity": "clinic"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.506666,
+          -20.1686095
+        ]
+      },
+      "properties": {
+        "id": 737240209,
+        "name": "Chisty Shifa Clinic",
+        "amenity": "clinic"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5758265,
+          -20.0235776
+        ]
+      },
+      "properties": {
+        "id": 1167471731,
+        "name": "C-Care",
+        "amenity": "clinic"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5241777,
+          -20.3108176
+        ]
+      },
+      "properties": {
+        "id": 1179758469,
+        "name": "ARTEMIS HOSPITAL",
+        "amenity": "clinic"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4716656,
+          -20.2301346
+        ]
+      },
+      "properties": {
+        "id": 1179979977,
+        "name": "Surgery gynaecology",
+        "amenity": "clinic"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.3736427,
+          -20.2828771
+        ]
+      },
+      "properties": {
+        "id": 1191387197,
+        "name": "VIP Lazer Clinic",
+        "amenity": "clinic"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.3849113,
+          -20.332257
+        ]
+      },
+      "properties": {
+        "id": 1199469506,
+        "name": "Life Medical Center",
+        "amenity": "clinic"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.6188276,
+          -20.0039453
+        ]
+      },
+      "properties": {
+        "id": 1200032819,
+        "name": "Vet Clinic",
+        "amenity": "clinic"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5150546,
+          -20.3203002
+        ]
+      },
+      "properties": {
+        "id": 1200155426,
+        "name": "Zeeva Fertility",
+        "amenity": "clinic"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4934013,
+          -20.292705
+        ]
+      },
+      "properties": {
+        "id": 1215226105,
+        "name": "Unknown",
+        "amenity": "clinic"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4718752,
+          -20.2425557
+        ]
+      },
+      "properties": {
+        "id": 1331315165,
+        "name": "Unknown",
+        "amenity": "clinic"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.3646794,
+          -20.3478471
+        ]
+      },
+      "properties": {
+        "id": 1356391390,
+        "name": "C-Care",
+        "amenity": "clinic"
+      }
+    }
+  ]
+}

@@ -1,0 +1,2540 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4176725,
+          -20.4258657
+        ]
+      },
+      "properties": {
+        "id": 117441105,
+        "name": "La Varangue sur Morne",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5445228,
+          -20.5016056
+        ]
+      },
+      "properties": {
+        "id": 133261508,
+        "name": "Maison Coloniale - Le Domaine de Saint Aubin",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.55315,
+          -20.5175986
+        ]
+      },
+      "properties": {
+        "id": 133616746,
+        "name": "Restaurant Andrea Lodges",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.7765,
+          -20.198244
+        ]
+      },
+      "properties": {
+        "id": 204352576,
+        "name": "Sun Tropical Pradise",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5082157,
+          -20.5194101
+        ]
+      },
+      "properties": {
+        "id": 223537923,
+        "name": "green palm",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          63.4385691,
+          -19.7076936
+        ]
+      },
+      "properties": {
+        "id": 299632899,
+        "name": "Unknown",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4685324,
+          -20.1760013
+        ]
+      },
+      "properties": {
+        "id": 305510577,
+        "name": "Ashok",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.7700417,
+          -20.1759069
+        ]
+      },
+      "properties": {
+        "id": 341577024,
+        "name": "Empreror Restaurant",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.49529,
+          -20.224042
+        ]
+      },
+      "properties": {
+        "id": 353488249,
+        "name": "Flying Dodo Brewery & Restaurant",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4966097,
+          -20.1512922
+        ]
+      },
+      "properties": {
+        "id": 371123402,
+        "name": "Mpa Cantine",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5743987,
+          -20.0985459
+        ]
+      },
+      "properties": {
+        "id": 415799088,
+        "name": "Le Fangourin",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.3857774,
+          -20.4270714
+        ]
+      },
+      "properties": {
+        "id": 458996107,
+        "name": "Unknown",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4968607,
+          -20.2327125
+        ]
+      },
+      "properties": {
+        "id": 472042646,
+        "name": "Dhall Puri",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4987448,
+          -20.2304233
+        ]
+      },
+      "properties": {
+        "id": 472042886,
+        "name": "D&D Snack (Rodrigue)",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.497973,
+          -20.2300382
+        ]
+      },
+      "properties": {
+        "id": 472043115,
+        "name": "Payo Snack",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.6545885,
+          -20.1675151
+        ]
+      },
+      "properties": {
+        "id": 472054427,
+        "name": "Unknown",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.6540548,
+          -20.1671152
+        ]
+      },
+      "properties": {
+        "id": 472054428,
+        "name": "Papa Grill",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.660601,
+          -20.1758601
+        ]
+      },
+      "properties": {
+        "id": 472054430,
+        "name": "Sir Chicken Briyani",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4995447,
+          -20.2311886
+        ]
+      },
+      "properties": {
+        "id": 472055156,
+        "name": "Yo's Snack",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4730929,
+          -20.2753666
+        ]
+      },
+      "properties": {
+        "id": 472055511,
+        "name": "ajay snack",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4986427,
+          -20.2338238
+        ]
+      },
+      "properties": {
+        "id": 472058985,
+        "name": "MIE Canteen",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4992896,
+          -20.229584
+        ]
+      },
+      "properties": {
+        "id": 472060577,
+        "name": "Ken Snack",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.6593349,
+          -20.2873062
+        ]
+      },
+      "properties": {
+        "id": 472819644,
+        "name": "Unknown",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4970601,
+          -20.2326716
+        ]
+      },
+      "properties": {
+        "id": 473078894,
+        "name": "Caravan Bleu",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5778567,
+          -20.1058842
+        ]
+      },
+      "properties": {
+        "id": 495649465,
+        "name": "Botanic Restaurant",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5731569,
+          -20.1023513
+        ]
+      },
+      "properties": {
+        "id": 495656369,
+        "name": "Universite des Mascareignes",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5002157,
+          -20.1637455
+        ]
+      },
+      "properties": {
+        "id": 495753357,
+        "name": "Pizza Hut",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.499911,
+          -20.1642627
+        ]
+      },
+      "properties": {
+        "id": 495844103,
+        "name": "La Napoletana Pizzeria & Caffetaria",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5214302,
+          -20.3243135
+        ]
+      },
+      "properties": {
+        "id": 503037275,
+        "name": "Peri's Cafe & Grill",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5165679,
+          -20.3044051
+        ]
+      },
+      "properties": {
+        "id": 508707545,
+        "name": "Vishnu",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5130032,
+          -20.3105395
+        ]
+      },
+      "properties": {
+        "id": 508747116,
+        "name": "Hassen Taher Seafoods",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.3689485,
+          -20.2786652
+        ]
+      },
+      "properties": {
+        "id": 508876276,
+        "name": "Sawasdee",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5166838,
+          -20.1666791
+        ]
+      },
+      "properties": {
+        "id": 509003816,
+        "name": "Chick N Bite",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.3642686,
+          -20.3499056
+        ]
+      },
+      "properties": {
+        "id": 509023534,
+        "name": "The Meat House",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.3640623,
+          -20.3454093
+        ]
+      },
+      "properties": {
+        "id": 509023540,
+        "name": "La Bonne Chute",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.3644291,
+          -20.3438416
+        ]
+      },
+      "properties": {
+        "id": 509036926,
+        "name": "Moustache Bistro",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4112116,
+          -20.2636436
+        ]
+      },
+      "properties": {
+        "id": 509318365,
+        "name": "Catamarant Restaurant",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5227611,
+          -20.1499332
+        ]
+      },
+      "properties": {
+        "id": 509933107,
+        "name": "Restaurant Brigitte",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4710816,
+          -20.2760915
+        ]
+      },
+      "properties": {
+        "id": 510018854,
+        "name": "Don't Cook Just Eat",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5117934,
+          -20.1720771
+        ]
+      },
+      "properties": {
+        "id": 510263175,
+        "name": "Restaurant Le Dauguet",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4516122,
+          -20.2824478
+        ]
+      },
+      "properties": {
+        "id": 510281685,
+        "name": "Keke Grill Swick",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4618543,
+          -20.2771858
+        ]
+      },
+      "properties": {
+        "id": 510284225,
+        "name": "Cabane Flambé",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4642022,
+          -20.2615413
+        ]
+      },
+      "properties": {
+        "id": 510518401,
+        "name": "Point Frais",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4834209,
+          -20.2603857
+        ]
+      },
+      "properties": {
+        "id": 510524110,
+        "name": "Restaurant Trianon",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4865729,
+          -20.2847026
+        ]
+      },
+      "properties": {
+        "id": 510526794,
+        "name": "Chez Paul",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4764684,
+          -20.2693747
+        ]
+      },
+      "properties": {
+        "id": 510527661,
+        "name": "Thali",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.469603,
+          -20.2135096
+        ]
+      },
+      "properties": {
+        "id": 510551881,
+        "name": "Blue Velvet",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4697587,
+          -20.1928076
+        ]
+      },
+      "properties": {
+        "id": 510554350,
+        "name": "Restaurant Coromandel",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5097725,
+          -20.2890623
+        ]
+      },
+      "properties": {
+        "id": 510556622,
+        "name": "Choice Palace",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4694545,
+          -20.2166527
+        ]
+      },
+      "properties": {
+        "id": 510563262,
+        "name": "Vinayak Mandir",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4707611,
+          -20.2345449
+        ]
+      },
+      "properties": {
+        "id": 510821938,
+        "name": "Oriental Express",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.6446706,
+          -20.0014383
+        ]
+      },
+      "properties": {
+        "id": 537122842,
+        "name": "Unknown",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.6017967,
+          -20.1323413
+        ]
+      },
+      "properties": {
+        "id": 574318849,
+        "name": "Loulou Restaurant",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.3643022,
+          -20.2864334
+        ]
+      },
+      "properties": {
+        "id": 580808892,
+        "name": "Unknown",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.3702428,
+          -20.2758196
+        ]
+      },
+      "properties": {
+        "id": 580820949,
+        "name": "Chez Cristine",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.3693032,
+          -20.2770887
+        ]
+      },
+      "properties": {
+        "id": 580820960,
+        "name": "Pizz'a Gogo",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5112663,
+          -20.226354
+        ]
+      },
+      "properties": {
+        "id": 604870706,
+        "name": "Unknown",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5117391,
+          -20.2264204
+        ]
+      },
+      "properties": {
+        "id": 604870766,
+        "name": "Unknown",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.782403,
+          -20.1988973
+        ]
+      },
+      "properties": {
+        "id": 662377729,
+        "name": "Beach Rouge",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.7743861,
+          -20.1980304
+        ]
+      },
+      "properties": {
+        "id": 677855099,
+        "name": "Restaurant Ravi",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.7751152,
+          -20.1977892
+        ]
+      },
+      "properties": {
+        "id": 677858681,
+        "name": "Raj Super Snack",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.7389961,
+          -20.1418721
+        ]
+      },
+      "properties": {
+        "id": 679643332,
+        "name": "Sunshine Fusion",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.8033681,
+          -20.2650415
+        ]
+      },
+      "properties": {
+        "id": 679653685,
+        "name": "La Chaumière Masala",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5085209,
+          -20.1676468
+        ]
+      },
+      "properties": {
+        "id": 681477988,
+        "name": "King Kebab",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.3902612,
+          -20.4314653
+        ]
+      },
+      "properties": {
+        "id": 683680304,
+        "name": "Chez Ruben",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5097088,
+          -20.15901
+        ]
+      },
+      "properties": {
+        "id": 737290690,
+        "name": "Pakistan Hotel",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.3794104,
+          -20.3643326
+        ]
+      },
+      "properties": {
+        "id": 742101808,
+        "name": "Unknown",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.3659632,
+          -20.3553871
+        ]
+      },
+      "properties": {
+        "id": 742178431,
+        "name": "Roots Spirits",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.3661119,
+          -20.3556176
+        ]
+      },
+      "properties": {
+        "id": 742178436,
+        "name": "Unknown",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4798961,
+          -20.2662002
+        ]
+      },
+      "properties": {
+        "id": 1005529394,
+        "name": "Flame N Grill",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4834553,
+          -20.2677525
+        ]
+      },
+      "properties": {
+        "id": 1006431183,
+        "name": "Organic Village Garden",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5219941,
+          -20.3033037
+        ]
+      },
+      "properties": {
+        "id": 1006444446,
+        "name": "Paps",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5191406,
+          -20.2216697
+        ]
+      },
+      "properties": {
+        "id": 1008788829,
+        "name": "Hayfa Peché Sucré",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.498565,
+          -20.1680793
+        ]
+      },
+      "properties": {
+        "id": 1008795266,
+        "name": "Red Phoenix",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4767562,
+          -20.2723925
+        ]
+      },
+      "properties": {
+        "id": 1008925789,
+        "name": "Princess restaurant",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4755038,
+          -20.2713544
+        ]
+      },
+      "properties": {
+        "id": 1008925815,
+        "name": "Raj Snack",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4831498,
+          -20.2617831
+        ]
+      },
+      "properties": {
+        "id": 1009237631,
+        "name": "Chez VIVI - Roti & Dholl Puri",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5868823,
+          -20.0438509
+        ]
+      },
+      "properties": {
+        "id": 1019633002,
+        "name": "Restaurant National",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          63.4288143,
+          -19.7177993
+        ]
+      },
+      "properties": {
+        "id": 1024428896,
+        "name": "Unknown",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          63.4447768,
+          -19.7059341
+        ]
+      },
+      "properties": {
+        "id": 1031620653,
+        "name": "Unknown",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          63.4429295,
+          -19.7063409
+        ]
+      },
+      "properties": {
+        "id": 1031620673,
+        "name": "Unknown",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4907147,
+          -20.1612826
+        ]
+      },
+      "properties": {
+        "id": 1033856650,
+        "name": "TANTINE SNACK",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.7663085,
+          -20.1668011
+        ]
+      },
+      "properties": {
+        "id": 1052639573,
+        "name": "Blu Sushi Lounge",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4940563,
+          -20.3451539
+        ]
+      },
+      "properties": {
+        "id": 1086361372,
+        "name": "Royal plaza",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4240655,
+          -20.2817235
+        ]
+      },
+      "properties": {
+        "id": 1107516300,
+        "name": "Unknown",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.8050076,
+          -20.232854
+        ]
+      },
+      "properties": {
+        "id": 1108383914,
+        "name": "Unknown",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5785712,
+          -20.0077704
+        ]
+      },
+      "properties": {
+        "id": 1109105166,
+        "name": "N 'JOY",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4139246,
+          -20.2895788
+        ]
+      },
+      "properties": {
+        "id": 1112259123,
+        "name": "Le Boulevard Snack",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4263392,
+          -20.282175
+        ]
+      },
+      "properties": {
+        "id": 1112538878,
+        "name": "Anil n Sons Snack Resto n Take Away",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4264134,
+          -20.2822762
+        ]
+      },
+      "properties": {
+        "id": 1112538879,
+        "name": "Bistro La Republik Restaurant",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.7009373,
+          -20.4513109
+        ]
+      },
+      "properties": {
+        "id": 1129337480,
+        "name": "Sea Fire Salt",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.514702,
+          -20.2912548
+        ]
+      },
+      "properties": {
+        "id": 1161446121,
+        "name": "MAZOR SNACK",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5147584,
+          -20.2915176
+        ]
+      },
+      "properties": {
+        "id": 1161446122,
+        "name": "PIZZA TIMES",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5183431,
+          -20.2936701
+        ]
+      },
+      "properties": {
+        "id": 1161446131,
+        "name": "MEEM SNACK",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5184343,
+          -20.2936284
+        ]
+      },
+      "properties": {
+        "id": 1161446132,
+        "name": "LAKAZ MAMA",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5198211,
+          -20.2931496
+        ]
+      },
+      "properties": {
+        "id": 1161446137,
+        "name": "GRILL",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5123382,
+          -20.1751373
+        ]
+      },
+      "properties": {
+        "id": 1161769622,
+        "name": "Dodo Resto",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5088248,
+          -20.1734542
+        ]
+      },
+      "properties": {
+        "id": 1161777688,
+        "name": "Tamam Sa Snack",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5137513,
+          -20.2908183
+        ]
+      },
+      "properties": {
+        "id": 1161965995,
+        "name": "Unknown",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5156564,
+          -20.2906664
+        ]
+      },
+      "properties": {
+        "id": 1161965997,
+        "name": "Unknown",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5228359,
+          -20.290491
+        ]
+      },
+      "properties": {
+        "id": 1162747549,
+        "name": "Unknown",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.511279,
+          -20.2895955
+        ]
+      },
+      "properties": {
+        "id": 1162751515,
+        "name": "Boulette",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5184896,
+          -20.2938458
+        ]
+      },
+      "properties": {
+        "id": 1167096628,
+        "name": "Unknown",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5231096,
+          -20.2903494
+        ]
+      },
+      "properties": {
+        "id": 1167096635,
+        "name": "Unknown",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5156608,
+          -20.1671767
+        ]
+      },
+      "properties": {
+        "id": 1168779525,
+        "name": "Tender Grill",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5007346,
+          -20.1651776
+        ]
+      },
+      "properties": {
+        "id": 1169806037,
+        "name": "L'Atelier Café",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4960513,
+          -20.165076
+        ]
+      },
+      "properties": {
+        "id": 1169815525,
+        "name": "La Marmite Dorée",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4961612,
+          -20.1653632
+        ]
+      },
+      "properties": {
+        "id": 1169815526,
+        "name": "Golden Pan",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.494044,
+          -20.1659841
+        ]
+      },
+      "properties": {
+        "id": 1169818158,
+        "name": "Mike Snack",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4928714,
+          -20.1653546
+        ]
+      },
+      "properties": {
+        "id": 1169819804,
+        "name": "Vijay Snack",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5053743,
+          -20.1666213
+        ]
+      },
+      "properties": {
+        "id": 1170369224,
+        "name": "Pima Krazer",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4793404,
+          -20.1705195
+        ]
+      },
+      "properties": {
+        "id": 1170374971,
+        "name": "L'Oasis",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4921962,
+          -20.166852
+        ]
+      },
+      "properties": {
+        "id": 1170374972,
+        "name": "Le Segatier Resto",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.522287,
+          -20.1494089
+        ]
+      },
+      "properties": {
+        "id": 1181892442,
+        "name": "Snack Jack",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5224805,
+          -20.1493339
+        ]
+      },
+      "properties": {
+        "id": 1181892443,
+        "name": "Marine Snack",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5227017,
+          -20.1490685
+        ]
+      },
+      "properties": {
+        "id": 1181892444,
+        "name": "Nouvo Baz",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5174235,
+          -20.1466324
+        ]
+      },
+      "properties": {
+        "id": 1181892450,
+        "name": "Niam Niam Porky",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5067353,
+          -20.1549507
+        ]
+      },
+      "properties": {
+        "id": 1181892453,
+        "name": "Unknown",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4441288,
+          -20.1965134
+        ]
+      },
+      "properties": {
+        "id": 1181894471,
+        "name": "Chez Mayoung",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4463436,
+          -20.1961388
+        ]
+      },
+      "properties": {
+        "id": 1181894472,
+        "name": "Dheeraj & Sheila Snack",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4471952,
+          -20.195455
+        ]
+      },
+      "properties": {
+        "id": 1181894473,
+        "name": "Gopeechand Snack",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4483435,
+          -20.1946435
+        ]
+      },
+      "properties": {
+        "id": 1181894476,
+        "name": "Neeraj Foods",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4522822,
+          -20.1916183
+        ]
+      },
+      "properties": {
+        "id": 1181894478,
+        "name": "Grill Squad",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5818535,
+          -20.0084306
+        ]
+      },
+      "properties": {
+        "id": 1181984177,
+        "name": "L'Omelette Resto",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5818171,
+          -20.0089554
+        ]
+      },
+      "properties": {
+        "id": 1181984178,
+        "name": "The Garden Grill",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4304987,
+          -20.1849924
+        ]
+      },
+      "properties": {
+        "id": 1182577215,
+        "name": "Boulette Town",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4358351,
+          -20.1823155
+        ]
+      },
+      "properties": {
+        "id": 1182577217,
+        "name": "Restaurant Florida",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4384387,
+          -20.1832722
+        ]
+      },
+      "properties": {
+        "id": 1182577220,
+        "name": "All In One Snack",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4356639,
+          -20.1776574
+        ]
+      },
+      "properties": {
+        "id": 1182577223,
+        "name": "Chez Mamie Mo Ventre A Faim Snack",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.437737,
+          -20.1749092
+        ]
+      },
+      "properties": {
+        "id": 1182577227,
+        "name": "Chez Kevin",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4430367,
+          -20.1746074
+        ]
+      },
+      "properties": {
+        "id": 1182577232,
+        "name": "Friendly Snack / Renea",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4443596,
+          -20.1741446
+        ]
+      },
+      "properties": {
+        "id": 1182577233,
+        "name": "Jacques Snack",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4445403,
+          -20.1740707
+        ]
+      },
+      "properties": {
+        "id": 1182577234,
+        "name": "Bob & The Grillez",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4477199,
+          -20.1744702
+        ]
+      },
+      "properties": {
+        "id": 1182577238,
+        "name": "Nana O Top",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.6197381,
+          -20.0020723
+        ]
+      },
+      "properties": {
+        "id": 1200032818,
+        "name": "Island view garden",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4844678,
+          -20.301721
+        ]
+      },
+      "properties": {
+        "id": 1213595598,
+        "name": "Unknown",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4924701,
+          -20.2944904
+        ]
+      },
+      "properties": {
+        "id": 1214884663,
+        "name": "Nawaz Grills",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4923034,
+          -20.294295
+        ]
+      },
+      "properties": {
+        "id": 1215223509,
+        "name": "Himalaya Indian",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4921296,
+          -20.2985643
+        ]
+      },
+      "properties": {
+        "id": 1215226430,
+        "name": "Ah youn",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.486001,
+          -20.3023166
+        ]
+      },
+      "properties": {
+        "id": 1215242023,
+        "name": "Raani's Farata",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4910242,
+          -20.2935508
+        ]
+      },
+      "properties": {
+        "id": 1215244533,
+        "name": "Unknown",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4844942,
+          -20.2987014
+        ]
+      },
+      "properties": {
+        "id": 1215246401,
+        "name": "Ichicken",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4890308,
+          -20.2991702
+        ]
+      },
+      "properties": {
+        "id": 1215255047,
+        "name": "Top Asian Restaurant",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4849148,
+          -20.3000489
+        ]
+      },
+      "properties": {
+        "id": 1215304133,
+        "name": "Biznbig Bakers",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4904387,
+          -20.2914916
+        ]
+      },
+      "properties": {
+        "id": 1215304550,
+        "name": "Scrummy Yummy",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4885867,
+          -20.301995
+        ]
+      },
+      "properties": {
+        "id": 1215306438,
+        "name": "Restaurant Dallas",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4886366,
+          -20.3020498
+        ]
+      },
+      "properties": {
+        "id": 1215306439,
+        "name": "Taaj Dholl Puri",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5039821,
+          -20.2885458
+        ]
+      },
+      "properties": {
+        "id": 1215307963,
+        "name": "Need's Restaurant & Liquor Shop",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5039063,
+          -20.2884431
+        ]
+      },
+      "properties": {
+        "id": 1215307964,
+        "name": "Shego Resto",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4859266,
+          -20.3019907
+        ]
+      },
+      "properties": {
+        "id": 1215307992,
+        "name": "Chez Gars",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4886441,
+          -20.3023521
+        ]
+      },
+      "properties": {
+        "id": 1215309488,
+        "name": "Jack Dragon",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4419301,
+          -20.288632
+        ]
+      },
+      "properties": {
+        "id": 1217632322,
+        "name": "Square Root",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5065929,
+          -20.2855017
+        ]
+      },
+      "properties": {
+        "id": 1222599195,
+        "name": "Quicken Fried Chicken Restaurant",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5040799,
+          -20.2881375
+        ]
+      },
+      "properties": {
+        "id": 1222599632,
+        "name": "Petit Coin Tranquille",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5078795,
+          -20.2862013
+        ]
+      },
+      "properties": {
+        "id": 1222930678,
+        "name": "Magic Bowl Restaurant",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5068608,
+          -20.2852648
+        ]
+      },
+      "properties": {
+        "id": 1222930698,
+        "name": "Lost City Restaurant",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5104143,
+          -20.2902437
+        ]
+      },
+      "properties": {
+        "id": 1222947132,
+        "name": "Briyani Lounge",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5107271,
+          -20.3014251
+        ]
+      },
+      "properties": {
+        "id": 1222970437,
+        "name": "Unknown",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5873525,
+          -19.9967689
+        ]
+      },
+      "properties": {
+        "id": 1301113864,
+        "name": "Boloom",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.7099568,
+          -20.4086416
+        ]
+      },
+      "properties": {
+        "id": 1309910190,
+        "name": "Unknown",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5498262,
+          -20.1236635
+        ]
+      },
+      "properties": {
+        "id": 1323593472,
+        "name": "Restaurant Loulou",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5594808,
+          -20.0272812
+        ]
+      },
+      "properties": {
+        "id": 1324406587,
+        "name": "Le crustacé",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4755868,
+          -20.2415534
+        ]
+      },
+      "properties": {
+        "id": 1329434540,
+        "name": "Chickentos",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4795496,
+          -20.2465169
+        ]
+      },
+      "properties": {
+        "id": 1329876726,
+        "name": "Asian Box",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4718641,
+          -20.2388168
+        ]
+      },
+      "properties": {
+        "id": 1330214062,
+        "name": "Hotstone Grill Restaurant",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.517537,
+          -20.3197151
+        ]
+      },
+      "properties": {
+        "id": 1347762325,
+        "name": "Sapin d’or",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.7033219,
+          -20.4059694
+        ]
+      },
+      "properties": {
+        "id": 1436119659,
+        "name": "Unknown",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.7025914,
+          -20.4058495
+        ]
+      },
+      "properties": {
+        "id": 1436119661,
+        "name": "Unknown",
+        "amenity": "restaurant"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.3758339,
+          -20.3628506
+        ]
+      },
+      "properties": {
+        "id": 18143002,
+        "name": "Unknown",
+        "amenity": "restaurant"
+      }
+    }
+  ]
+}

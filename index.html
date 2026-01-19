@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>GéoMaurice – Carte d’accessibilité</title>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet.heat/dist/leaflet-heat.js"></script>
+
+<script src="https://unpkg.com/kdbush@3.0.0/kdbush.min.js"></script>
+
+<style>
+    #map { height: 100vh; }
+    #control-panel {
+        position: absolute;
+        top: 10px; left: 10px;
+        background: white; padding: 15px;
+        border-radius: 8px; z-index: 9999;
+        max-height: 95vh; overflow-y: scroll;
+        width: 300px;
+    }
+    .label-block { margin-bottom: 10px; }
+</style>
+</head>
+
+<body>
+
+<div id="control-panel">
+    <h3>Paramètres du score</h3>
+    <div id="control-content"></div>
+    <button onclick="updateHeatmap()">Recalculer score</button>
+</div>
+
+<div id="map"></div>
+
+<script>
+// -----------------------------------------------------------------------------
+// 1) Groupes + catégories
+// -----------------------------------------------------------------------------
+
+const GROUPS = {
+    health: ["hospital","clinic","doctors","dentist","pharmacy","nursing_home","social_facility","first_aid","blood_donation"],
+    security: ["police","fire_station","ambulance_station","rescue_station","lifeguard","lifeguard_tower"],
+    education: ["school","kindergarten","college","university","library"],
+    public: ["townhall","courthouse","embassy","community_centre","public_building","government","post_office","post_box"],
+    transport: ["bus_station","bus_stop","taxi","ferry_terminal","fuel","charging_station","parking","bicycle_parking","motorcycle_parking"],
+    hygiene: ["drinking_water","toilets","shower","water_point","waste_disposal","recycling"],
+    commercial: ["marketplace","bank","atm","vending_machine","money_transfer"],
+    tourism: ["restaurant","fast_food","cafe","bar","pub","ice_cream"]
+};
+
+let CATEGORY_COLORS = {
+    health: "#e41a1c",
+    security: "#377eb8",
+    education: "#4daf4a",
+    public: "#984ea3",
+    transport: "#ff7f00",
+    hygiene: "#ffff33",
+    commercial: "#a65628",
+    tourism: "#f781bf"
+};
+
+// -----------------------------------------------------------------------------
+// 2) Carte
+// -----------------------------------------------------------------------------
+
+const map = L.map('map').setView([-20.2, 57.5], 11);
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+
+let POINT_LAYERS = {};
+let AMENITY_DATA = {};
+let SPATIAL_INDEX = {};
+let heatLayer = null;
+
+let DATA_READY = false;
+
+// -----------------------------------------------------------------------------
+// 3) Chargement + index spatial KDBush
+// -----------------------------------------------------------------------------
+
+function buildSpatialIndex(label) {
+    const coords = AMENITY_DATA[label].features.map(f => ({
+        lat: f.geometry.coordinates[1],
+        lon: f.geometry.coordinates[0]
+    }));
+
+    const index = new KDBush(coords, p => p.lon, p => p.lat);
+    SPATIAL_INDEX[label] = { coords, index };
+}
+
+async function loadAmenity(label) {
+    const url = `data/osm/${label}.geojson`;
+
+    try {
+        const res = await fetch(url);
+
+        if (!res.ok) {
+            console.warn("[WARN] Fichier introuvable :", url, res.status);
+            AMENITY_DATA[label] = null;
+            SPATIAL_INDEX[label] = null;
+            return;
+        }
+
+        const gj = await res.json();
+
+        // Si le fichier est vide ou mal formé
+        if (!gj.features || gj.features.length === 0) {
+            console.warn("[WARN] Fichier vide ou incorrect :", url);
+            AMENITY_DATA[label] = null;
+            SPATIAL_INDEX[label] = null;
+            return;
+        }
+
+        // OK : on stocke
+        AMENITY_DATA[label] = gj;
+
+        // Création couche Leaflet
+        POINT_LAYERS[label] = L.geoJSON(gj, {
+            pointToLayer: (f, latlng) => {
+                const cat = Object.keys(GROUPS).find(c => GROUPS[c].includes(label));
+                const col = CATEGORY_COLORS[cat] || "blue";
+                return L.circleMarker(latlng, {
+                    radius: 4,
+                    color: col,
+                    fillColor: col,
+                    fillOpacity: 0.7
+                });
+            }
+        }).addTo(map);
+
+        // index spatial
+        buildSpatialIndex(label);
+
+    } catch (e) {
+        console.error("[ERR] Erreur lors du chargement :", url, e);
+        AMENITY_DATA[label] = null;
+        SPATIAL_INDEX[label] = null;
+    }
+}
+
+// Charger tous les fichiers
+(async () => {
+    for (const cat in GROUPS) {
+        for (const label of GROUPS[cat]) {
+            await loadAmenity(label);
+        }
+    }
+    DATA_READY = true;
+    console.log("Toutes les données OSM sont chargées.");
+})();
+
+// -----------------------------------------------------------------------------
+// 4) UI dynamique
+// -----------------------------------------------------------------------------
+
+const ui = document.getElementById("control-content");
+
+function createUI() {
+    for (const cat in GROUPS) {
+
+        const h = document.createElement("h4");
+        h.textContent = cat;
+        ui.appendChild(h);
+
+        const catDiv = document.createElement("div");
+        catDiv.innerHTML = `
+            <button onclick="toggleCategoryDisplay('${cat}')">Afficher/masquer catégorie</button><br>
+            <button onclick="toggleCategoryScore('${cat}')">Activer/désactiver score</button><br>
+            Couleur : <input type="color" id="color_${cat}" value="${CATEGORY_COLORS[cat]}">
+        `;
+        ui.appendChild(catDiv);
+
+        GROUPS[cat].forEach(label => {
+            const div = document.createElement("div");
+            div.className = "label-block";
+            div.innerHTML = `
+                <b>${label}</b><br>
+                <input type="checkbox" id="show_${label}" checked> Afficher<br>
+                <input type="checkbox" id="use_${label}" checked> Score<br>
+                Poids :
+                <input type="range" id="w_${label}" min="0" max="2" step="0.1" value="1">
+                <span id="w_val_${label}">1</span>
+            `;
+            ui.appendChild(div);
+
+            document.getElementById(`w_${label}`).oninput = (e) =>
+                document.getElementById(`w_val_${label}`).textContent = e.target.value;
+        });
+
+        document.getElementById(`color_${cat}`).onchange = e => {
+            CATEGORY_COLORS[cat] = e.target.value;
+            recolorCategory(cat);
+        };
+    }
+}
+
+createUI();
+
+// -----------------------------------------------------------------------------
+// 5) Distance + fonction de pénalité
+// -----------------------------------------------------------------------------
+
+function dist(a, b) {
+    const R = 6371000;
+    const dLat = (b[0]-a[0]) * Math.PI/180;
+    const dLon = (b[1]-a[1]) * Math.PI/180;
+    const x = dLon * Math.cos((a[0]+b[0]) * Math.PI/360);
+    return Math.sqrt(dLat*dLat + x*x) * R;
+}
+
+function bias(d) {
+    return Math.exp(-d / 10000);
+}
+
+// -----------------------------------------------------------------------------
+// 6) nearestPoint via KDBush (correctif MAJEUR)
+// -----------------------------------------------------------------------------
+
+function nearestPoint(index, coords, lon, lat) {
+    const ids = index.within(lon, lat, 0.01); // ~1km
+
+    if (ids.length === 0) return null;
+
+    let best = ids[0];
+    let bestDist = Infinity;
+
+    for (const id of ids) {
+        const c = coords[id];
+        const d2 = (c.lat - lat)**2 + (c.lon - lon)**2;
+        if (d2 < bestDist) {
+            bestDist = d2;
+            best = id;
+        }
+    }
+    return best;
+}
+
+// -----------------------------------------------------------------------------
+// 7) Heatmap dynamique
+// -----------------------------------------------------------------------------
+
+function toggleCategoryDisplay(cat) {
+    for (const label of GROUPS[cat]) {
+        const box = document.getElementById(`show_${label}`);
+        box.checked = !box.checked;
+    }
+    updateHeatmap();
+}
+
+function toggleCategoryScore(cat) {
+    for (const label of GROUPS[cat]) {
+        const box = document.getElementById(`use_${label}`);
+        box.checked = !box.checked;
+    }
+    updateHeatmap();
+}
+
+function recolorCategory(cat) {
+    const col = CATEGORY_COLORS[cat];
+    for (const label of GROUPS[cat]) {
+        if (POINT_LAYERS[label]) {
+            POINT_LAYERS[label].setStyle({ color: col, fillColor: col });
+        }
+    }
+}
+
+function updateHeatmap() {
+
+    if (!DATA_READY) {
+        alert("Les données chargent encore. Réessayez.");
+        return;
+    }
+
+    if (heatLayer) map.removeLayer(heatLayer);
+
+    const pts = [];
+    const GRID_STEP = 0.005; // ~500m plus léger que 250m
+
+    for (let lat = -20.55; lat <= -19.95; lat += GRID_STEP) {
+        for (let lon = 57.3; lon <= 57.8; lon += GRID_STEP) {
+
+            let score = 0;
+            let used_count = 0;
+
+            for (const cat in GROUPS) {
+                for (const label of GROUPS[cat]) {
+
+                    const use  = document.getElementById(`use_${label}`).checked;
+                    if (!use) continue;
+
+                    if (!SPATIAL_INDEX[label]) continue;
+                    const { coords, index } = SPATIAL_INDEX[label];
+                    if (!coords || coords.length === 0) continue;
+
+                    const id = nearestPoint(index, coords, lon, lat);
+                    if (id == null) continue;
+
+                    const w = parseFloat(document.getElementById(`w_${label}`).value);
+                    const nearest = coords[id];
+                    const d = dist([lat, lon], [nearest.lat, nearest.lon]);
+
+                    score += w * bias(d);
+                    used_count++;
+                }
+            }
+
+            pts.push([lat, lon, score]);
+        }
+    }
+
+    heatLayer = L.heatLayer(pts, { radius: 22, blur: 18 }).addTo(map);
+}
+
+</script>
+
+</body>
+</html>
