@@ -58,9 +58,19 @@ function generateHeatmapImage(gridData, secondaryGrid, mode, densityInfluence) {
 
             const pixelIndex = (y * width + x) * 4;
 
-            if (score > 0) {
+            // Decide if we should render this pixel
+            // 1. Accessibility score > 0
+            // 2. OR Hybrid mode: we want to show density even if no accessibility (background)
+            //    But user specifically asked for "Constant" mode background. 
+            //    Let's enable it for Hybrid mode in general, as it makes sense.
+            //    Color will be Blue (low score).
+
+            const hasAccess = score > 0;
+            const showBackground = mode === 'hybrid' && popValues && popValues[i] > 0;
+
+            if (hasAccess || showBackground) {
                 // Normalize score relative to MaxScore for coloring
-                // Avoid divide by zero
+                // If score is 0, norm is 0 -> Blue
                 const norm = Math.min(1, score / (maxScore || 1));
 
                 // Optimized color mapping: H from 240 (blue) down to 0 (red)
@@ -97,6 +107,10 @@ function generateHeatmapImage(gridData, secondaryGrid, mode, densityInfluence) {
 
                     const dynamicAlpha = 60 + 195 * popRatio * influence;
                     alpha = Math.min(255, Math.floor(dynamicAlpha));
+
+                    // If no access (score 0), maybe reduce opacity slightly more?
+                    // User said "fond de faible valeur".
+                    // Blue + Density opacity is fine.
                 }
 
                 data[pixelIndex] = r * 255;     // R

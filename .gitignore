@@ -1,7 +1,7 @@
 data/*
 cache/*
 .venv/*
-.geojson*
+*.geojson
 *.log
 *.tmp
 *.csv

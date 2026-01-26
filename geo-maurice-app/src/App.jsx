@@ -36,7 +36,8 @@ function App() {
     type: 'linear',
     params: {
       alpha: 0.001, // for exp(-alpha*x)
-      densityInfluence: 1.0 // Multiplier for population opacity effect (0.5 to 2.0?)
+      densityInfluence: 1.0, // Multiplier for population opacity effect
+      roadFactor: 1.0 // Tortuosity factor (1.0 = bird, >1.0 = road approx)
     }
   });
 
@@ -95,7 +96,7 @@ function App() {
     // Use setTimeout to allow UI to render spinner before heavy calc locks thread
     setTimeout(() => {
       try {
-        const points = calculateHeatmap(spatialIndices, config, GROUPS, heatmapSettings);
+        const points = calculateHeatmap(spatialIndices, config, GROUPS, heatmapSettings, populationData);
         setHeatmapPoints(points);
       } catch (e) {
         console.error("Heatmap calc error", e);

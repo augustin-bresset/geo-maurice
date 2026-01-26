@@ -127,6 +127,25 @@ export function ControlPanel({
                                 <span style={{ fontSize: 10 }}>{heatmapSettings.params.densityInfluence || 1.0}x</span>
                             </div>
                         </div>
+
+                        <div style={{ marginTop: 8, borderTop: '1px solid #ddd', paddingTop: 8 }}>
+                            <div style={{ fontSize: 11, fontWeight: 'bold', color: '#555', marginBottom: 4 }}>Estimation Routière</div>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                                <span style={{ fontSize: 12, minWidth: 60 }}>Tortuosité:</span>
+                                <input
+                                    type="range"
+                                    min="1.0" max="5.0" step="0.1"
+                                    value={heatmapSettings.params.roadFactor || 1.0}
+                                    onChange={(e) => setHeatmapSettings(prev => ({ ...prev, params: { ...prev.params, roadFactor: parseFloat(e.target.value) } }))}
+                                    style={{ flex: 1 }}
+                                    title={`Facteur distance: ${heatmapSettings.params.roadFactor || 1.0}x`}
+                                />
+                                <span style={{ fontSize: 10 }}>{heatmapSettings.params.roadFactor || 1.0}x</span>
+                            </div>
+                            <div style={{ fontSize: 9, color: '#888', fontStyle: 'italic', marginTop: 2 }}>
+                                1.0 = Vol d'oiseau. 3.0+ = Très sinueux (Montagnes).
+                            </div>
+                        </div>
                     </div>
                 </div>
             )}

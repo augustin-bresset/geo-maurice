@@ -1,9 +1,9 @@
 export const GRID_BBOX = {
-    minLat: -20.60, // Expanded south
-    maxLat: -19.90, // Expanded north
-    minLon: 57.25,  // Expanded west
-    maxLon: 58.05,  // Expanded east (user specifically requested this)
-    step: 0.002 // Good balance of quality and performance
+    minLat: -20.60, // South of Mauritius
+    maxLat: -19.40, // Expanded further North for Rodrigues
+    minLon: 57.20,  // West of Mauritius
+    maxLon: 63.60,  // Expanded further East for Rodrigues
+    step: 0.002 // Resolution (approx 200m)
 };
 
 function dist(lat1, lon1, lat2, lon2) {
@@ -14,108 +14,182 @@ function dist(lat1, lon1, lat2, lon2) {
     return Math.sqrt(dLat * dLat + x * x) * R;
 }
 
-function getNearestDist(index, coords, lat, lon) {
-    // Search radius approx 50km to be safe if range is large
-    // 1 deg ~ 111km. 0.5 deg ~ 55km.
-    const ids = index.within(lon, lat, 0.5);
-
-    if (!ids || ids.length === 0) return null;
-
-    let minOffset = Infinity;
-    let closestId = -1;
-
-    for (const id of ids) {
-        const c = coords[id];
-        const d2 = (c.lat - lat) ** 2 + (c.lon - lon) ** 2;
-        if (d2 < minOffset) {
-            minOffset = d2;
-            closestId = id;
+// Simple Binary Heap Priority Queue for performance
+class PriorityQueue {
+    constructor() {
+        this.heap = [];
+    }
+    push(node) {
+        this.heap.push(node);
+        this._bubbleUp(this.heap.length - 1);
+    }
+    pop() {
+        const top = this.heap[0];
+        const bottom = this.heap.pop();
+        if (this.heap.length > 0) {
+            this.heap[0] = bottom;
+            this._sinkDown(0);
+        }
+        return top;
+    }
+    size() {
+        return this.heap.length;
+    }
+    _bubbleUp(n) {
+        while (n > 0) {
+            const p = Math.floor((n - 1) / 2);
+            if (this.heap[n].dist >= this.heap[p].dist) break;
+            [this.heap[n], this.heap[p]] = [this.heap[p], this.heap[n]];
+            n = p;
         }
     }
-
-    if (closestId === -1) return null;
-
-    const c = coords[closestId];
-    return dist(lat, lon, c.lat, c.lon);
+    _sinkDown(n) {
+        const len = this.heap.length;
+        const elt = this.heap[n];
+        while (true) {
+            let swap = null;
+            const left = 2 * n + 1;
+            const right = 2 * n + 2;
+            if (left < len && this.heap[left].dist < elt.dist) swap = left;
+            if (right < len && this.heap[right].dist < (swap === null ? elt.dist : this.heap[left].dist)) swap = right;
+            if (swap === null) break;
+            [this.heap[n], this.heap[swap]] = [this.heap[swap], this.heap[n]];
+            n = swap;
+        }
+    }
 }
 
-export function calculateHeatmap(spatialIndices, activeConfig, GROUPS, heatmapSettings) {
-    // Returns { grid: 2D array, minLat, minLon, step, width, height }
-
+export function calculateHeatmap(spatialIndices, activeConfig, GROUPS, heatmapSettings, populationData) {
     const { minLat, maxLat, minLon, maxLon, step } = GRID_BBOX;
     const width = Math.ceil((maxLon - minLon) / step);
     const height = Math.ceil((maxLat - minLat) / step);
+    const size = width * height;
 
-    // Flatten 1D array or 2D? Canvas needs pixels. 1D is fine.
-    // Let's us Float32Array for performance.
-    const values = new Float32Array(width * height);
+    const distGrid = new Float32Array(size); // Will be reused for each label
+    const values = new Float32Array(size); // Final scores, accumulated
 
-    let maxScore = 0;
+    // 1. Initialize Sources (This section is now handled within the loop per label)
+    // The original comment block for "1. Initialize Sources" is replaced by the per-label loop.
 
-    // Default settings if missing
+    // 2. Prepare Friction Map (Population-based)
+    const roadFactor = heatmapSettings?.params?.roadFactor || 1.0;
+    const popValues = populationData ? populationData.values : null;
+
+    // Step distance in meters. 1 degree lat ~ 111km.
+    // dx = 111139 * step * cos(lat)
+    // dy = 111139 * step
+    // Simplify: Approx constant for Mauritius (Lat -20)
+    const metersPerStepLat = 111139 * step;
+    const metersPerStepLon = 111139 * step * Math.cos(-20.2 * Math.PI / 180); // ~104km
+
+    // Neighbors: Up, Down, Left, Right, Diagonals
+    const neighbors = [
+        { dx: -1, dy: 0, cost: metersPerStepLon },
+        { dx: 1, dy: 0, cost: metersPerStepLon },
+        { dx: 0, dy: -1, cost: metersPerStepLat },
+        { dx: 0, dy: 1, cost: metersPerStepLat },
+        // Diagonals
+        { dx: -1, dy: -1, cost: Math.sqrt(metersPerStepLon ** 2 + metersPerStepLat ** 2) },
+        { dx: 1, dy: -1, cost: Math.sqrt(metersPerStepLon ** 2 + metersPerStepLat ** 2) },
+        { dx: -1, dy: 1, cost: Math.sqrt(metersPerStepLon ** 2 + metersPerStepLat ** 2) },
+        { dx: 1, dy: 1, cost: Math.sqrt(metersPerStepLon ** 2 + metersPerStepLat ** 2) }
+    ];
+
+    // 3. Run Dijkstra for each active label and accumulate scores
+    const visited = new Uint8Array(size); // Reused for each label
+
     const settings = heatmapSettings || { type: 'linear' };
     const params = settings.params || { a: 100000, alpha: 0.001 };
 
-    let i = 0;
-    for (let lat = minLat; lat <= maxLat; lat += step) {
-        for (let lon = minLon; lon <= maxLon; lon += step) {
+    for (const cat of Object.keys(GROUPS)) {
+        for (const label of GROUPS[cat]) {
+            const cfg = activeConfig[label];
+            if (!cfg || !cfg.score || cfg.weight <= 0) continue;
+            if (!spatialIndices[label]) continue;
 
-            // Safety break if out of bounds (due to float precision loop)
-            if (i >= values.length) break;
+            const rangeMeters = cfg.weight * 1000;
+            const { coords } = spatialIndices[label];
 
-            let score = 0;
+            const startingNodes = [];
+            for (const p of coords) {
+                const y = Math.floor((p.lat - minLat) / step);
+                const x = Math.floor((p.lon - minLon) / step);
+                if (x >= 0 && x < width && y >= 0 && y < height) {
+                    startingNodes.push(y * width + x);
+                }
+            }
 
-            for (const cat of Object.keys(GROUPS)) {
-                for (const label of GROUPS[cat]) {
-                    const cfg = activeConfig[label];
-                    // cfg.weight IS NOW RANGE IN KM
-                    // If range is 0, ignore
-                    if (!cfg || !cfg.score || cfg.weight <= 0) continue;
-                    if (!spatialIndices[label]) continue;
+            if (startingNodes.length === 0) continue;
 
-                    const rangeMeters = cfg.weight * 1000;
+            // Reset distGrid and visited for this label's Dijkstra run
+            distGrid.fill(Infinity);
+            visited.fill(0);
+            const localPQ = new PriorityQueue();
 
-                    const { index, coords } = spatialIndices[label];
-                    const d = getNearestDist(index, coords, lat, lon);
+            startingNodes.forEach(idx => {
+                distGrid[idx] = 0;
+                localPQ.push({ idx, dist: 0 });
+            });
 
-                    if (d !== null && d < rangeMeters) {
-                        // Apply selected function type
-                        // Always respect the rangeMeters as a cutoff for performance/locality
+            const labelMaxScanDist = rangeMeters * roadFactor * 1.5; // Buffer for propagation
 
-                        switch (settings.type) {
-                            case 'constant':
-                                score += 1;
-                                break;
-                            case 'exponential':
-                                // exp(-alpha * x)
-                                score += Math.exp(-params.alpha * d);
-                                break;
-                            case 'linear':
-                            default:
-                                // Linear falloff: 1 at d=0, 0 at d=range
-                                score += (1 - d / rangeMeters);
-                                break;
+            while (localPQ.size() > 0) {
+                const { idx, dist } = localPQ.pop();
+                if (visited[idx]) continue;
+                visited[idx] = 1;
+
+                if (dist > labelMaxScanDist) continue; // Optimization: stop propagating far beyond range
+
+                // Score Calculation for current pixel (idx)
+                if (dist < rangeMeters) {
+                    let val = 0;
+                    switch (settings.type) {
+                        case 'constant': val = 1; break;
+                        case 'exponential': val = Math.exp(-params.alpha * dist); break;
+                        case 'linear':
+                        default:
+                            const ratio = dist / rangeMeters;
+                            val = Math.pow(1 - ratio, roadFactor); // Apply factor to shape
+                            break;
+                    }
+                    values[idx] += val; // Accumulate score from this label
+                }
+
+                const x = idx % width;
+                const y = Math.floor(idx / width);
+
+                // Explore neighbors
+                for (const n of neighbors) {
+                    const nx = x + n.dx;
+                    const ny = y + n.dy;
+                    if (nx >= 0 && nx < width && ny >= 0 && ny < height) {
+                        const nIdx = ny * width + nx;
+                        if (!visited[nIdx]) {
+                            // Friction logic
+                            let friction = 1.0;
+                            if (popValues) {
+                                const popRatio = Math.min(1, Math.sqrt(popValues[nIdx]) / 5); // Saturation at 25 ppl/km2
+                                friction = 1.0 + (roadFactor - 1.0) * (1 - popRatio);
+                            }
+                            const newDist = dist + n.cost * friction;
+                            if (newDist < distGrid[nIdx]) {
+                                distGrid[nIdx] = newDist;
+                                localPQ.push({ idx: nIdx, dist: newDist });
+                            }
                         }
                     }
                 }
             }
-
-            values[i] = score;
-            if (score > maxScore) maxScore = score;
-            i++;
         }
     }
 
-    // Normalize? No, keep raw scores, map component handles visualization
+    // 4. Find max score for normalization
+    let maxScore = 0;
+    for (let k = 0; k < size; k++) {
+        if (values[k] > maxScore) maxScore = values[k];
+    }
+
     return {
-        values,
-        width,
-        height,
-        minLat,
-        minLon,
-        maxLat,
-        maxLon,
-        step,
-        maxScore
+        values, width, height, minLat, minLon, maxLat, maxLon, step, maxScore
     };
 }
