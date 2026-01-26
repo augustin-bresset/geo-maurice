@@ -1,0 +1,230 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4675267,
+          -20.1769386
+        ]
+      },
+      "properties": {
+        "id": 305142563,
+        "name": "University of Technology, Mauritius",
+        "amenity": "university"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4860125,
+          -20.28973
+        ]
+      },
+      "properties": {
+        "id": 428338573,
+        "name": "Unknown",
+        "amenity": "university"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4975307,
+          -20.2334162
+        ]
+      },
+      "properties": {
+        "id": 471868507,
+        "name": "Paul Octave Wiehe Auditorium",
+        "amenity": "university"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5733456,
+          -20.1019992
+        ]
+      },
+      "properties": {
+        "id": 495232022,
+        "name": "Universite des Mascareignes",
+        "amenity": "university"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4538861,
+          -20.2444607
+        ]
+      },
+      "properties": {
+        "id": 601353184,
+        "name": "Université des Mascareignes",
+        "amenity": "university"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.3954118,
+          -20.2804186
+        ]
+      },
+      "properties": {
+        "id": 688152231,
+        "name": "Middlesex University Mauritius",
+        "amenity": "university"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.7593816,
+          -20.2587177
+        ]
+      },
+      "properties": {
+        "id": 798783190,
+        "name": "Universite Des Mascareignes - Bel Air Campus",
+        "amenity": "university"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5302815,
+          -20.3226114
+        ]
+      },
+      "properties": {
+        "id": 798783191,
+        "name": "Open University of Mauritius",
+        "amenity": "university"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4794539,
+          -20.2482202
+        ]
+      },
+      "properties": {
+        "id": 821244093,
+        "name": "Unknown",
+        "amenity": "university"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4927385,
+          -20.272885
+        ]
+      },
+      "properties": {
+        "id": 984716585,
+        "name": "Rushmore Complex",
+        "amenity": "university"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5590338,
+          -20.0966235
+        ]
+      },
+      "properties": {
+        "id": 1011057319,
+        "name": "Sir Seewoosagur Ramgoolam Medical College",
+        "amenity": "university"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5591496,
+          -20.0969334
+        ]
+      },
+      "properties": {
+        "id": 1011057320,
+        "name": "Sir Seewoosagur Ramgoolam Medical College",
+        "amenity": "university"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5588707,
+          -20.0972739
+        ]
+      },
+      "properties": {
+        "id": 1011057321,
+        "name": "Sir Seewoosagur Ramgoolam Medical College",
+        "amenity": "university"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5594909,
+          -20.0972886
+        ]
+      },
+      "properties": {
+        "id": 1011057322,
+        "name": "Sir Seewoosagur Ramgoolam Medical College",
+        "amenity": "university"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5730473,
+          -20.1019857
+        ]
+      },
+      "properties": {
+        "id": 1318385195,
+        "name": "Université des Mascareignes",
+        "amenity": "university"
+      }
+    }
+  ]
+}

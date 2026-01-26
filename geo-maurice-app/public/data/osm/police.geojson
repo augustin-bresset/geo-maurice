@@ -1,0 +1,665 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.7764083,
+          -20.1964221
+        ]
+      },
+      "properties": {
+        "id": 204352575,
+        "name": "Unknown",
+        "amenity": "police"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5225652,
+          -20.5206211
+        ]
+      },
+      "properties": {
+        "id": 223557745,
+        "name": "Souillac Police Station",
+        "amenity": "police"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5226074,
+          -20.3192515
+        ]
+      },
+      "properties": {
+        "id": 223629362,
+        "name": "Curepipe Police Station",
+        "amenity": "police"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4676964,
+          -20.226249
+        ]
+      },
+      "properties": {
+        "id": 238060663,
+        "name": "Beau Bassin Police Station",
+        "amenity": "police"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.3984703,
+          -20.50228
+        ]
+      },
+      "properties": {
+        "id": 401444793,
+        "name": "Unknown",
+        "amenity": "police"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5070965,
+          -20.3300605
+        ]
+      },
+      "properties": {
+        "id": 448607902,
+        "name": "Casernes Police Quarters",
+        "amenity": "police"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.6640538,
+          -20.2856359
+        ]
+      },
+      "properties": {
+        "id": 472819606,
+        "name": "Unknown",
+        "amenity": "police"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5014131,
+          -20.1597314
+        ]
+      },
+      "properties": {
+        "id": 495653539,
+        "name": "Port Police Station",
+        "amenity": "police"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5833723,
+          -20.0149469
+        ]
+      },
+      "properties": {
+        "id": 495848216,
+        "name": "Grand-Baie Police Station",
+        "amenity": "police"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5461354,
+          -20.0357397
+        ]
+      },
+      "properties": {
+        "id": 495856090,
+        "name": "Trou Aux Biches Police Station",
+        "amenity": "police"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5321906,
+          -20.1272568
+        ]
+      },
+      "properties": {
+        "id": 495944351,
+        "name": "Unknown",
+        "amenity": "police"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4540681,
+          -20.2422602
+        ]
+      },
+      "properties": {
+        "id": 507777562,
+        "name": "Camp-Levieux Police Station",
+        "amenity": "police"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.7058683,
+          -20.4073906
+        ]
+      },
+      "properties": {
+        "id": 508437619,
+        "name": "Mahebourg Police Station",
+        "amenity": "police"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.525907,
+          -20.3066427
+        ]
+      },
+      "properties": {
+        "id": 508541142,
+        "name": "Eau Coulee Police Station",
+        "amenity": "police"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.6580647,
+          -20.4314209
+        ]
+      },
+      "properties": {
+        "id": 508767150,
+        "name": "Plaine Magnien Police Station",
+        "amenity": "police"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4929422,
+          -20.3017826
+        ]
+      },
+      "properties": {
+        "id": 508809133,
+        "name": "Vacoas Police Station",
+        "amenity": "police"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4161771,
+          -20.2574743
+        ]
+      },
+      "properties": {
+        "id": 509335984,
+        "name": "Unknown",
+        "amenity": "police"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5127653,
+          -20.1596843
+        ]
+      },
+      "properties": {
+        "id": 509971781,
+        "name": "Plaine Verte Police Station",
+        "amenity": "police"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.7224616,
+          -20.194538
+        ]
+      },
+      "properties": {
+        "id": 679645149,
+        "name": "Central Flacq Police Station",
+        "amenity": "police"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.7273136,
+          -20.3738177
+        ]
+      },
+      "properties": {
+        "id": 761291079,
+        "name": "Vieux Grand Port Police Station",
+        "amenity": "police"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          63.4173271,
+          -19.681651
+        ]
+      },
+      "properties": {
+        "id": 925232075,
+        "name": "Garde côtière",
+        "amenity": "police"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.6986527,
+          -20.104356
+        ]
+      },
+      "properties": {
+        "id": 1005526920,
+        "name": "Rivière du Rempart Police Station",
+        "amenity": "police"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4775731,
+          -20.2786885
+        ]
+      },
+      "properties": {
+        "id": 1006061685,
+        "name": "PMOC Police Post",
+        "amenity": "police"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4679423,
+          -20.4916547
+        ]
+      },
+      "properties": {
+        "id": 1008822079,
+        "name": "Chemin Grenier Police Station",
+        "amenity": "police"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4763126,
+          -20.2704236
+        ]
+      },
+      "properties": {
+        "id": 1008828271,
+        "name": "Unknown",
+        "amenity": "police"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.47645,
+          -20.2701908
+        ]
+      },
+      "properties": {
+        "id": 1008828272,
+        "name": "Unknown",
+        "amenity": "police"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4761237,
+          -20.2702666
+        ]
+      },
+      "properties": {
+        "id": 1008828273,
+        "name": "Unknown",
+        "amenity": "police"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4759459,
+          -20.2703518
+        ]
+      },
+      "properties": {
+        "id": 1008828274,
+        "name": "Unknown",
+        "amenity": "police"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          63.4285027,
+          -19.7163263
+        ]
+      },
+      "properties": {
+        "id": 1019960311,
+        "name": "Unknown",
+        "amenity": "police"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          63.428394,
+          -19.7164717
+        ]
+      },
+      "properties": {
+        "id": 1024428893,
+        "name": "Unknown",
+        "amenity": "police"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5158068,
+          -20.1669622
+        ]
+      },
+      "properties": {
+        "id": 1168779526,
+        "name": "Valle Pitot Police Station",
+        "amenity": "police"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5061487,
+          -20.1568379
+        ]
+      },
+      "properties": {
+        "id": 1180936371,
+        "name": "Trou Fanfaron",
+        "amenity": "police"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4958401,
+          -20.2942906
+        ]
+      },
+      "properties": {
+        "id": 1215234309,
+        "name": "Unknown",
+        "amenity": "police"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.572238,
+          -20.1503885
+        ]
+      },
+      "properties": {
+        "id": 1216912128,
+        "name": "Unknown",
+        "amenity": "police"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5082771,
+          -20.286649
+        ]
+      },
+      "properties": {
+        "id": 1225421859,
+        "name": "Phoenix Police station",
+        "amenity": "police"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4770032,
+          -20.2438897
+        ]
+      },
+      "properties": {
+        "id": 1329113984,
+        "name": "Rose Hill police station",
+        "amenity": "police"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4770361,
+          -20.2435867
+        ]
+      },
+      "properties": {
+        "id": 1329113985,
+        "name": "Unknown",
+        "amenity": "police"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.477309,
+          -20.2435882
+        ]
+      },
+      "properties": {
+        "id": 1329441638,
+        "name": "Unknown",
+        "amenity": "police"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4774757,
+          -20.2434079
+        ]
+      },
+      "properties": {
+        "id": 1329441639,
+        "name": "Unknown",
+        "amenity": "police"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4777267,
+          -20.243193
+        ]
+      },
+      "properties": {
+        "id": 1329441640,
+        "name": "Unknown",
+        "amenity": "police"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4778983,
+          -20.2433281
+        ]
+      },
+      "properties": {
+        "id": 1329441641,
+        "name": "Unknown",
+        "amenity": "police"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4779809,
+          -20.2434021
+        ]
+      },
+      "properties": {
+        "id": 1329441642,
+        "name": "Unknown",
+        "amenity": "police"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4774353,
+          -20.2433041
+        ]
+      },
+      "properties": {
+        "id": 1329879393,
+        "name": "Unknown",
+        "amenity": "police"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5651795,
+          -20.3368451
+        ]
+      },
+      "properties": {
+        "id": 1428922122,
+        "name": "Unknown",
+        "amenity": "police"
+      }
+    }
+  ]
+}

@@ -1,0 +1,200 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5526874,
+          -20.055347
+        ]
+      },
+      "properties": {
+        "id": 472053901,
+        "name": "180 degre patisserie",
+        "amenity": "cafe"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.7076829,
+          -20.4066841
+        ]
+      },
+      "properties": {
+        "id": 495769224,
+        "name": "Tabahie Les Aigrettes",
+        "amenity": "cafe"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.532479,
+          -20.3050615
+        ]
+      },
+      "properties": {
+        "id": 508737813,
+        "name": "Bon Appetit Snack",
+        "amenity": "cafe"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4721708,
+          -20.2384937
+        ]
+      },
+      "properties": {
+        "id": 509095030,
+        "name": "Ou kafe",
+        "amenity": "cafe"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4678928,
+          -20.2280246
+        ]
+      },
+      "properties": {
+        "id": 510825641,
+        "name": "Tokyo",
+        "amenity": "cafe"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5016349,
+          -20.221873
+        ]
+      },
+      "properties": {
+        "id": 1008796612,
+        "name": "Frankmart Cafe",
+        "amenity": "cafe"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4791008,
+          -20.2700208
+        ]
+      },
+      "properties": {
+        "id": 1008843740,
+        "name": "Cassa M",
+        "amenity": "cafe"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4830405,
+          -20.2616735
+        ]
+      },
+      "properties": {
+        "id": 1009237630,
+        "name": "Desirata",
+        "amenity": "cafe"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4904387,
+          -20.2967536
+        ]
+      },
+      "properties": {
+        "id": 1078694894,
+        "name": "La Boîte à Gâteaux",
+        "amenity": "cafe"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5122383,
+          -20.3096924
+        ]
+      },
+      "properties": {
+        "id": 1179982793,
+        "name": "Le Coffee Shop",
+        "amenity": "cafe"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4468093,
+          -20.1743999
+        ]
+      },
+      "properties": {
+        "id": 1182577237,
+        "name": "Peacekeeper Shop & Snack",
+        "amenity": "cafe"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4950158,
+          -20.2838317
+        ]
+      },
+      "properties": {
+        "id": 1222953233,
+        "name": "Diva Coffee Lounge",
+        "amenity": "cafe"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.3977026,
+          -20.4397915
+        ]
+      },
+      "properties": {
+        "id": 1365221712,
+        "name": "Welcome Center",
+        "amenity": "cafe"
+      }
+    }
+  ]
+}

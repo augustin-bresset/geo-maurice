@@ -18,10 +18,10 @@ OUTPUT_FILE = PUBLIC_DATA_DIR / "population.json"
 
 # Bounding box of our map
 GRID_BBOX = {
-    'minLat': -20.55,
-    'maxLat': -19.95,
-    'minLon': 57.3,
-    'maxLon': 57.8,
+    'minLat': -20.60,
+    'maxLat': -19.90,
+    'minLon': 57.25,
+    'maxLon': 58.05,
     'step': 0.002 # Same as heatmap.js resolution
 }
 

@@ -16,7 +16,9 @@ export function ControlPanel({
     onSaveProfile,
     onDeleteProfile,
     viewMode,
-    setViewMode
+    setViewMode,
+    heatmapSettings,
+    setHeatmapSettings
 }) {
     // DEBUG: console log to inspect props
     if (!groups) {
@@ -27,6 +29,7 @@ export function ControlPanel({
     // Ensure groups is an object before using Object.keys
     const initialExpanded = groups ? Object.keys(groups).reduce((acc, k) => ({ ...acc, [k]: true }), {}) : {};
     const [expandedCats, setExpandedCats] = useState(initialExpanded);
+    const [showSettings, setShowSettings] = useState(false);
 
     const toggleCat = (cat) => setExpandedCats(prev => ({ ...prev, [cat]: !prev[cat] }));
 
@@ -67,9 +70,66 @@ export function ControlPanel({
     return (
         <div className="control-panel">
             <div className="panel-header">
-                <h2>Maurice Accessibilité</h2>
-                <Settings size={18} color="#666" />
+                <h2>Maurice Map</h2>
+                <button
+                    onClick={() => setShowSettings(!showSettings)}
+                    style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4 }}
+                    title="Paramètres de calcul"
+                >
+                    <Settings size={18} color={showSettings ? "#3498db" : "#666"} />
+                </button>
             </div>
+
+            {/* Settings Modal / Popover */}
+            {showSettings && (
+                <div style={{ padding: '10px 16px', borderBottom: '1px solid #eee', background: '#f0f8ff' }}>
+                    <div style={{ fontSize: '0.85rem', fontWeight: 'bold', marginBottom: 8, color: '#0056b3' }}>Paramètres de la Heatmap</div>
+
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                            <span style={{ fontSize: 12, minWidth: 60 }}>Fonction:</span>
+                            <select
+                                value={heatmapSettings?.type || 'linear'}
+                                onChange={(e) => setHeatmapSettings(prev => ({ ...prev, type: e.target.value }))}
+                                style={{ flex: 1, padding: 4, borderRadius: 4, border: '1px solid #ccc' }}
+                            >
+                                <option value="linear">Linéaire (Défaut)</option>
+                                <option value="constant">Constante</option>
+                                <option value="exponential">Exponentielle (exp(-αx))</option>
+                            </select>
+                        </div>
+
+                        {heatmapSettings?.type === 'exponential' && (
+                            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                                <span style={{ fontSize: 12, minWidth: 60 }}>Alpha:</span>
+                                <input
+                                    type="number"
+                                    step="0.0001"
+                                    value={heatmapSettings.params.alpha}
+                                    onChange={(e) => setHeatmapSettings(prev => ({ ...prev, params: { ...prev.params, alpha: parseFloat(e.target.value) } }))}
+                                    style={{ flex: 1, padding: 4, borderRadius: 4, border: '1px solid #ccc' }}
+                                />
+                            </div>
+                        )}
+
+                        <div style={{ marginTop: 8, borderTop: '1px solid #ddd', paddingTop: 8 }}>
+                            <div style={{ fontSize: 11, fontWeight: 'bold', color: '#555', marginBottom: 4 }}>Mode Hybride</div>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                                <span style={{ fontSize: 12, minWidth: 60 }}>Opacité:</span>
+                                <input
+                                    type="range"
+                                    min="0.2" max="3.0" step="0.1"
+                                    value={heatmapSettings.params.densityInfluence || 1.0}
+                                    onChange={(e) => setHeatmapSettings(prev => ({ ...prev, params: { ...prev.params, densityInfluence: parseFloat(e.target.value) } }))}
+                                    style={{ flex: 1 }}
+                                    title={`Influence de la densité: ${heatmapSettings.params.densityInfluence || 1.0}`}
+                                />
+                                <span style={{ fontSize: 10 }}>{heatmapSettings.params.densityInfluence || 1.0}x</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
 
             {/* Profile Section */}
             <div className="profile-section" style={{ padding: '10px 16px', borderBottom: '1px solid #eee' }}>
@@ -136,6 +196,18 @@ export function ControlPanel({
                         }}
                     >
                         Population
+                    </button>
+                    <button
+                        onClick={() => setViewMode('hybrid')}
+                        style={{
+                            flex: 1, padding: '6px', cursor: 'pointer',
+                            borderRadius: 4, border: '1px solid #ccc',
+                            background: viewMode === 'hybrid' ? '#8e44ad' : '#f8f9fa',
+                            color: viewMode === 'hybrid' ? 'white' : '#333',
+                            fontWeight: viewMode === 'hybrid' ? 'bold' : 'normal'
+                        }}
+                    >
+                        Combinaison
                     </button>
                 </div>
             </div>

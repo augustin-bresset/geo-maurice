@@ -30,6 +30,16 @@ function App() {
   const [activeProfileId, setActiveProfileId] = useState('default');
   const [viewMode, setViewMode] = useState('accessibility'); // 'accessibility' | 'population'
 
+  // Global Heatmap Settings
+  // type: 'linear' | 'constant' | 'inverse_square' | 'exponential'
+  const [heatmapSettings, setHeatmapSettings] = useState({
+    type: 'linear',
+    params: {
+      alpha: 0.001, // for exp(-alpha*x)
+      densityInfluence: 1.0 // Multiplier for population opacity effect (0.5 to 2.0?)
+    }
+  });
+
   useEffect(() => {
     localStorage.setItem('geo_maurice_profiles', JSON.stringify(customProfiles));
   }, [customProfiles]);
@@ -85,7 +95,7 @@ function App() {
     // Use setTimeout to allow UI to render spinner before heavy calc locks thread
     setTimeout(() => {
       try {
-        const points = calculateHeatmap(spatialIndices, config, GROUPS);
+        const points = calculateHeatmap(spatialIndices, config, GROUPS, heatmapSettings);
         setHeatmapPoints(points);
       } catch (e) {
         console.error("Heatmap calc error", e);
@@ -116,6 +126,10 @@ function App() {
         loading={loading || calculating}
         progress={progress}
 
+        // Heatmap Settings
+        heatmapSettings={heatmapSettings}
+        setHeatmapSettings={setHeatmapSettings}
+
         // Profile props
         profiles={[...DEFAULT_PROFILES, ...customProfiles]}
         activeProfileId={activeProfileId}
@@ -135,6 +149,7 @@ function App() {
         config={config}
         groups={GROUPS}
         categoryColors={CATEGORY_COLORS}
+        heatmapSettings={heatmapSettings}
       />
     </div>
   );

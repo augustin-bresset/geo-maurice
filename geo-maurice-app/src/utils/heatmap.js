@@ -1,8 +1,8 @@
 export const GRID_BBOX = {
-    minLat: -20.55,
-    maxLat: -19.95,
-    minLon: 57.3,
-    maxLon: 57.8,
+    minLat: -20.60, // Expanded south
+    maxLat: -19.90, // Expanded north
+    minLon: 57.25,  // Expanded west
+    maxLon: 58.05,  // Expanded east (user specifically requested this)
     step: 0.002 // Good balance of quality and performance
 };
 
@@ -39,7 +39,7 @@ function getNearestDist(index, coords, lat, lon) {
     return dist(lat, lon, c.lat, c.lon);
 }
 
-export function calculateHeatmap(spatialIndices, activeConfig, GROUPS) {
+export function calculateHeatmap(spatialIndices, activeConfig, GROUPS, heatmapSettings) {
     // Returns { grid: 2D array, minLat, minLon, step, width, height }
 
     const { minLat, maxLat, minLon, maxLon, step } = GRID_BBOX;
@@ -51,6 +51,10 @@ export function calculateHeatmap(spatialIndices, activeConfig, GROUPS) {
     const values = new Float32Array(width * height);
 
     let maxScore = 0;
+
+    // Default settings if missing
+    const settings = heatmapSettings || { type: 'linear' };
+    const params = settings.params || { a: 100000, alpha: 0.001 };
 
     let i = 0;
     for (let lat = minLat; lat <= maxLat; lat += step) {
@@ -75,8 +79,23 @@ export function calculateHeatmap(spatialIndices, activeConfig, GROUPS) {
                     const d = getNearestDist(index, coords, lat, lon);
 
                     if (d !== null && d < rangeMeters) {
-                        // Linear falloff: 1 at d=0, 0 at d=range
-                        score += (1 - d / rangeMeters);
+                        // Apply selected function type
+                        // Always respect the rangeMeters as a cutoff for performance/locality
+
+                        switch (settings.type) {
+                            case 'constant':
+                                score += 1;
+                                break;
+                            case 'exponential':
+                                // exp(-alpha * x)
+                                score += Math.exp(-params.alpha * d);
+                                break;
+                            case 'linear':
+                            default:
+                                // Linear falloff: 1 at d=0, 0 at d=range
+                                score += (1 - d / rangeMeters);
+                                break;
+                        }
                     }
                 }
             }

@@ -1,0 +1,65 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4982315,
+          -20.1553482
+        ]
+      },
+      "properties": {
+        "id": 78356870,
+        "name": "Terminal passagers",
+        "amenity": "ferry_terminal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4924473,
+          -20.1560368
+        ]
+      },
+      "properties": {
+        "id": 1225441493,
+        "name": "Cruise Piers Port Luis",
+        "amenity": "ferry_terminal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4886168,
+          -20.1527021
+        ]
+      },
+      "properties": {
+        "id": 1375526462,
+        "name": "Unknown",
+        "amenity": "ferry_terminal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4915426,
+          -20.1554865
+        ]
+      },
+      "properties": {
+        "id": 1375531075,
+        "name": "Unknown",
+        "amenity": "ferry_terminal"
+      }
+    }
+  ]
+}

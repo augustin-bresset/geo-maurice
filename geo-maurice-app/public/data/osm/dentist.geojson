@@ -1,0 +1,35 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.6542422,
+          -20.1670971
+        ]
+      },
+      "properties": {
+        "id": 472054429,
+        "name": "Dental Clinc",
+        "amenity": "dentist"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4821672,
+          -20.2625751
+        ]
+      },
+      "properties": {
+        "id": 1008686301,
+        "name": "Labo OI Mauritius",
+        "amenity": "dentist"
+      }
+    }
+  ]
+}

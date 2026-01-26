@@ -1,0 +1,350 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5173702,
+          -20.1660781
+        ]
+      },
+      "properties": {
+        "id": 509003819,
+        "name": "City Care Pharmacy",
+        "amenity": "pharmacy"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4846278,
+          -20.3221988
+        ]
+      },
+      "properties": {
+        "id": 509025249,
+        "name": "Pharmacie Royale",
+        "amenity": "pharmacy"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5098701,
+          -20.1594621
+        ]
+      },
+      "properties": {
+        "id": 509045374,
+        "name": "Desforges Pharmacy",
+        "amenity": "pharmacy"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5174711,
+          -20.1659717
+        ]
+      },
+      "properties": {
+        "id": 509945249,
+        "name": "Vallee Pitot Pharmacy",
+        "amenity": "pharmacy"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4802277,
+          -20.2855767
+        ]
+      },
+      "properties": {
+        "id": 509977637,
+        "name": "Green Cross Pharmacie",
+        "amenity": "pharmacy"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4939709,
+          -20.1652823
+        ]
+      },
+      "properties": {
+        "id": 510058789,
+        "name": "Pharmacie De L'ouest",
+        "amenity": "pharmacy"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4678231,
+          -20.2253044
+        ]
+      },
+      "properties": {
+        "id": 510536614,
+        "name": "Pharmacie De Beau Bassin",
+        "amenity": "pharmacy"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4693371,
+          -20.2174948
+        ]
+      },
+      "properties": {
+        "id": 510563259,
+        "name": "Pharmacie Confiance",
+        "amenity": "pharmacy"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.6679567,
+          -20.1914576
+        ]
+      },
+      "properties": {
+        "id": 574313289,
+        "name": "Unknown",
+        "amenity": "pharmacy"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4807444,
+          -20.2644108
+        ]
+      },
+      "properties": {
+        "id": 1005534804,
+        "name": "Pro Care Pharmacy",
+        "amenity": "pharmacy"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4460404,
+          -20.1725996
+        ]
+      },
+      "properties": {
+        "id": 1006363949,
+        "name": "Pointe aux Sables Medical Dispensary",
+        "amenity": "pharmacy"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4741056,
+          -20.269357
+        ]
+      },
+      "properties": {
+        "id": 1006710093,
+        "name": "Unknown",
+        "amenity": "pharmacy"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4777737,
+          -20.2669497
+        ]
+      },
+      "properties": {
+        "id": 1006964709,
+        "name": "Pharmacie de Quatre Bornes",
+        "amenity": "pharmacy"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.437981,
+          -20.17831
+        ]
+      },
+      "properties": {
+        "id": 1088721083,
+        "name": "Pharmacie La Pointe",
+        "amenity": "pharmacy"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.524048,
+          -20.285337
+        ]
+      },
+      "properties": {
+        "id": 1161965999,
+        "name": "PHARMACY CAMP FOUQUEREUX",
+        "amenity": "pharmacy"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5179204,
+          -20.2930542
+        ]
+      },
+      "properties": {
+        "id": 1162751516,
+        "name": "Unknown",
+        "amenity": "pharmacy"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5148795,
+          -20.291106
+        ]
+      },
+      "properties": {
+        "id": 1167100848,
+        "name": "Pharmacie Mesnil",
+        "amenity": "pharmacy"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.642302,
+          -20.0076799
+        ]
+      },
+      "properties": {
+        "id": 1167665319,
+        "name": "Unknown",
+        "amenity": "pharmacy"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5424176,
+          -20.1265342
+        ]
+      },
+      "properties": {
+        "id": 1173674266,
+        "name": "Florida",
+        "amenity": "pharmacy"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5096068,
+          -20.1596405
+        ]
+      },
+      "properties": {
+        "id": 1180021382,
+        "name": "Renaissance",
+        "amenity": "pharmacy"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4889178,
+          -20.3005747
+        ]
+      },
+      "properties": {
+        "id": 1213574197,
+        "name": "Unknown",
+        "amenity": "pharmacy"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5052137,
+          -20.2923719
+        ]
+      },
+      "properties": {
+        "id": 1215229151,
+        "name": "St Paul pharmacy",
+        "amenity": "pharmacy"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5105578,
+          -20.2900965
+        ]
+      },
+      "properties": {
+        "id": 1222947130,
+        "name": "Pharmacy Central",
+        "amenity": "pharmacy"
+      }
+    }
+  ]
+}

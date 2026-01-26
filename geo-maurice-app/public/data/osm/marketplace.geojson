@@ -1,0 +1,575 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5865707,
+          -20.010307
+        ]
+      },
+      "properties": {
+        "id": 33141493,
+        "name": "Grand Baie Bazar",
+        "amenity": "marketplace"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.578429,
+          -20.1121403
+        ]
+      },
+      "properties": {
+        "id": 96910952,
+        "name": "Pamplemousses Market",
+        "amenity": "marketplace"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5026955,
+          -20.1605878
+        ]
+      },
+      "properties": {
+        "id": 159257749,
+        "name": "Central Market",
+        "amenity": "marketplace"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5230844,
+          -20.5205962
+        ]
+      },
+      "properties": {
+        "id": 223558236,
+        "name": "Bazar de Souillac",
+        "amenity": "marketplace"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.7254419,
+          -20.1893214
+        ]
+      },
+      "properties": {
+        "id": 306148484,
+        "name": "Central Flacq Market Fair",
+        "amenity": "marketplace"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4566084,
+          -20.1683631
+        ]
+      },
+      "properties": {
+        "id": 306305122,
+        "name": "Unknown",
+        "amenity": "marketplace"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5197164,
+          -20.1556302
+        ]
+      },
+      "properties": {
+        "id": 342475223,
+        "name": "Ibrahim Abdoola Market Fair",
+        "amenity": "marketplace"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4938758,
+          -20.2967742
+        ]
+      },
+      "properties": {
+        "id": 371850791,
+        "name": "Vacoas market",
+        "amenity": "marketplace"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4676426,
+          -20.226108
+        ]
+      },
+      "properties": {
+        "id": 371852241,
+        "name": "Unknown",
+        "amenity": "marketplace"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4761024,
+          -20.2446521
+        ]
+      },
+      "properties": {
+        "id": 392041490,
+        "name": "Rose Hill Market",
+        "amenity": "marketplace"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5259068,
+          -20.3171302
+        ]
+      },
+      "properties": {
+        "id": 421800998,
+        "name": "Unknown",
+        "amenity": "marketplace"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4799721,
+          -20.2664892
+        ]
+      },
+      "properties": {
+        "id": 473933479,
+        "name": "Quatre Bornes Market",
+        "amenity": "marketplace"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5109931,
+          -20.1585003
+        ]
+      },
+      "properties": {
+        "id": 495748597,
+        "name": "Qaid-E-Azam Muhammad Ali Jinnah Market",
+        "amenity": "marketplace"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5029766,
+          -20.1606343
+        ]
+      },
+      "properties": {
+        "id": 495752723,
+        "name": "Marché central (épices)",
+        "amenity": "marketplace"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.7078763,
+          -20.4070401
+        ]
+      },
+      "properties": {
+        "id": 495769196,
+        "name": "Unknown",
+        "amenity": "marketplace"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5026144,
+          -20.1646845
+        ]
+      },
+      "properties": {
+        "id": 495834359,
+        "name": "La Foire (stall)",
+        "amenity": "marketplace"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5210852,
+          -20.3114993
+        ]
+      },
+      "properties": {
+        "id": 508508907,
+        "name": "Noorah Cold Store",
+        "amenity": "marketplace"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4752749,
+          -20.3314836
+        ]
+      },
+      "properties": {
+        "id": 509084055,
+        "name": "Henrietta Co-operative Store",
+        "amenity": "marketplace"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4576694,
+          -20.2794661
+        ]
+      },
+      "properties": {
+        "id": 510279064,
+        "name": "P. Bissessur Store",
+        "amenity": "marketplace"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4616979,
+          -20.2772539
+        ]
+      },
+      "properties": {
+        "id": 510298826,
+        "name": "Chantefrais",
+        "amenity": "marketplace"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4829431,
+          -20.2610033
+        ]
+      },
+      "properties": {
+        "id": 510524109,
+        "name": "Royal Mart",
+        "amenity": "marketplace"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4669605,
+          -20.2144123
+        ]
+      },
+      "properties": {
+        "id": 702108722,
+        "name": "Chebel market fair",
+        "amenity": "marketplace"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5053617,
+          -20.1579443
+        ]
+      },
+      "properties": {
+        "id": 1004939115,
+        "name": "Unknown",
+        "amenity": "marketplace"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.505296,
+          -20.1578351
+        ]
+      },
+      "properties": {
+        "id": 1004939116,
+        "name": "Unknown",
+        "amenity": "marketplace"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5052381,
+          -20.1576498
+        ]
+      },
+      "properties": {
+        "id": 1004939117,
+        "name": "Unknown",
+        "amenity": "marketplace"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5051168,
+          -20.1575087
+        ]
+      },
+      "properties": {
+        "id": 1004939118,
+        "name": "Unknown",
+        "amenity": "marketplace"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5050171,
+          -20.1574284
+        ]
+      },
+      "properties": {
+        "id": 1004939119,
+        "name": "Unknown",
+        "amenity": "marketplace"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4761517,
+          -20.2454966
+        ]
+      },
+      "properties": {
+        "id": 1005537449,
+        "name": "New Arab Town Fair",
+        "amenity": "marketplace"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4761632,
+          -20.2453056
+        ]
+      },
+      "properties": {
+        "id": 1005537450,
+        "name": "Foire Da-Patten",
+        "amenity": "marketplace"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5411599,
+          -20.2254823
+        ]
+      },
+      "properties": {
+        "id": 1005886046,
+        "name": "Marché de Saint Pierre",
+        "amenity": "marketplace"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          63.4416982,
+          -19.7057733
+        ]
+      },
+      "properties": {
+        "id": 1031620663,
+        "name": "Unknown",
+        "amenity": "marketplace"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4098602,
+          -20.2625119
+        ]
+      },
+      "properties": {
+        "id": 1105972932,
+        "name": "Marché Bambou",
+        "amenity": "marketplace"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5977586,
+          -20.4041662
+        ]
+      },
+      "properties": {
+        "id": 1149966482,
+        "name": "Dr James Burty David Marketplace",
+        "amenity": "marketplace"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5206797,
+          -20.1480114
+        ]
+      },
+      "properties": {
+        "id": 1181892446,
+        "name": "Abercombie Market",
+        "amenity": "marketplace"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.6541615,
+          -20.0412217
+        ]
+      },
+      "properties": {
+        "id": 1278525306,
+        "name": "goodlands",
+        "amenity": "marketplace"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5027807,
+          -20.1608205
+        ]
+      },
+      "properties": {
+        "id": 1308583044,
+        "name": "Marché central (fruits et légumes)",
+        "amenity": "marketplace"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.7085045,
+          -20.4067461
+        ]
+      },
+      "properties": {
+        "id": 1310859612,
+        "name": "Farmers market and clothing",
+        "amenity": "marketplace"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.7608285,
+          -20.257244
+        ]
+      },
+      "properties": {
+        "id": 1426181252,
+        "name": "Bel Air Market fair",
+        "amenity": "marketplace"
+      }
+    }
+  ]
+}

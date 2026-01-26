@@ -22,7 +22,7 @@ function getColor(value) {
 }
 
 // Helper to generate Data URL from grid
-function generateHeatmapImage(gridData) {
+function generateHeatmapImage(gridData, secondaryGrid, mode, densityInfluence) {
     if (!gridData || !gridData.values) return null;
 
     const { values, width, height, maxScore } = gridData;
@@ -34,6 +34,17 @@ function generateHeatmapImage(gridData) {
     // Create image data
     const imgData = ctx.createImageData(width, height);
     const data = imgData.data;
+
+    // Pre-calculate blending factors if hybrid
+    let popValues = null;
+    let maxPop = 1;
+    if (mode === 'hybrid' && secondaryGrid && secondaryGrid.values) {
+        // Assume identical grid dimensions for now (based on verified setup)
+        popValues = secondaryGrid.values;
+        maxPop = secondaryGrid.maxScore || 1;
+    }
+
+    const influence = densityInfluence || 1.0;
 
     for (let y = 0; y < height; y++) {
         // Grid row index (0 is MinLat (South))
@@ -69,10 +80,29 @@ function generateHeatmapImage(gridData) {
                 else if (240 <= H && H < 300) { r = X; g = 0; b = C; }
                 else { r = C; g = 0; b = X; }
 
+                // Default Opacity
+                let alpha = 150; // ~0.6
+
+                // HYBRID LOGIC: Multiply opacity by population density
+                if (mode === 'hybrid' && popValues) {
+                    const pop = popValues[i] || 0;
+
+                    // Ratio 0 to 1
+                    let popRatio = Math.sqrt(pop) / Math.sqrt(maxPop);
+
+                    // Apply user influence
+                    // If influence > 1, small pops become visible faster? Or opacity is just boosted.
+                    // Let's say opacity = Base + (Range * popRatio * influence)
+                    // But we want to preserve transparency for empty areas (pop=0)
+
+                    const dynamicAlpha = 60 + 195 * popRatio * influence;
+                    alpha = Math.min(255, Math.floor(dynamicAlpha));
+                }
+
                 data[pixelIndex] = r * 255;     // R
                 data[pixelIndex + 1] = g * 255; // G
                 data[pixelIndex + 2] = b * 255; // B
-                data[pixelIndex + 3] = 150;     // Alpha (0-255) ~ 0.6 opacity
+                data[pixelIndex + 3] = alpha;   // Alpha (0-255)
             } else {
                 data[pixelIndex + 3] = 0; // Transparent
             }
@@ -83,11 +113,15 @@ function generateHeatmapImage(gridData) {
     return canvas.toDataURL();
 }
 
-const CustomHeatmapLayer = ({ gridData }) => {
+const CustomHeatmapLayer = ({ gridData, secondaryGrid, mode, settings }) => {
     const [imageUrl, setImageUrl] = useState(null);
     const [bounds, setBounds] = useState(null);
 
+    const densityInfluence = settings?.params?.densityInfluence;
+
     useEffect(() => {
+        // console.log("CustomHeatmapLayer Update:", { mode, densityInfluence, hasGrid: !!gridData, hasPop: !!secondaryGrid });
+
         // Strict validation of gridData object
         if (!gridData || !gridData.values || !gridData.width || !gridData.height) {
             setImageUrl(null);
@@ -96,7 +130,7 @@ const CustomHeatmapLayer = ({ gridData }) => {
         }
 
         try {
-            const url = generateHeatmapImage(gridData);
+            const url = generateHeatmapImage(gridData, secondaryGrid, mode, densityInfluence);
             setImageUrl(url);
 
             const { minLat, maxLat, minLon, maxLon } = gridData;
@@ -112,11 +146,11 @@ const CustomHeatmapLayer = ({ gridData }) => {
             setImageUrl(null);
         }
 
-    }, [gridData]);
+    }, [gridData, secondaryGrid, mode, densityInfluence]);
 
     if (!imageUrl || !bounds) return null;
 
-    return <ImageOverlay url={imageUrl} bounds={bounds} opacity={0.7} />;
+    return <ImageOverlay url={imageUrl} bounds={bounds} opacity={0.8} />;
 };
 
 const FastGeoJSONLayer = ({ data, color, visible, label }) => {
@@ -171,7 +205,8 @@ export default function AccessibilityMap({
     geoData,
     config,
     groups,
-    categoryColors
+    categoryColors,
+    heatmapSettings
 }) {
 
     // Select which grid to show
@@ -213,7 +248,12 @@ export default function AccessibilityMap({
             />
 
             {/* Custom Heatmap Layer - Dynamic Data Source */}
-            <CustomHeatmapLayer gridData={activeGridData} />
+            <CustomHeatmapLayer
+                gridData={activeGridData}
+                secondaryGrid={viewMode === 'hybrid' ? populationData : null}
+                mode={viewMode}
+                settings={heatmapSettings}
+            />
 
             {/* Point Layers */}
             {layersToRender.map(l => (

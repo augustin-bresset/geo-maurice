@@ -1,0 +1,1340 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5090497,
+          -20.5120766
+        ]
+      },
+      "properties": {
+        "id": 223537921,
+        "name": "Total",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5256624,
+          -20.5187648
+        ]
+      },
+      "properties": {
+        "id": 223557743,
+        "name": "Indian Oil",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5424539,
+          -20.315388
+        ]
+      },
+      "properties": {
+        "id": 223723918,
+        "name": "Engen",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4683446,
+          -20.2276108
+        ]
+      },
+      "properties": {
+        "id": 238114023,
+        "name": "Engen",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4978824,
+          -20.238786
+        ]
+      },
+      "properties": {
+        "id": 357801339,
+        "name": "Engen",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4942087,
+          -20.223543
+        ]
+      },
+      "properties": {
+        "id": 357803004,
+        "name": "Engen",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4898847,
+          -20.2415874
+        ]
+      },
+      "properties": {
+        "id": 361459651,
+        "name": "Shell",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4718489,
+          -20.2384933
+        ]
+      },
+      "properties": {
+        "id": 361459656,
+        "name": "TotalEnergies",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4453181,
+          -20.1967408
+        ]
+      },
+      "properties": {
+        "id": 361459657,
+        "name": "Indian Oil",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5234156,
+          -20.3187986
+        ]
+      },
+      "properties": {
+        "id": 406528355,
+        "name": "Shell",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4724425,
+          -20.2392004
+        ]
+      },
+      "properties": {
+        "id": 475489174,
+        "name": "Engen",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5084995,
+          -20.1565706
+        ]
+      },
+      "properties": {
+        "id": 495652046,
+        "name": "Total Renaissance",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5089715,
+          -20.1561443
+        ]
+      },
+      "properties": {
+        "id": 495655602,
+        "name": "Engen",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5105394,
+          -20.1586772
+        ]
+      },
+      "properties": {
+        "id": 495660301,
+        "name": "Shell",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5256693,
+          -20.3202764
+        ]
+      },
+      "properties": {
+        "id": 495765582,
+        "name": "Engen",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.7079921,
+          -20.4058417
+        ]
+      },
+      "properties": {
+        "id": 495769210,
+        "name": "Unknown",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5809235,
+          -20.0205452
+        ]
+      },
+      "properties": {
+        "id": 495918257,
+        "name": "Engen",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.589642,
+          -20.0147705
+        ]
+      },
+      "properties": {
+        "id": 495918548,
+        "name": "Shell",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5319755,
+          -20.1199084
+        ]
+      },
+      "properties": {
+        "id": 495944354,
+        "name": "Indian oil",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.7082662,
+          -20.4073197
+        ]
+      },
+      "properties": {
+        "id": 508442359,
+        "name": "Engen",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.7057616,
+          -20.4079325
+        ]
+      },
+      "properties": {
+        "id": 508450708,
+        "name": "Total",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.6666601,
+          -20.4309496
+        ]
+      },
+      "properties": {
+        "id": 508706825,
+        "name": "Engen",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.6607304,
+          -20.4321978
+        ]
+      },
+      "properties": {
+        "id": 508729020,
+        "name": "Shell",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.525672,
+          -20.3068436
+        ]
+      },
+      "properties": {
+        "id": 508737811,
+        "name": "Shell",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5085743,
+          -20.307797
+        ]
+      },
+      "properties": {
+        "id": 508769654,
+        "name": "Shell",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5974563,
+          -20.3994478
+        ]
+      },
+      "properties": {
+        "id": 508778506,
+        "name": "Engen",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4933875,
+          -20.2984079
+        ]
+      },
+      "properties": {
+        "id": 508806376,
+        "name": "Total Station",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4833133,
+          -20.1726346
+        ]
+      },
+      "properties": {
+        "id": 508831972,
+        "name": "Total",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5350657,
+          -20.2238538
+        ]
+      },
+      "properties": {
+        "id": 509019639,
+        "name": "Shell",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.3771391,
+          -20.2758672
+        ]
+      },
+      "properties": {
+        "id": 509022799,
+        "name": "TotalEnergies",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.3640233,
+          -20.3457519
+        ]
+      },
+      "properties": {
+        "id": 509023538,
+        "name": "Engen",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.3857768,
+          -20.327711
+        ]
+      },
+      "properties": {
+        "id": 509047918,
+        "name": "Total",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5200751,
+          -20.1479065
+        ]
+      },
+      "properties": {
+        "id": 509068504,
+        "name": "Total",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5233966,
+          -20.1459457
+        ]
+      },
+      "properties": {
+        "id": 509068513,
+        "name": "Shell",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5251096,
+          -20.1401056
+        ]
+      },
+      "properties": {
+        "id": 509073834,
+        "name": "Indian Oil",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.524004,
+          -20.1449585
+        ]
+      },
+      "properties": {
+        "id": 509084775,
+        "name": "Total",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5326058,
+          -20.1274096
+        ]
+      },
+      "properties": {
+        "id": 509086808,
+        "name": "Total",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4848815,
+          -20.3149647
+        ]
+      },
+      "properties": {
+        "id": 509260672,
+        "name": "Shell",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.48813,
+          -20.3009348
+        ]
+      },
+      "properties": {
+        "id": 509892709,
+        "name": "Shell",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5239471,
+          -20.1454456
+        ]
+      },
+      "properties": {
+        "id": 509926162,
+        "name": "Engen Abercrombie",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.48218,
+          -20.2904609
+        ]
+      },
+      "properties": {
+        "id": 509975476,
+        "name": "Indian Oil",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4789482,
+          -20.28151
+        ]
+      },
+      "properties": {
+        "id": 509983007,
+        "name": "Shell",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5068919,
+          -20.167401
+        ]
+      },
+      "properties": {
+        "id": 509988013,
+        "name": "Shell",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5041085,
+          -20.1696117
+        ]
+      },
+      "properties": {
+        "id": 510010520,
+        "name": "Total",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5325761,
+          -20.2949931
+        ]
+      },
+      "properties": {
+        "id": 510022562,
+        "name": "Indian Oil",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4567579,
+          -20.2795889
+        ]
+      },
+      "properties": {
+        "id": 510279065,
+        "name": "Indian Oil",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4871016,
+          -20.167513
+        ]
+      },
+      "properties": {
+        "id": 510334859,
+        "name": "Shell",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4801744,
+          -20.264249
+        ]
+      },
+      "properties": {
+        "id": 510516466,
+        "name": "Total Energies",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5116675,
+          -20.2898195
+        ]
+      },
+      "properties": {
+        "id": 510518604,
+        "name": "Shell",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4626898,
+          -20.2364554
+        ]
+      },
+      "properties": {
+        "id": 510527838,
+        "name": "Engen",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4678584,
+          -20.2248722
+        ]
+      },
+      "properties": {
+        "id": 510536615,
+        "name": "Shell",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4682483,
+          -20.222588
+        ]
+      },
+      "properties": {
+        "id": 510536623,
+        "name": "TotalEnergies",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4929072,
+          -20.1655859
+        ]
+      },
+      "properties": {
+        "id": 510536933,
+        "name": "Total",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4862252,
+          -20.2547103
+        ]
+      },
+      "properties": {
+        "id": 510580688,
+        "name": "Shell",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4780657,
+          -20.2452067
+        ]
+      },
+      "properties": {
+        "id": 510590306,
+        "name": "TotalEnergies",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5179926,
+          -20.2937357
+        ]
+      },
+      "properties": {
+        "id": 510783925,
+        "name": "Total",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5292018,
+          -20.1291516
+        ]
+      },
+      "properties": {
+        "id": 519909754,
+        "name": "Indian Oil",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.626891,
+          -20.4303185
+        ]
+      },
+      "properties": {
+        "id": 584458538,
+        "name": "Shell",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.6394082,
+          -20.0053629
+        ]
+      },
+      "properties": {
+        "id": 587861371,
+        "name": "Indian Oil",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4947475,
+          -20.2777485
+        ]
+      },
+      "properties": {
+        "id": 997988458,
+        "name": "Engen",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5895477,
+          -20.0148131
+        ]
+      },
+      "properties": {
+        "id": 1000614720,
+        "name": "Shell",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.603966,
+          -20.079611
+        ]
+      },
+      "properties": {
+        "id": 1000614747,
+        "name": "Total Belle Vue",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5520488,
+          -20.1447815
+        ]
+      },
+      "properties": {
+        "id": 1000614778,
+        "name": "Shell",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4782197,
+          -20.2665122
+        ]
+      },
+      "properties": {
+        "id": 1008423271,
+        "name": "Unknown",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4774124,
+          -20.2680899
+        ]
+      },
+      "properties": {
+        "id": 1008828302,
+        "name": "TotalEnergies",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.6719701,
+          -20.2024659
+        ]
+      },
+      "properties": {
+        "id": 1112694820,
+        "name": "Indian Oil",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5138564,
+          -20.2907844
+        ]
+      },
+      "properties": {
+        "id": 1161965993,
+        "name": "ENGEN FILLING STATION",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4041692,
+          -20.2791809
+        ]
+      },
+      "properties": {
+        "id": 1166148066,
+        "name": "Shell",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5548471,
+          -20.1469685
+        ]
+      },
+      "properties": {
+        "id": 1170946388,
+        "name": "Indian Oil",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4751023,
+          -20.2719275
+        ]
+      },
+      "properties": {
+        "id": 1178553773,
+        "name": "Engen",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4762346,
+          -20.2528101
+        ]
+      },
+      "properties": {
+        "id": 1185515627,
+        "name": "Engen",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.6027096,
+          -20.4026214
+        ]
+      },
+      "properties": {
+        "id": 1191538452,
+        "name": "Total",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.6948029,
+          -20.1460049
+        ]
+      },
+      "properties": {
+        "id": 1211900465,
+        "name": "Shell",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5057664,
+          -20.2846252
+        ]
+      },
+      "properties": {
+        "id": 1222953957,
+        "name": "Total Phoenix",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5734206,
+          -20.3751099
+        ]
+      },
+      "properties": {
+        "id": 1230580607,
+        "name": "TotalEnergies",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.49787,
+          -20.2428704
+        ]
+      },
+      "properties": {
+        "id": 1247266628,
+        "name": "Engen",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4501365,
+          -20.2898974
+        ]
+      },
+      "properties": {
+        "id": 1254363334,
+        "name": "shell",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.6553901,
+          -20.0417515
+        ]
+      },
+      "properties": {
+        "id": 1278525305,
+        "name": "Shell",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.7238615,
+          -20.1824548
+        ]
+      },
+      "properties": {
+        "id": 1310470907,
+        "name": "Shell",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5127911,
+          -20.1372818
+        ]
+      },
+      "properties": {
+        "id": 1318137430,
+        "name": "Engen",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4747222,
+          -20.2497024
+        ]
+      },
+      "properties": {
+        "id": 1321543184,
+        "name": "Shell",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5069238,
+          -20.3061916
+        ]
+      },
+      "properties": {
+        "id": 1329352376,
+        "name": "Engen",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5414122,
+          -20.3168425
+        ]
+      },
+      "properties": {
+        "id": 1367375774,
+        "name": "indian oil",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.6170312,
+          -20.4109852
+        ]
+      },
+      "properties": {
+        "id": 1389524212,
+        "name": "Shell",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5528317,
+          -20.0556981
+        ]
+      },
+      "properties": {
+        "id": 1393869655,
+        "name": "total",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.589045,
+          -20.1278084
+        ]
+      },
+      "properties": {
+        "id": 1417557405,
+        "name": "IndianOil",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4481557,
+          -20.2305086
+        ]
+      },
+      "properties": {
+        "id": 1424403741,
+        "name": "TotalEnergies Mont Roches",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.3647339,
+          -20.4213092
+        ]
+      },
+      "properties": {
+        "id": 1427621807,
+        "name": "TotalEnergies",
+        "amenity": "fuel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5104036,
+          -20.1584025
+        ]
+      },
+      "properties": {
+        "id": 7408577,
+        "name": "Total",
+        "amenity": "fuel"
+      }
+    }
+  ]
+}
