@@ -41,6 +41,15 @@ function App() {
     }
   });
 
+  // Advanced Settings: Slider Limits
+  const [sliderLimits, setSliderLimits] = useState({
+    range: { min: 0, max: 100, step: 1 },
+    tortuosity: { min: 1.0, max: 20.0, step: 0.1 },
+    opacity: { min: 0.0, max: 3.0, step: 0.1 }
+  });
+
+  const [showAdvancedModal, setShowAdvancedModal] = useState(false);
+
   useEffect(() => {
     localStorage.setItem('geo_maurice_profiles', JSON.stringify(customProfiles));
   }, [customProfiles]);
@@ -141,6 +150,11 @@ function App() {
         // View Mode
         viewMode={viewMode}
         setViewMode={setViewMode}
+
+        // Advanced Settings
+        sliderLimits={sliderLimits}
+        setSliderLimits={setSliderLimits}
+        setShowAdvancedModal={setShowAdvancedModal}
       />
       <AccessibilityMap
         heatmapPoints={heatmapPoints}
@@ -152,6 +166,60 @@ function App() {
         categoryColors={CATEGORY_COLORS}
         heatmapSettings={heatmapSettings}
       />
+
+      {/* Advanced Settings Modal - Rendered here to avoid stacking context issues */}
+      {showAdvancedModal && (
+        <div style={{
+          position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh',
+          background: 'rgba(0,0,0,0.5)', zIndex: 9999, display: 'flex', alignItems: 'center', justifyContent: 'center'
+        }}>
+          <div style={{ background: 'white', padding: 20, borderRadius: 8, maxWidth: 400, width: '90%', boxShadow: '0 4px 6px rgba(0,0,0,0.1)' }}>
+            <h3 style={{ marginTop: 0, color: '#333' }}>Paramètres Avancés (Intervalle)</h3>
+            <p style={{ fontSize: 12, color: '#666' }}>Ajustez les valeurs maximales des curseurs de réglage.</p>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+              <label style={{ display: 'flex', flexDirection: 'column', gap: 4, fontSize: 14 }}>
+                Portée Max (Range) [km]:
+                <input
+                  type="number"
+                  value={sliderLimits?.range?.max || 100}
+                  onChange={(e) => setSliderLimits(prev => ({ ...prev, range: { ...prev.range, max: parseFloat(e.target.value) } }))}
+                  style={{ padding: 8, borderRadius: 4, border: '1px solid #ccc' }}
+                />
+              </label>
+
+              <label style={{ display: 'flex', flexDirection: 'column', gap: 4, fontSize: 14 }}>
+                Tortuosité Max:
+                <input
+                  type="number"
+                  value={sliderLimits?.tortuosity?.max || 20}
+                  onChange={(e) => setSliderLimits(prev => ({ ...prev, tortuosity: { ...prev.tortuosity, max: parseFloat(e.target.value) } }))}
+                  style={{ padding: 8, borderRadius: 4, border: '1px solid #ccc' }}
+                />
+              </label>
+
+              <label style={{ display: 'flex', flexDirection: 'column', gap: 4, fontSize: 14 }}>
+                Opacité Max:
+                <input
+                  type="number"
+                  value={sliderLimits?.opacity?.max || 3.0}
+                  onChange={(e) => setSliderLimits(prev => ({ ...prev, opacity: { ...prev.opacity, max: parseFloat(e.target.value) } }))}
+                  style={{ padding: 8, borderRadius: 4, border: '1px solid #ccc' }}
+                />
+              </label>
+            </div>
+
+            <div style={{ marginTop: 20, display: 'flex', justifyContent: 'flex-end' }}>
+              <button
+                onClick={() => setShowAdvancedModal(false)}
+                style={{ padding: '8px 16px', background: '#3498db', color: 'white', border: 'none', borderRadius: 4, cursor: 'pointer', fontWeight: 'bold' }}
+              >
+                Fermer
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

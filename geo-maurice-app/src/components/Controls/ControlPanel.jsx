@@ -18,7 +18,11 @@ export function ControlPanel({
     viewMode,
     setViewMode,
     heatmapSettings,
-    setHeatmapSettings
+    setHeatmapSettings,
+    // Advanced Settings
+    sliderLimits,
+    setSliderLimits,
+    setShowAdvancedModal
 }) {
     // DEBUG: console log to inspect props
     if (!groups) {
@@ -112,39 +116,54 @@ export function ControlPanel({
                             </div>
                         )}
 
-                        <div style={{ marginTop: 8, borderTop: '1px solid #ddd', paddingTop: 8 }}>
-                            <div style={{ fontSize: 11, fontWeight: 'bold', color: '#555', marginBottom: 4 }}>Mode Hybride</div>
-                            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                                <span style={{ fontSize: 12, minWidth: 60 }}>Opacité:</span>
-                                <input
-                                    type="range"
-                                    min="0.2" max="3.0" step="0.1"
-                                    value={heatmapSettings.params.densityInfluence || 1.0}
-                                    onChange={(e) => setHeatmapSettings(prev => ({ ...prev, params: { ...prev.params, densityInfluence: parseFloat(e.target.value) } }))}
-                                    style={{ flex: 1 }}
-                                    title={`Influence de la densité: ${heatmapSettings.params.densityInfluence || 1.0}`}
-                                />
-                                <span style={{ fontSize: 10 }}>{heatmapSettings.params.densityInfluence || 1.0}x</span>
-                            </div>
-                        </div>
+                    </div>
 
-                        <div style={{ marginTop: 8, borderTop: '1px solid #ddd', paddingTop: 8 }}>
-                            <div style={{ fontSize: 11, fontWeight: 'bold', color: '#555', marginBottom: 4 }}>Estimation Routière</div>
-                            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                                <span style={{ fontSize: 12, minWidth: 60 }}>Tortuosité:</span>
-                                <input
-                                    type="range"
-                                    min="1.0" max="5.0" step="0.1"
-                                    value={heatmapSettings.params.roadFactor || 1.0}
-                                    onChange={(e) => setHeatmapSettings(prev => ({ ...prev, params: { ...prev.params, roadFactor: parseFloat(e.target.value) } }))}
-                                    style={{ flex: 1 }}
-                                    title={`Facteur distance: ${heatmapSettings.params.roadFactor || 1.0}x`}
-                                />
-                                <span style={{ fontSize: 10 }}>{heatmapSettings.params.roadFactor || 1.0}x</span>
-                            </div>
-                            <div style={{ fontSize: 9, color: '#888', fontStyle: 'italic', marginTop: 2 }}>
-                                1.0 = Vol d'oiseau. 3.0+ = Très sinueux (Montagnes).
-                            </div>
+                    {/* Advanced Settings Button */}
+                    <div style={{ marginTop: 8, borderTop: '1px solid #ddd', paddingTop: 8 }}>
+                        <button
+                            onClick={() => setShowAdvancedModal(true)}
+                            style={{ width: '100%', padding: '6px', cursor: 'pointer', background: '#e0efff', border: '1px solid #3498db', borderRadius: 4, color: '#0056b3', fontSize: 11, fontWeight: 'bold' }}
+                        >
+                            Ouvrir les paramètres avancés
+                        </button>
+                    </div>
+
+                    <div style={{ marginTop: 8, borderTop: '1px solid #ddd', paddingTop: 8 }}>
+                        <div style={{ fontSize: 11, fontWeight: 'bold', color: '#555', marginBottom: 4 }}>Mode Hybride</div>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                            <span style={{ fontSize: 12, minWidth: 60 }}>Opacité:</span>
+                            <input
+                                type="range"
+                                min={sliderLimits?.opacity?.min || 0.2}
+                                max={sliderLimits?.opacity?.max || 3.0}
+                                step={sliderLimits?.opacity?.step || 0.1}
+                                value={heatmapSettings.params.densityInfluence || 1.0}
+                                onChange={(e) => setHeatmapSettings(prev => ({ ...prev, params: { ...prev.params, densityInfluence: parseFloat(e.target.value) } }))}
+                                style={{ flex: 1 }}
+                                title={`Influence de la densité: ${heatmapSettings.params.densityInfluence || 1.0}`}
+                            />
+                            <span style={{ fontSize: 10 }}>{heatmapSettings.params.densityInfluence || 1.0}x</span>
+                        </div>
+                    </div>
+
+                    <div style={{ marginTop: 8, borderTop: '1px solid #ddd', paddingTop: 8 }}>
+                        <div style={{ fontSize: 11, fontWeight: 'bold', color: '#555', marginBottom: 4 }}>Estimation Routière</div>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                            <span style={{ fontSize: 12, minWidth: 60 }}>Tortuosité:</span>
+                            <input
+                                type="range"
+                                min={sliderLimits?.tortuosity?.min || 1.0}
+                                max={sliderLimits?.tortuosity?.max || 20.0}
+                                step={sliderLimits?.tortuosity?.step || 0.1}
+                                value={heatmapSettings.params.roadFactor || 1.0}
+                                onChange={(e) => setHeatmapSettings(prev => ({ ...prev, params: { ...prev.params, roadFactor: parseFloat(e.target.value) } }))}
+                                style={{ flex: 1 }}
+                                title={`Facteur distance: ${heatmapSettings.params.roadFactor || 1.0}x`}
+                            />
+                            <span style={{ fontSize: 10 }}>{heatmapSettings.params.roadFactor || 1.0}x</span>
+                        </div>
+                        <div style={{ fontSize: 9, color: '#888', fontStyle: 'italic', marginTop: 2 }}>
+                            1.0 = Vol d'oiseau. &gt;1.0 = Sinueux.
                         </div>
                     </div>
                 </div>
@@ -294,7 +313,9 @@ export function ControlPanel({
                                             <input
                                                 type="range"
                                                 className="weight-slider"
-                                                min="0" max="100" step="1"
+                                                min={sliderLimits?.range?.min || 0}
+                                                max={sliderLimits?.range?.max || 100}
+                                                step={sliderLimits?.range?.step || 1}
                                                 value={c.weight}
                                                 onChange={e => updateConfig(label, 'weight', parseFloat(e.target.value))}
                                                 title={`Portée d'influence: ${c.weight} km`}
