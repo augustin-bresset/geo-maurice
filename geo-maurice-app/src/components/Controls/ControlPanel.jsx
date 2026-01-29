@@ -71,17 +71,41 @@ export function ControlPanel({
         }
     };
 
+    const toggleAllVisibility = () => {
+        const allLabels = Object.values(groups).flat();
+        const allVisible = allLabels.every(l => config[l]?.visible);
+        const newVal = !allVisible;
+
+        setConfig(prev => {
+            const next = { ...prev };
+            allLabels.forEach(l => {
+                if (!next[l]) next[l] = { visible: true, score: true, weight: 1 };
+                next[l] = { ...next[l], visible: newVal };
+            });
+            return next;
+        });
+    };
+
     return (
         <div className="control-panel">
             <div className="panel-header">
                 <h2>Maurice Map</h2>
-                <button
-                    onClick={() => setShowSettings(!showSettings)}
-                    style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4 }}
-                    title="Paramètres de calcul"
-                >
-                    <Settings size={18} color={showSettings ? "#3498db" : "#666"} />
-                </button>
+                <div style={{ display: 'flex', gap: 4 }}>
+                    <button
+                        onClick={toggleAllVisibility}
+                        style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4 }}
+                        title="Tout afficher / Tout masquer"
+                    >
+                        <Eye size={18} color="#555" />
+                    </button>
+                    <button
+                        onClick={() => setShowSettings(!showSettings)}
+                        style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4 }}
+                        title="Paramètres de calcul"
+                    >
+                        <Settings size={18} color={showSettings ? "#3498db" : "#666"} />
+                    </button>
+                </div>
             </div>
 
             {/* Settings Modal / Popover */}
@@ -99,20 +123,22 @@ export function ControlPanel({
                             >
                                 <option value="linear">Linéaire (Défaut)</option>
                                 <option value="constant">Constante</option>
-                                <option value="exponential">Exponentielle (exp(-αx))</option>
+                                <option value="exponential">Exponentielle (exp(-x/d))</option>
                             </select>
                         </div>
 
                         {heatmapSettings?.type === 'exponential' && (
                             <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                                <span style={{ fontSize: 12, minWidth: 60 }}>Alpha:</span>
+                                <span style={{ fontSize: 12, minWidth: 80 }}>Dist. ref (km):</span>
                                 <input
                                     type="number"
-                                    step="0.0001"
-                                    value={heatmapSettings.params.alpha}
-                                    onChange={(e) => setHeatmapSettings(prev => ({ ...prev, params: { ...prev.params, alpha: parseFloat(e.target.value) } }))}
+                                    step="0.5"
+                                    min="0.5"
+                                    value={heatmapSettings.params?.distanceRef || 5}
+                                    onChange={(e) => setHeatmapSettings(prev => ({ ...prev, params: { ...prev.params, distanceRef: parseFloat(e.target.value) } }))}
                                     style={{ flex: 1, padding: 4, borderRadius: 4, border: '1px solid #ccc' }}
                                 />
+                                <span style={{ fontSize: 10, color: '#888' }}>~0 à d km</span>
                             </div>
                         )}
 

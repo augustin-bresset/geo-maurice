@@ -72,7 +72,19 @@ export function calculateHeatmap(spatialIndices, activeConfig, GROUPS, heatmapSe
     // The original comment block for "1. Initialize Sources" is replaced by the per-label loop.
 
     // 2. Prepare Friction Map (Population-based)
-    const roadFactor = heatmapSettings?.params?.roadFactor || 1.0;
+    let roadFactor = heatmapSettings?.params?.roadFactor || 1.0;
+
+    // Apply "allowedRoads" heuristic
+    // If fast roads are disabled, increase tortuosity/friction (simulate slower travel)
+    const allowedRoads = heatmapSettings?.params?.allowedRoads;
+    if (allowedRoads) {
+        if (!allowedRoads.motorway) roadFactor += 0.4; // Strong penalty if no motorways
+        if (!allowedRoads.primary) roadFactor += 0.2;
+        if (!allowedRoads.secondary) roadFactor += 0.1;
+        // local roads usually exist everywhere, removing them might be weird, but let's say small penalty
+        if (allowedRoads.local === false) roadFactor += 0.1;
+    }
+
     const popValues = populationData ? populationData.values : null;
 
     // Step distance in meters. 1 degree lat ~ 111km.
@@ -99,7 +111,7 @@ export function calculateHeatmap(spatialIndices, activeConfig, GROUPS, heatmapSe
     const visited = new Uint8Array(size); // Reused for each label
 
     const settings = heatmapSettings || { type: 'linear' };
-    const params = settings.params || { a: 100000, alpha: 0.001 };
+    const params = settings.params || { distanceRef: 5 };
 
     for (const cat of Object.keys(GROUPS)) {
         for (const label of GROUPS[cat]) {
@@ -143,16 +155,23 @@ export function calculateHeatmap(spatialIndices, activeConfig, GROUPS, heatmapSe
                 // Score Calculation for current pixel (idx)
                 if (dist < rangeMeters) {
                     let val = 0;
+                    const distRefMeters = (params.distanceRef || 5) * 1000; // For exponential: score = 0.5 at this distance
                     switch (settings.type) {
                         case 'constant': val = 1; break;
-                        case 'exponential': val = Math.exp(-params.alpha * dist); break;
+                        case 'exponential':
+                            // exp(-dist / distRef) → ~37% at distRef, ~5% at 3×distRef
+                            val = Math.exp(-dist / distRefMeters);
+                            break;
                         case 'linear':
                         default:
-                            const ratio = dist / rangeMeters;
-                            val = Math.pow(1 - ratio, roadFactor); // Apply factor to shape
+                            // Linear: score = 1 at dist=0, score = 0 at rangeMeters (portée)
+                            val = 1 - dist / rangeMeters;
                             break;
                     }
-                    values[idx] += val; // Accumulate score from this label
+                    // Threshold: ignore negligible values
+                    if (val > 0.01) {
+                        values[idx] += val;
+                    }
                 }
 
                 const x = idx % width;
@@ -166,11 +185,13 @@ export function calculateHeatmap(spatialIndices, activeConfig, GROUPS, heatmapSe
                         const nIdx = ny * width + nx;
                         if (!visited[nIdx]) {
                             // Friction logic
-                            let friction = 1.0;
+                            // popRatio represents how 'developed' an area is (0 = empty, 1 = dense)
+                            // friction interpolates: popRatio=0 -> roadFactor, popRatio=1 -> 1.0
+                            let popRatio = 0;
                             if (popValues) {
-                                const popRatio = Math.min(1, Math.sqrt(popValues[nIdx]) / 5); // Saturation at 25 ppl/km2
-                                friction = 1.0 + (roadFactor - 1.0) * (1 - popRatio);
+                                popRatio = Math.min(1, Math.sqrt(popValues[nIdx]) / 5); // Saturation at 25 ppl/km2
                             }
+                            const friction = 1.0 + (roadFactor - 1.0) * (1 - popRatio);
                             const newDist = dist + n.cost * friction;
                             if (newDist < distGrid[nIdx]) {
                                 distGrid[nIdx] = newDist;

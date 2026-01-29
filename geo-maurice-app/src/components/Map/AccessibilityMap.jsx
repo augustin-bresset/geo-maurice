@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { MapContainer, TileLayer, useMap, ImageOverlay } from 'react-leaflet';
+import { MapContainer, TileLayer, useMap, ImageOverlay, ScaleControl } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
@@ -212,6 +212,71 @@ const FastGeoJSONLayer = ({ data, color, visible, label }) => {
     return null;
 };
 
+const DistrictsLayer = ({ url = "/data/districts_mauritius.geojson", visible = true }) => {
+    const map = useMap();
+    const layerRef = React.useRef(null);
+
+    useEffect(() => {
+        if (!visible) {
+            if (layerRef.current) {
+                map.removeLayer(layerRef.current);
+                layerRef.current = null;
+            }
+            return;
+        }
+
+        let cancelled = false;
+
+        const load = async () => {
+            try {
+                const res = await fetch(url);
+                if (!res.ok) throw new Error(`Failed to fetch districts: ${res.status}`);
+                const data = await res.json();
+                if (cancelled) return;
+
+                // Remove old layer if exists
+                if (layerRef.current) {
+                    map.removeLayer(layerRef.current);
+                    layerRef.current = null;
+                }
+
+                layerRef.current = L.geoJSON(data, {
+                    style: () => ({
+                        color: "#222",
+                        weight: 2,
+                        fillOpacity: 0, // transparent fill
+                        opacity: 0.9
+                    }),
+                    onEachFeature: (feature, layer) => {
+                        const props = feature?.properties || {};
+                        const name =
+                            props.shapeName ||
+                            props.NAME_1 ||
+                            props.name ||
+                            props.district ||
+                            "District";
+                        layer.bindPopup(`<b>${name}</b>`);
+                    }
+                }).addTo(map);
+            } catch (e) {
+                console.error(e);
+            }
+        };
+
+        load();
+
+        return () => {
+            cancelled = true;
+            if (layerRef.current) {
+                map.removeLayer(layerRef.current);
+                layerRef.current = null;
+            }
+        };
+    }, [map, url, visible]);
+
+    return null;
+};
+
 export default function AccessibilityMap({
     heatmapPoints,
     populationData,
@@ -261,6 +326,8 @@ export default function AccessibilityMap({
                 url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
 
+            <ScaleControl position="bottomleft" imperial={false} />
+
             {/* Custom Heatmap Layer - Dynamic Data Source */}
             <CustomHeatmapLayer
                 gridData={activeGridData}
@@ -268,6 +335,9 @@ export default function AccessibilityMap({
                 mode={viewMode}
                 settings={heatmapSettings}
             />
+
+            {/* Districts Layer */}
+            <DistrictsLayer visible={true} />
 
             {/* Point Layers */}
             {layersToRender.map(l => (
@@ -279,6 +349,7 @@ export default function AccessibilityMap({
                     visible={l.visible}
                 />
             ))}
+
         </MapContainer>
     );
 }

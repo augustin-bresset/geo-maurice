@@ -1,0 +1,67 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath}
+\usepackage{geometry}
+\usepackage{hyperref}
+
+\geometry{a4paper, margin=2.5cm}
+
+\title{Rapport Technique : Carte d'Accessibilité de l'Île Maurice}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+Ce rapport décrit le fonctionnement technique de l'application de cartographie d'accessibilité développée pour l'Île Maurice. L'objectif est de visualiser l'accessibilité aux services (hôpitaux, écoles, etc.) en prenant en compte la topographie, le réseau routier approximé par la tortuosité, et la densité de population.
+
+\section{Modèle Algorithmique : Le Front d'Onde}
+Le cœur du calcul repose sur un algorithme de propagation de front d'onde, basé sur l'algorithme de Dijkstra. L'espace est discrétisé sous forme d'une grille régulière.
+
+\subsection{Grille et Initialisation}
+L'île est découpée en une grille de résolution fixe (environ 200m). Chaque point d'intérêt (POI) agit comme une "source".
+Pour chaque catégorie de service (ex: Santé), tous les POI correspondants sont initialisés avec une distance nulle ($d=0$) dans la file de priorité.
+
+\subsection{Propagation (Dijkstra)}
+L'algorithme propage la distance depuis les sources vers les cellules voisines. La "distance" ici n'est pas purement géodésique, mais une "distance-coût" qui intègre plusieurs facteurs de friction.
+
+Pour passer d'une cellule $u$ à une cellule voisine $v$, le coût est calculé comme suit :
+$$ \text{Coût}(u, v) = \text{DistanceEuclidienne}(u, v) \times \text{Friction}(v) $$
+
+\subsection{Facteurs de Friction}
+La friction modélise la difficulté de déplacement. Elle dépend de deux paramètres principaux configurables par l'utilisateur :
+
+\begin{enumerate}
+    \item \textbf{Le Facteur Routier (Tortuosité)} : Il approxime la sinuosité des routes. Un facteur de 1.0 correspond à un vol d'oiseau (ligne droite). Un facteur élevé (>1.0) simule des routes de montagne ou indirectes.
+    \item \textbf{La Densité de Population} (Mode Hybride) : En mode hybride, la friction peut être réduite dans les zones à forte densité (supposant de meilleures infrastructures) ou augmentée selon le modèle choisi. Dans l'implémentation actuelle, nous utilisons la formule :
+    $$ \text{Friction} = 1.0 + (\text{Tortuosité} - 1.0) \times (1 - \text{RatioDensité}) $$
+    Où $\text{RatioDensité}$ est normalisé entre 0 et 1. Ainsi, dans les zones très denses, la friction tend vers 1 (déplacement fluide), tandis que dans les zones vides, elle tend vers la valeur de tortuosité maximale définie.
+\end{enumerate}
+
+\section{Calcul du Score d'Accessibilité}
+Une fois la carte des distances minimales calculée pour chaque point de la grille, un score d'accessibilité est attribué. Ce score décroît avec la distance.
+
+L'utilisateur peut choisir parmi plusieurs fonctions de décroissance :
+\begin{itemize}
+    \item \textbf{Linéaire} : $S(d) = \max(0, 1 - \frac{d}{R})^k$ où $R$ est la portée maximale et $k$ un facteur de forme.
+    \item \textbf{Exponentielle} : $S(d) = e^{-\alpha d}$. Cette fonction ne tombe jamais strictement à zéro mais penalise fortement les grandes distances.
+    \item \textbf{Constante} : $S(d) = 1$ si $d < R$, 0 sinon (zone de couverture binaire).
+\end{itemize}
+
+L'accumulateur final somme les scores de toutes les catégories activées pour donner un indice global d'accessibilité en tout point de l'île.
+
+\section{Paramètres Avancés}
+L'application permet un réglage fin via une fenêtre de paramètres avancés :
+\begin{itemize}
+    \item \textbf{Portée Max} : Définit jusqu'à quelle distance un service a de l'influence.
+    \item \textbf{Tortuosité Max} : Permet d'augmenter l'échelle de la tortuosité (jusqu'à 100x) pour simuler des terrains extrêmement difficiles.
+    \item \textbf{Opacité Max} : Contrôle l'intensité visuelle de la superposition de la densité de population.
+\end{itemize}
+
+\section{Conclusion}
+Cette méthode permet de générer des "Heatmaps" dynamiques qui ne montrent pas seulement la densité des points, mais la véritable accessibilité fonctionnelle, en tenant compte des contraintes géographiques et démographiques de l'Île Maurice.
+
+\end{document}

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import AccessibilityMap from './components/Map/AccessibilityMap';
+import { Legend } from './components/Map/Legend';
 import { ControlPanel } from './components/Controls/ControlPanel';
+import { HelpModal, HelpButton } from './components/Controls/HelpModal';
 import { useAmenityData } from './hooks/useAmenityData';
 import { calculateHeatmap } from './utils/heatmap';
 import { GROUPS, CATEGORY_COLORS } from './config/amenities';
@@ -35,9 +37,15 @@ function App() {
   const [heatmapSettings, setHeatmapSettings] = useState({
     type: 'linear',
     params: {
-      alpha: 0.001, // for exp(-alpha*x)
+      distanceRef: 5, // Distance (km) à laquelle le score = 0.5 (passage rouge → vert)
       densityInfluence: 1.0, // Multiplier for population opacity effect
-      roadFactor: 1.0 // Tortuosity factor (1.0 = bird, >1.0 = road approx)
+      roadFactor: 1.0, // Tortuosity factor (1.0 = bird, >1.0 = road approx)
+      allowedRoads: {
+        motorway: true,
+        primary: true,
+        secondary: true,
+        local: true
+      }
     }
   });
 
@@ -49,6 +57,7 @@ function App() {
   });
 
   const [showAdvancedModal, setShowAdvancedModal] = useState(false);
+  const [showHelp, setShowHelp] = useState(false);
 
   useEffect(() => {
     localStorage.setItem('geo_maurice_profiles', JSON.stringify(customProfiles));
@@ -166,6 +175,7 @@ function App() {
         categoryColors={CATEGORY_COLORS}
         heatmapSettings={heatmapSettings}
       />
+      <Legend />
 
       {/* Advanced Settings Modal - Rendered here to avoid stacking context issues */}
       {showAdvancedModal && (
@@ -204,9 +214,38 @@ function App() {
                   type="number"
                   value={sliderLimits?.opacity?.max || 3.0}
                   onChange={(e) => setSliderLimits(prev => ({ ...prev, opacity: { ...prev.opacity, max: parseFloat(e.target.value) } }))}
-                  style={{ padding: 8, borderRadius: 4, border: '1px solid #ccc' }}
                 />
               </label>
+
+              <div style={{ padding: '8px 0', borderTop: '1px solid #eee' }}>
+                <span style={{ fontSize: 14, fontWeight: 'bold' }}>Types de routes:</span>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 6, marginTop: 6 }}>
+                  {['motorway', 'primary', 'secondary', 'local'].map(type => (
+                    <label key={type} style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 13, textTransform: 'capitalize' }}>
+                      <input
+                        type="checkbox"
+                        checked={heatmapSettings.params.allowedRoads?.[type] ?? true}
+                        onChange={(e) => {
+                          setHeatmapSettings(prev => ({
+                            ...prev,
+                            params: {
+                              ...prev.params,
+                              allowedRoads: {
+                                ...prev.params.allowedRoads,
+                                [type]: e.target.checked
+                              }
+                            }
+                          }));
+                        }}
+                      />
+                      {type === 'motorway' && 'Autoroutes (Rapide)'}
+                      {type === 'primary' && 'Routes Principales'}
+                      {type === 'secondary' && 'Routes Secondaires'}
+                      {type === 'local' && 'Routes Locales (Lent)'}
+                    </label>
+                  ))}
+                </div>
+              </div>
             </div>
 
             <div style={{ marginTop: 20, display: 'flex', justifyContent: 'flex-end' }}>
@@ -220,6 +259,10 @@ function App() {
           </div>
         </div>
       )}
+
+      {/* Help Button & Modal */}
+      <HelpButton onClick={() => setShowHelp(true)} />
+      <HelpModal isOpen={showHelp} onClose={() => setShowHelp(false)} />
     </div>
   );
 }
