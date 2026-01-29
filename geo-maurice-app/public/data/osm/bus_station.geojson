@@ -1,0 +1,335 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5520979,
+          -20.0430833
+        ]
+      },
+      "properties": {
+        "id": 33360724,
+        "name": "Unknown",
+        "amenity": "bus_station"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5046612,
+          -20.1577348
+        ]
+      },
+      "properties": {
+        "id": 33435050,
+        "name": "Immigration Square",
+        "amenity": "bus_station"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.7088629,
+          -20.4067218
+        ]
+      },
+      "properties": {
+        "id": 33437820,
+        "name": "Mahebourg Bus Terminal",
+        "amenity": "bus_station"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          63.4246958,
+          -19.678973
+        ]
+      },
+      "properties": {
+        "id": 37551414,
+        "name": "Bus Terminal Port Mathurin",
+        "amenity": "bus_station"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.6536308,
+          -20.0423719
+        ]
+      },
+      "properties": {
+        "id": 254353383,
+        "name": "Goodlands",
+        "amenity": "bus_station"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4787128,
+          -20.1714614
+        ]
+      },
+      "properties": {
+        "id": 305742014,
+        "name": "Plaine Lauzun Bus Terminal",
+        "amenity": "bus_station"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4820153,
+          -20.1693641
+        ]
+      },
+      "properties": {
+        "id": 305742018,
+        "name": "Cite Valijee Bus Station",
+        "amenity": "bus_station"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.7249531,
+          -20.1906047
+        ]
+      },
+      "properties": {
+        "id": 306148483,
+        "name": "Central Flacq Bus Station",
+        "amenity": "bus_station"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4042583,
+          -20.2103589
+        ]
+      },
+      "properties": {
+        "id": 371861331,
+        "name": "Albion Bus station",
+        "amenity": "bus_station"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5996425,
+          -20.2475053
+        ]
+      },
+      "properties": {
+        "id": 421621951,
+        "name": "Quartier Militaire Bus Station",
+        "amenity": "bus_station"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5593722,
+          -20.0949731
+        ]
+      },
+      "properties": {
+        "id": 495858412,
+        "name": "Unknown",
+        "amenity": "bus_station"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.6347944,
+          -20.0979009
+        ]
+      },
+      "properties": {
+        "id": 662796437,
+        "name": "Unknown",
+        "amenity": "bus_station"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5257206,
+          -20.3165174
+        ]
+      },
+      "properties": {
+        "id": 1009915201,
+        "name": "Metro Express Curepipe Central",
+        "amenity": "bus_station"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          63.4410883,
+          -19.7149415
+        ]
+      },
+      "properties": {
+        "id": 1024423344,
+        "name": "Unknown",
+        "amenity": "bus_station"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5262693,
+          -20.3163235
+        ]
+      },
+      "properties": {
+        "id": 1125060233,
+        "name": "Jan Palach North",
+        "amenity": "bus_station"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5300641,
+          -20.3237358
+        ]
+      },
+      "properties": {
+        "id": 1183402444,
+        "name": "Unknown",
+        "amenity": "bus_station"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4928043,
+          -20.2950031
+        ]
+      },
+      "properties": {
+        "id": 1215253196,
+        "name": "Unknown",
+        "amenity": "bus_station"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.6985565,
+          -20.1967007
+        ]
+      },
+      "properties": {
+        "id": 1310844176,
+        "name": "Unknown",
+        "amenity": "bus_station"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4757114,
+          -20.2420922
+        ]
+      },
+      "properties": {
+        "id": 1329833696,
+        "name": "Unknown",
+        "amenity": "bus_station"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.539361,
+          -20.2744995
+        ]
+      },
+      "properties": {
+        "id": 1415396423,
+        "name": "Hermitage Bus Terminus",
+        "amenity": "bus_station"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4958751,
+          -20.164004
+        ]
+      },
+      "properties": {
+        "id": 1431699142,
+        "name": "Unknown",
+        "amenity": "bus_station"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4973833,
+          -20.1633337
+        ]
+      },
+      "properties": {
+        "id": 16719910,
+        "name": "Victoria Urban Terminal",
+        "amenity": "bus_station"
+      }
+    }
+  ]
+}

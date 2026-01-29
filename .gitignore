@@ -6,3 +6,8 @@ cache/*
 *.tmp
 *.csv
 **.tif
+
+!geo-maurice-app/public/data/**/*.geojson
+!geo-maurice-app/public/data/**/*.json
+
+!data/WB_THINK_HAZARD.csv

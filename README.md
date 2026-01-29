@@ -2,7 +2,7 @@
 
 Une application de cartographie interactive pour visualiser l'accessibilité aux services et commodités à Maurice.
 
-## 📁 Structure du Projet
+## Structure du Projet
 
 ```
 geo-maurice-app/     # Application React (Vite + Leaflet)
@@ -10,13 +10,13 @@ scripts/             # Scripts Python pour récupérer les données
 data/                # Données brutes (CSV, Shapefiles)
 ```
 
-## 🔧 Prérequis
+## Prérequis
 
 - **Node.js** v18+
 - **Python** 3.8+
 - **pip** pour les packages Python
 
-## 🚀 Installation Rapide (avec Makefile)
+## Installation Rapide (avec Makefile)
 
 ```bash
 # Installation complète (venv + données + app)
@@ -43,7 +43,7 @@ Ouvrir http://localhost:5173 dans le navigateur.
 
 ---
 
-## 🔧 Installation Manuelle
+## Installation Manuelle
 
 ### 1. Environnement Python
 
@@ -71,7 +71,7 @@ npm run dev
 
 ---
 
-## 📊 Description des Scripts
+## Description des Scripts
 
 | Script | Description | Fichier généré |
 |--------|-------------|----------------|
@@ -81,7 +81,7 @@ npm run dev
 
 ---
 
-## 🗂️ Fichiers de données attendus
+## Fichiers de données attendus
 
 ```
 geo-maurice-app/public/data/
@@ -96,7 +96,7 @@ geo-maurice-app/public/data/
 
 ---
 
-## 🖥️ Utilisation
+## Utilisation
 
 ### Lancer en développement
 ```bash
@@ -112,15 +112,21 @@ Les fichiers sont générés dans `dist/`.
 
 ---
 
-## 📚 Sources de données
+## Sources de données
 
-- **OpenStreetMap** : Commodités (Overpass API)
-- **WorldPop** : Densité de population 2020 (1km)
-- **OpenStreetMap** : Réseau routier
+Cette application utilise plusieurs sources de données ouvertes :
+
+- **Population** : Données de densité de population provenant de [WorldPop](https://www.worldpop.org/).
+  - Fichier : Global 2000-2020 1km UNadj (2020) - `mus_ppp_2020_1km_Aggregated_UNadj.tif`
+  - URL source : `https://data.worldpop.org/GIS/Population/Global_2000_2020_1km_UNadj/2020/MUS/`
+- **Points d'intérêt (POI)** : Écoles, hôpitaux et autres services extraits d'OpenStreetMap (OSM) via l'API Overpass.
+- **Risques & Hydrographie** : Rivières, lacs, réservoirs et zones humides extraits d'OpenStreetMap.
+- **Altitude (MNT)** : Modèle Numérique de Terrain provenant des [AWS Terrain Tiles](https://registry.opendata.aws/terrain-tiles/) (s3.amazonaws.com/elevation-tiles-prod).
+- **Réseau Routier** : Données extraites d'OpenStreetMap pour le calcul de friction et l'accessibilité.
 
 ---
 
-## ⚙️ Paramètres avancés
+## Paramètres avancés
 
 L'application supporte :
 - **3 fonctions de score** : Linéaire, Exponentielle, Constante
@@ -128,4 +134,4 @@ L'application supporte :
 - **Filtrage par type de route** : Autoroutes, Principales, Secondaires, Locales
 - **Profils personnalisables** : Famille, Tourisme, Seniors, etc.
 
-Consultez le bouton **❓ Aide** dans l'application pour plus de détails.
+Consultez le bouton **Aide** dans l'application pour plus de détails.

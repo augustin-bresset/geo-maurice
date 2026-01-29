@@ -1,0 +1,140 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5222091,
+          -20.3187067
+        ]
+      },
+      "properties": {
+        "id": 223629361,
+        "name": "Curepipe District Court",
+        "amenity": "courthouse"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5059488,
+          -20.1658351
+        ]
+      },
+      "properties": {
+        "id": 495649882,
+        "name": "Supreme Court of Mauritius",
+        "amenity": "courthouse"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5056459,
+          -20.1646592
+        ]
+      },
+      "properties": {
+        "id": 495652072,
+        "name": "Commercial Court",
+        "amenity": "courthouse"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.7081846,
+          -20.409163
+        ]
+      },
+      "properties": {
+        "id": 508436097,
+        "name": "Grand Port District Court",
+        "amenity": "courthouse"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5224192,
+          -20.318485
+        ]
+      },
+      "properties": {
+        "id": 1005886040,
+        "name": "Court House Curepipe",
+        "amenity": "courthouse"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.6084505,
+          -20.0794337
+        ]
+      },
+      "properties": {
+        "id": 1008795095,
+        "name": "District Court of Rivière du Rempart (Mapou)",
+        "amenity": "courthouse"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5864696,
+          -20.1134273
+        ]
+      },
+      "properties": {
+        "id": 1008795097,
+        "name": "New District Court of Pamplemousses",
+        "amenity": "courthouse"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5041116,
+          -20.2231187
+        ]
+      },
+      "properties": {
+        "id": 1008795098,
+        "name": "District Court of Moka",
+        "amenity": "courthouse"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5217889,
+          -20.5193066
+        ]
+      },
+      "properties": {
+        "id": 1111657558,
+        "name": "Souillac Court",
+        "amenity": "courthouse"
+      }
+    }
+  ]
+}

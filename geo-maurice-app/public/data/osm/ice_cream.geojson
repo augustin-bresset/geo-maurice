@@ -1,0 +1,20 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5062449,
+          -20.1633236
+        ]
+      },
+      "properties": {
+        "id": 737342270,
+        "name": "SnowWow",
+        "amenity": "ice_cream"
+      }
+    }
+  ]
+}

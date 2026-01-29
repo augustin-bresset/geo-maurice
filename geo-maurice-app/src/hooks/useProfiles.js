@@ -1,54 +1,38 @@
 import { useState, useEffect } from 'react';
 
 /**
- * Hook to load profiles from JSON files in /data/profiles/
+ * Hook to load profiles from JSON files in src/assets/profiles/
+ * Uses Vite's import.meta.glob for dynamic loading without manual index.
  */
 export function useProfiles() {
     const [profiles, setProfiles] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        let isMounted = true;
-
         const loadProfiles = async () => {
-            try {
-                // Load index
-                const indexRes = await fetch('/data/profiles/index.json');
-                if (!indexRes.ok) {
-                    console.warn('No profiles index found');
-                    setLoading(false);
-                    return;
-                }
+            // Vite glob import
+            const modules = import.meta.glob('/src/assets/profiles/*.json');
 
-                const indexJson = await indexRes.json();
-                const profileIds = indexJson.profiles || [];
-
-                // Load each profile
-                const loadedProfiles = [];
-                for (const id of profileIds) {
-                    try {
-                        const res = await fetch(`/data/profiles/${id}.json`);
-                        if (res.ok) {
-                            const profile = await res.json();
-                            loadedProfiles.push(profile);
-                        }
-                    } catch (e) {
-                        console.warn(`Failed to load profile ${id}`, e);
+            const loaded = [];
+            for (const path in modules) {
+                try {
+                    const mod = await modules[path]();
+                    // Default export or the JSON itself
+                    // JSON imports in Vite usually return the object as default
+                    const profile = mod.default || mod;
+                    if (profile.name) {
+                        loaded.push(profile);
                     }
+                } catch (e) {
+                    console.error(`Error loading profile ${path}`, e);
                 }
-
-                if (isMounted) {
-                    setProfiles(loadedProfiles);
-                    setLoading(false);
-                }
-            } catch (e) {
-                console.error('Failed to load profiles', e);
-                if (isMounted) setLoading(false);
             }
+
+            setProfiles(loaded);
+            setLoading(false);
         };
 
         loadProfiles();
-        return () => { isMounted = false; };
     }, []);
 
     return { profiles, loading };

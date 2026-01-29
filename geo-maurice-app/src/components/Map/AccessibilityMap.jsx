@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { MapContainer, TileLayer, useMap, ImageOverlay, ScaleControl } from 'react-leaflet';
+import FloodSimulatorLayer from './FloodSimulatorLayer';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
@@ -278,6 +279,72 @@ const DistrictsLayer = ({ url = "/data/districts_mauritius.geojson", visible = t
     return null;
 };
 
+const RiskLayer = ({ visible }) => {
+    const map = useMap();
+    const layerRef = React.useRef(null);
+
+    useEffect(() => {
+        if (!visible) {
+            if (layerRef.current) {
+                map.removeLayer(layerRef.current);
+                layerRef.current = null;
+            }
+            return;
+        }
+
+        const load = async () => {
+            try {
+                const res = await fetch('/data/hazards/flood_model.geojson');
+                if (!res.ok) return;
+                const data = await res.json();
+
+                if (layerRef.current) {
+                    map.removeLayer(layerRef.current);
+                }
+
+                layerRef.current = L.geoJSON(data, {
+                    style: (feature) => {
+                        const risk = feature.properties.risk_level;
+                        if (risk === 'High') {
+                            return {
+                                color: '#e74c3c', // Red
+                                fillColor: '#e74c3c',
+                                fillOpacity: 0.6,
+                                weight: 0
+                            };
+                        } else {
+                            return {
+                                color: '#e67e22', // Orange
+                                fillColor: '#e67e22',
+                                fillOpacity: 0.4,
+                                weight: 0
+                            };
+                        }
+                    },
+                    onEachFeature: (feature, layer) => {
+                        const props = feature.properties || {};
+                        const riskLabel = props.risk_level === 'High' ? 'Risque Élevé (Inondation)' : 'Risque Moyen (Crue)';
+                        layer.bindPopup(`<b>Zone Inondable</b><br>${riskLabel}`);
+                    }
+                }).addTo(map);
+            } catch (e) {
+                console.error("Failed to load risk data", e);
+            }
+        };
+
+        load();
+
+        return () => {
+            if (layerRef.current) {
+                map.removeLayer(layerRef.current);
+                layerRef.current = null;
+            }
+        };
+    }, [map, visible]);
+
+    return null;
+};
+
 export default function AccessibilityMap({
     heatmapPoints,
     populationData,
@@ -286,34 +353,33 @@ export default function AccessibilityMap({
     config,
     groups,
     categoryColors,
-    heatmapSettings
+    heatmapSettings,
+    applicationMode = 'services',
+    floodLevel = 0, // New Prop
+    riskMode = 'river',
+    populationWeighting = false
 }) {
 
     // Select which grid to show
-    // If viewMode is population, show populationData.
-    // If accessibility, show heatmapPoints.
-
     const activeGridData = viewMode === 'population' ? populationData : heatmapPoints;
 
     const layersToRender = [];
-    Object.keys(groups).forEach(cat => {
-        const color = categoryColors[cat];
-        groups[cat].forEach(label => {
-            const cfg = config[label];
-            // Only show points if visible AND we are in accessibility mode? 
-            // Or always show points?
-            // Usually if looking at population, we might still want to see amenities.
-            // Let's keep existing logic: show if configured visible.
-            if (cfg && cfg.visible && geoData[label]) {
-                layersToRender.push({
-                    label,
-                    data: geoData[label],
-                    color,
-                    visible: true
-                });
-            }
+    if (applicationMode === 'services') {
+        Object.keys(groups).forEach(cat => {
+            const color = categoryColors[cat];
+            groups[cat].forEach(label => {
+                const cfg = config[label];
+                if (cfg && cfg.visible && geoData[label]) {
+                    layersToRender.push({
+                        label,
+                        data: geoData[label],
+                        color,
+                        visible: true
+                    });
+                }
+            });
         });
-    });
+    }
 
     return (
         <MapContainer
@@ -329,27 +395,45 @@ export default function AccessibilityMap({
 
             <ScaleControl position="bottomleft" imperial={false} />
 
-            {/* Custom Heatmap Layer - Dynamic Data Source */}
-            <CustomHeatmapLayer
-                gridData={activeGridData}
-                secondaryGrid={viewMode === 'hybrid' ? populationData : null}
-                mode={viewMode}
-                settings={heatmapSettings}
-            />
-
-            {/* Districts Layer */}
+            {/* Distrcits always visible for context */}
             <DistrictsLayer visible={true} />
 
-            {/* Point Layers */}
-            {layersToRender.map(l => (
-                <FastGeoJSONLayer
-                    key={l.label}
-                    label={l.label}
-                    data={l.data}
-                    color={l.color}
-                    visible={l.visible}
-                />
-            ))}
+            {applicationMode === 'services' ? (
+                <>
+                    {/* Custom Heatmap Layer */}
+                    <CustomHeatmapLayer
+                        gridData={activeGridData}
+                        secondaryGrid={viewMode === 'hybrid' ? populationData : null}
+                        mode={viewMode}
+                        settings={heatmapSettings}
+                    />
+
+                    {/* Point Layers */}
+                    {layersToRender.map(l => (
+                        <FastGeoJSONLayer
+                            key={l.label}
+                            label={l.label}
+                            data={l.data}
+                            color={l.color}
+                            visible={l.visible}
+                        />
+                    ))}
+                </>
+            ) : (
+                /* RISK MODE LAYERS */
+                <>
+                    {/* Dynamic Flood Simulator */}
+                    <FloodSimulatorLayer
+                        visible={true}
+                        floodLevel={floodLevel}
+                        riskMode={riskMode}
+                        populationWeighting={populationWeighting}
+                    />
+
+                    {/* Keep RiskLayer (vector) hidden or optional? For now replacing it completely as requested */}
+                    {/* <RiskLayer visible={false} /> */}
+                </>
+            )}
 
         </MapContainer>
     );

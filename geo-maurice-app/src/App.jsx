@@ -3,6 +3,7 @@ import AccessibilityMap from './components/Map/AccessibilityMap';
 import { Legend } from './components/Map/Legend';
 import { ControlPanel } from './components/Controls/ControlPanel';
 import { HelpModal, HelpButton } from './components/Controls/HelpModal';
+import { SaveProfileModal } from './components/Controls/SaveProfileModal';
 import { useAmenityData } from './hooks/useAmenityData';
 import { useProfiles } from './hooks/useProfiles';
 import { calculateHeatmap } from './utils/heatmap';
@@ -59,6 +60,12 @@ function App() {
   });
 
   const [showAdvancedModal, setShowAdvancedModal] = useState(false);
+
+  const [showSaveModal, setShowSaveModal] = useState(false);
+  const [applicationMode, setApplicationMode] = useState('services'); // 'services' | 'risks'
+  const [floodLevel, setFloodLevel] = useState(0); // 0 to 50 meters
+  const [riskMode, setRiskMode] = useState('river'); // 'river' | 'sea'
+  const [populationWeighting, setPopulationWeighting] = useState(false);
   const [showHelp, setShowHelp] = useState(false);
 
   useEffect(() => {
@@ -72,13 +79,20 @@ function App() {
     const jsonProfile = jsonProfiles.find(p => p.id === profileId);
     if (jsonProfile) {
       const base = getBaseConfig();
-      // Reset all amenities
-      Object.keys(base).forEach(k => { base[k].weight = 0; base[k].score = false; base[k].visible = false; });
+      // Reset all amenities to Weight 0 (but keep them visible/scored so UI bars remain)
+      Object.keys(base).forEach(k => { base[k].weight = 0; base[k].score = true; base[k].visible = true; });
       // Apply profile amenities
       if (jsonProfile.amenities) {
         Object.entries(jsonProfile.amenities).forEach(([key, val]) => {
           if (base[key]) {
-            base[key] = { ...base[key], ...val };
+            // Intelligent Merge: If weight is defined but score/visible are not, assume True
+            const autoEnable = (val.weight && val.weight > 0);
+            base[key] = {
+              ...base[key],
+              visible: val.visible ?? (autoEnable ? true : base[key].visible),
+              score: val.score ?? (autoEnable ? true : base[key].score),
+              weight: val.weight ?? base[key].weight
+            };
           }
         });
       }
@@ -102,6 +116,16 @@ function App() {
     const custom = customProfiles.find(p => p.id === profileId);
     if (custom) {
       const base = getBaseConfig();
+      // Reset all first just like JSON profiles to ensure clean state
+      // (User reported previously saved profiles not working well, possibly due to mixed state)
+      // Actually for custom profiles, we usually save the FULL config, so simple merge is fine.
+      // But if the saved config was "sparse" (only diffs), we need the reset logic. 
+      // Assuming custom profiles save the FULL state (currentConfig), simple merge is safest.
+
+      // However, to be consistent with "Profile" concept (exclusive), we should check if 'custom.config' is full or sparse.
+      // 'handleSaveProfile' saves 'currentConfig' which is FULL.
+      // So no reset needed usually. 
+
       const merged = { ...base, ...custom.config };
       setConfig(merged);
       if (custom.heatmapSettings) {
@@ -117,17 +141,26 @@ function App() {
     }
   };
 
-  const saveProfile = (name) => {
+  const handleSaveProfile = (profileData) => {
     const newProfile = {
       id: `custom_${Date.now()}`,
-      name: name,
-      description: 'Profil personnalisé',
-      config: config,
-      heatmapSettings: heatmapSettings, // Save heatmap settings too
+      ...profileData,
       isCustom: true
     };
-    setCustomProfiles([...customProfiles, newProfile]);
+    const updatedProfiles = [...customProfiles, newProfile];
+    setCustomProfiles(updatedProfiles);
     setActiveProfileId(newProfile.id);
+    // Force immediate save to storage to be safe
+    localStorage.setItem('geo_maurice_profiles', JSON.stringify(updatedProfiles));
+
+    // DOWNLOAD JSON as requested
+    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(newProfile, null, 2));
+    const downloadAnchorNode = document.createElement('a');
+    downloadAnchorNode.setAttribute("href", dataStr);
+    downloadAnchorNode.setAttribute("download", `${newProfile.name.replace(/\s+/g, '_').toLowerCase()}.json`);
+    document.body.appendChild(downloadAnchorNode); // required for firefox
+    downloadAnchorNode.click();
+    downloadAnchorNode.remove();
   };
 
   const deleteProfile = (id) => {
@@ -174,7 +207,16 @@ function App() {
         config={config}
         setConfig={(newConfig) => {
           setConfig(newConfig);
-          setActiveProfileId('custom_unsaved'); // Indicate modification
+          // Only mark as unsaved if we are not already on a custom profile that is saved
+          // But actually any change creates a divergence from the "Saved" state.
+          // Simplest: Always go to 'custom_unsaved' unless we are just loading?
+          // No, if I am editing "My Profile 1", I stay on "My Profile 1" until I save? 
+          // usually: editing a saved profile makes it "Dirty".
+          // For now, let's keep the user's request: "I cannot modify a default profile".
+          // When modifying a default profile, we must detach from it.
+          if (!activeProfileId.startsWith('custom_')) {
+            setActiveProfileId('custom_unsaved');
+          }
         }}
         onRecalculate={handleRecalculate}
         loading={loading || calculating}
@@ -188,7 +230,8 @@ function App() {
         profiles={[...jsonProfiles, ...customProfiles]}
         activeProfileId={activeProfileId}
         onLoadProfile={loadProfile}
-        onSaveProfile={saveProfile}
+        onSaveProfile={handleSaveProfile} // Kept for prop consistency
+        onOpenSaveModal={() => setShowSaveModal(true)}
         onDeleteProfile={deleteProfile}
 
         // View Mode
@@ -199,6 +242,18 @@ function App() {
         sliderLimits={sliderLimits}
         setSliderLimits={setSliderLimits}
         setShowAdvancedModal={setShowAdvancedModal}
+
+        // Mode 'Services' vs 'Risks'
+        applicationMode={applicationMode}
+        setApplicationMode={setApplicationMode}
+
+        // Flood Control
+        floodLevel={floodLevel}
+        setFloodLevel={setFloodLevel}
+        riskMode={riskMode}
+        setRiskMode={setRiskMode}
+        populationWeighting={populationWeighting}
+        setPopulationWeighting={setPopulationWeighting}
       />
       <AccessibilityMap
         heatmapPoints={heatmapPoints}
@@ -209,6 +264,10 @@ function App() {
         groups={GROUPS}
         categoryColors={CATEGORY_COLORS}
         heatmapSettings={heatmapSettings}
+        applicationMode={applicationMode}
+        floodLevel={floodLevel}
+        riskMode={riskMode}
+        populationWeighting={populationWeighting}
       />
       <Legend />
 
@@ -252,35 +311,7 @@ function App() {
                 />
               </label>
 
-              <div style={{ padding: '8px 0', borderTop: '1px solid #eee' }}>
-                <span style={{ fontSize: 14, fontWeight: 'bold' }}>Types de routes:</span>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 6, marginTop: 6 }}>
-                  {['motorway', 'primary', 'secondary', 'local'].map(type => (
-                    <label key={type} style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 13, textTransform: 'capitalize' }}>
-                      <input
-                        type="checkbox"
-                        checked={heatmapSettings.params.allowedRoads?.[type] ?? true}
-                        onChange={(e) => {
-                          setHeatmapSettings(prev => ({
-                            ...prev,
-                            params: {
-                              ...prev.params,
-                              allowedRoads: {
-                                ...prev.params.allowedRoads,
-                                [type]: e.target.checked
-                              }
-                            }
-                          }));
-                        }}
-                      />
-                      {type === 'motorway' && 'Autoroutes (Rapide)'}
-                      {type === 'primary' && 'Routes Principales'}
-                      {type === 'secondary' && 'Routes Secondaires'}
-                      {type === 'local' && 'Routes Locales (Lent)'}
-                    </label>
-                  ))}
-                </div>
-              </div>
+
 
               {/* Friction Source Toggle */}
               <div style={{ padding: '8px 0', borderTop: '1px solid #eee' }}>
@@ -330,6 +361,15 @@ function App() {
           </div>
         </div>
       )}
+
+      {/* Save Profile Modal */}
+      <SaveProfileModal
+        isOpen={showSaveModal}
+        onClose={() => setShowSaveModal(false)}
+        onSave={handleSaveProfile}
+        currentConfig={config}
+        currentHeatmapSettings={heatmapSettings}
+      />
 
       {/* Help Button & Modal */}
       <HelpButton onClick={() => setShowHelp(true)} />

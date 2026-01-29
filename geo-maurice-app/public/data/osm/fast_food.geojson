@@ -1,0 +1,1010 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4947612,
+          -20.2240378
+        ]
+      },
+      "properties": {
+        "id": 353488246,
+        "name": "Burger King",
+        "amenity": "fast_food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4970962,
+          -20.2357505
+        ]
+      },
+      "properties": {
+        "id": 473061643,
+        "name": "Unknown",
+        "amenity": "fast_food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5522962,
+          -20.0576667
+        ]
+      },
+      "properties": {
+        "id": 475767553,
+        "name": "Unknown",
+        "amenity": "fast_food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.552497,
+          -20.0569579
+        ]
+      },
+      "properties": {
+        "id": 475768555,
+        "name": "Baboolal",
+        "amenity": "fast_food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.376449,
+          -20.3288544
+        ]
+      },
+      "properties": {
+        "id": 508827879,
+        "name": "Chez Dom",
+        "amenity": "fast_food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.3727557,
+          -20.2761885
+        ]
+      },
+      "properties": {
+        "id": 509022808,
+        "name": "Chez Aissa",
+        "amenity": "fast_food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5195961,
+          -20.1471208
+        ]
+      },
+      "properties": {
+        "id": 509885608,
+        "name": "Point Frais 7/7",
+        "amenity": "fast_food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5234132,
+          -20.1390303
+        ]
+      },
+      "properties": {
+        "id": 509921583,
+        "name": "Poulet Frais",
+        "amenity": "fast_food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4705747,
+          -20.2349509
+        ]
+      },
+      "properties": {
+        "id": 510602769,
+        "name": "KFC",
+        "amenity": "fast_food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5204281,
+          -20.1300753
+        ]
+      },
+      "properties": {
+        "id": 543100674,
+        "name": "McDonald's",
+        "amenity": "fast_food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.3636551,
+          -20.2899792
+        ]
+      },
+      "properties": {
+        "id": 580805944,
+        "name": "Unknown",
+        "amenity": "fast_food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.3640323,
+          -20.2867385
+        ]
+      },
+      "properties": {
+        "id": 580808898,
+        "name": "Unknown",
+        "amenity": "fast_food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.3639722,
+          -20.2870733
+        ]
+      },
+      "properties": {
+        "id": 580808899,
+        "name": "Unknown",
+        "amenity": "fast_food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.363781,
+          -20.2880974
+        ]
+      },
+      "properties": {
+        "id": 580808900,
+        "name": "Chez anand",
+        "amenity": "fast_food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.3637729,
+          -20.288123
+        ]
+      },
+      "properties": {
+        "id": 580808901,
+        "name": "Chez Collas",
+        "amenity": "fast_food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.3637629,
+          -20.2911422
+        ]
+      },
+      "properties": {
+        "id": 580813339,
+        "name": "Étoile d'Or",
+        "amenity": "fast_food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.3636466,
+          -20.289713
+        ]
+      },
+      "properties": {
+        "id": 580814921,
+        "name": "Santa Maria",
+        "amenity": "fast_food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.364342,
+          -20.2843991
+        ]
+      },
+      "properties": {
+        "id": 580815916,
+        "name": "Unknown",
+        "amenity": "fast_food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.3643266,
+          -20.284455
+        ]
+      },
+      "properties": {
+        "id": 580815917,
+        "name": "Unknown",
+        "amenity": "fast_food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.3643165,
+          -20.284511
+        ]
+      },
+      "properties": {
+        "id": 580815918,
+        "name": "Unknown",
+        "amenity": "fast_food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.3643111,
+          -20.2845613
+        ]
+      },
+      "properties": {
+        "id": 580815919,
+        "name": "Unknown",
+        "amenity": "fast_food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.3642608,
+          -20.2846475
+        ]
+      },
+      "properties": {
+        "id": 580815920,
+        "name": "Unknown",
+        "amenity": "fast_food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.7233703,
+          -20.1832108
+        ]
+      },
+      "properties": {
+        "id": 607971611,
+        "name": "McDonald's",
+        "amenity": "fast_food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.7259503,
+          -20.1926651
+        ]
+      },
+      "properties": {
+        "id": 607974386,
+        "name": "KFC",
+        "amenity": "fast_food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.7759381,
+          -20.1950424
+        ]
+      },
+      "properties": {
+        "id": 677855143,
+        "name": "Sun & Sand Snack",
+        "amenity": "fast_food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.773733,
+          -20.1900267
+        ]
+      },
+      "properties": {
+        "id": 677855146,
+        "name": "Unknown",
+        "amenity": "fast_food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.7751109,
+          -20.1975937
+        ]
+      },
+      "properties": {
+        "id": 677858679,
+        "name": "La caravane",
+        "amenity": "fast_food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5067887,
+          -20.2270898
+        ]
+      },
+      "properties": {
+        "id": 1008796609,
+        "name": "McDonald's",
+        "amenity": "fast_food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5030589,
+          -20.1706049
+        ]
+      },
+      "properties": {
+        "id": 1008808362,
+        "name": "El Mondo Pizza",
+        "amenity": "fast_food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.409286,
+          -20.2597605
+        ]
+      },
+      "properties": {
+        "id": 1109007481,
+        "name": "Unknown",
+        "amenity": "fast_food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4252644,
+          -20.2808232
+        ]
+      },
+      "properties": {
+        "id": 1112538884,
+        "name": "Vanshika Snack",
+        "amenity": "fast_food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4197775,
+          -20.2618706
+        ]
+      },
+      "properties": {
+        "id": 1117081107,
+        "name": "Restaurant Harish",
+        "amenity": "fast_food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.3848635,
+          -20.3281595
+        ]
+      },
+      "properties": {
+        "id": 1133255064,
+        "name": "KFC",
+        "amenity": "fast_food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.384479,
+          -20.3292272
+        ]
+      },
+      "properties": {
+        "id": 1133255080,
+        "name": "McDonald's",
+        "amenity": "fast_food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4677595,
+          -20.2242898
+        ]
+      },
+      "properties": {
+        "id": 1167938490,
+        "name": "McDonald's",
+        "amenity": "fast_food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5151315,
+          -20.1680503
+        ]
+      },
+      "properties": {
+        "id": 1168779338,
+        "name": "Maraz Roti & Dholl Puri",
+        "amenity": "fast_food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5153124,
+          -20.1678987
+        ]
+      },
+      "properties": {
+        "id": 1168779339,
+        "name": "Ajmeer Snack",
+        "amenity": "fast_food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5174002,
+          -20.1686555
+        ]
+      },
+      "properties": {
+        "id": 1168780876,
+        "name": "Chez Javed Fast Food",
+        "amenity": "fast_food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4932041,
+          -20.1657965
+        ]
+      },
+      "properties": {
+        "id": 1169819802,
+        "name": "Steph's Snack",
+        "amenity": "fast_food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4938459,
+          -20.1653485
+        ]
+      },
+      "properties": {
+        "id": 1170373806,
+        "name": "Riyad Kebab",
+        "amenity": "fast_food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4895239,
+          -20.1663915
+        ]
+      },
+      "properties": {
+        "id": 1170373807,
+        "name": "Kebab Venus",
+        "amenity": "fast_food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4985219,
+          -20.1634042
+        ]
+      },
+      "properties": {
+        "id": 1170975094,
+        "name": "L'ocean",
+        "amenity": "fast_food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5234563,
+          -20.3134912
+        ]
+      },
+      "properties": {
+        "id": 1179758464,
+        "name": "pyramid foods",
+        "amenity": "fast_food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5206878,
+          -20.1526202
+        ]
+      },
+      "properties": {
+        "id": 1181892437,
+        "name": "Tipo Grill",
+        "amenity": "fast_food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5212876,
+          -20.1519904
+        ]
+      },
+      "properties": {
+        "id": 1181892440,
+        "name": "Ghetto Grill",
+        "amenity": "fast_food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.518304,
+          -20.1470016
+        ]
+      },
+      "properties": {
+        "id": 1181892448,
+        "name": "Ricardo Fast Food",
+        "amenity": "fast_food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5088022,
+          -20.1543181
+        ]
+      },
+      "properties": {
+        "id": 1181892451,
+        "name": "Krunchy Chicken",
+        "amenity": "fast_food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.507781,
+          -20.1558886
+        ]
+      },
+      "properties": {
+        "id": 1181892454,
+        "name": "Fine Guele Boutique Café",
+        "amenity": "fast_food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5027166,
+          -20.1617409
+        ]
+      },
+      "properties": {
+        "id": 1181892456,
+        "name": "Debonairs Pizza",
+        "amenity": "fast_food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4398658,
+          -20.1962726
+        ]
+      },
+      "properties": {
+        "id": 1181894467,
+        "name": "Veer Briani House",
+        "amenity": "fast_food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.442602,
+          -20.196443
+        ]
+      },
+      "properties": {
+        "id": 1181894468,
+        "name": "Coco Wong Snack",
+        "amenity": "fast_food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4427606,
+          -20.1959452
+        ]
+      },
+      "properties": {
+        "id": 1181894469,
+        "name": "Petit Verger Snack",
+        "amenity": "fast_food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4442234,
+          -20.1953852
+        ]
+      },
+      "properties": {
+        "id": 1181894470,
+        "name": "Taste Perfect",
+        "amenity": "fast_food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4467983,
+          -20.1941967
+        ]
+      },
+      "properties": {
+        "id": 1181894475,
+        "name": "Tison Grill",
+        "amenity": "fast_food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4483647,
+          -20.1943956
+        ]
+      },
+      "properties": {
+        "id": 1181894477,
+        "name": "Tasty Frenzy",
+        "amenity": "fast_food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4482331,
+          -20.1756012
+        ]
+      },
+      "properties": {
+        "id": 1182577242,
+        "name": "Bryan Swee",
+        "amenity": "fast_food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4777201,
+          -20.2580256
+        ]
+      },
+      "properties": {
+        "id": 1182665585,
+        "name": "My Way",
+        "amenity": "fast_food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4810487,
+          -20.1889861
+        ]
+      },
+      "properties": {
+        "id": 1185987558,
+        "name": "Raj Snack",
+        "amenity": "fast_food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4958858,
+          -20.2463539
+        ]
+      },
+      "properties": {
+        "id": 1186517385,
+        "name": "McDonald's",
+        "amenity": "fast_food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.3711285,
+          -20.3349342
+        ]
+      },
+      "properties": {
+        "id": 1189379889,
+        "name": "Pastil pizza",
+        "amenity": "fast_food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4875978,
+          -20.3010965
+        ]
+      },
+      "properties": {
+        "id": 1213574828,
+        "name": "Maraz",
+        "amenity": "fast_food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4877125,
+          -20.3007882
+        ]
+      },
+      "properties": {
+        "id": 1214403407,
+        "name": "Unknown",
+        "amenity": "fast_food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.6536426,
+          -20.2823437
+        ]
+      },
+      "properties": {
+        "id": 1229668680,
+        "name": "Baze poule",
+        "amenity": "fast_food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4965268,
+          -20.2448472
+        ]
+      },
+      "properties": {
+        "id": 1321421196,
+        "name": "Burger King",
+        "amenity": "fast_food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5805801,
+          -20.0208687
+        ]
+      },
+      "properties": {
+        "id": 1331939020,
+        "name": "Burger King",
+        "amenity": "fast_food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5499358,
+          -20.0671075
+        ]
+      },
+      "properties": {
+        "id": 1380042564,
+        "name": "briani",
+        "amenity": "fast_food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.645199,
+          -20.0736918
+        ]
+      },
+      "properties": {
+        "id": 1451674318,
+        "name": "Vishal Snack",
+        "amenity": "fast_food"
+      }
+    }
+  ]
+}
