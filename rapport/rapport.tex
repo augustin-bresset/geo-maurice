@@ -5,63 +5,148 @@
 \usepackage{amsmath}
 \usepackage{geometry}
 \usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{listings}
 
 \geometry{a4paper, margin=2.5cm}
 
-\title{Rapport Technique : Carte d'Accessibilité de l'Île Maurice}
+\title{Rapport Technique Détaillé : Carte d'Accessibilité de l'Île Maurice (Geo Maurice)}
+\author{Équipe RSE}
 \date{\today}
 
 \begin{document}
 
 \maketitle
+\tableofcontents
+\newpage
 
 \section{Introduction}
-Ce rapport décrit le fonctionnement technique de l'application de cartographie d'accessibilité développée pour l'Île Maurice. L'objectif est de visualiser l'accessibilité aux services (hôpitaux, écoles, etc.) en prenant en compte la topographie, le réseau routier approximé par la tortuosité, et la densité de population.
+Ce rapport détaille le fonctionnement technique, algorithmique et fonctionnel de l'application \textbf{Geo Maurice}. Cette application Web interactive permet de visualiser l'accessibilité aux services essentiels (santé, éducation, commerces, etc.) sur l'ensemble de l'île Maurice. Elle se distingue par une approche "orientée temps de trajet" plutôt que simple distance géodésique, en modélisant les contraintes de déplacement (densité de population, réseau routier).
 
-\section{Modèle Algorithmique : Le Front d'Onde}
-Le cœur du calcul repose sur un algorithme de propagation de front d'onde, basé sur l'algorithme de Dijkstra. L'espace est discrétisé sous forme d'une grille régulière.
+\section{Architecture Technique}
+L'application repose sur une architecture moderne séparant le pré-traitement des données et la visualisation interactive.
 
-\subsection{Grille et Initialisation}
-L'île est découpée en une grille de résolution fixe (environ 200m). Chaque point d'intérêt (POI) agit comme une "source".
-Pour chaque catégorie de service (ex: Santé), tous les POI correspondants sont initialisés avec une distance nulle ($d=0$) dans la file de priorité.
-
-\subsection{Propagation (Dijkstra)}
-L'algorithme propage la distance depuis les sources vers les cellules voisines. La "distance" ici n'est pas purement géodésique, mais une "distance-coût" qui intègre plusieurs facteurs de friction.
-
-Pour passer d'une cellule $u$ à une cellule voisine $v$, le coût est calculé comme suit :
-$$ \text{Coût}(u, v) = \text{DistanceEuclidienne}(u, v) \times \text{Friction}(v) $$
-
-\subsection{Facteurs de Friction}
-La friction modélise la difficulté de déplacement. Elle dépend de deux paramètres principaux configurables par l'utilisateur :
-
-\begin{enumerate}
-    \item \textbf{Le Facteur Routier (Tortuosité)} : Il approxime la sinuosité des routes. Un facteur de 1.0 correspond à un vol d'oiseau (ligne droite). Un facteur élevé (>1.0) simule des routes de montagne ou indirectes.
-    \item \textbf{La Densité de Population} (Mode Hybride) : En mode hybride, la friction peut être réduite dans les zones à forte densité (supposant de meilleures infrastructures) ou augmentée selon le modèle choisi. Dans l'implémentation actuelle, nous utilisons la formule :
-    $$ \text{Friction} = 1.0 + (\text{Tortuosité} - 1.0) \times (1 - \text{RatioDensité}) $$
-    Où $\text{RatioDensité}$ est normalisé entre 0 et 1. Ainsi, dans les zones très denses, la friction tend vers 1 (déplacement fluide), tandis que dans les zones vides, elle tend vers la valeur de tortuosité maximale définie.
-\end{enumerate}
-
-\section{Calcul du Score d'Accessibilité}
-Une fois la carte des distances minimales calculée pour chaque point de la grille, un score d'accessibilité est attribué. Ce score décroît avec la distance.
-
-L'utilisateur peut choisir parmi plusieurs fonctions de décroissance :
 \begin{itemize}
-    \item \textbf{Linéaire} : $S(d) = \max(0, 1 - \frac{d}{R})^k$ où $R$ est la portée maximale et $k$ un facteur de forme.
-    \item \textbf{Exponentielle} : $S(d) = e^{-\alpha d}$. Cette fonction ne tombe jamais strictement à zéro mais penalise fortement les grandes distances.
-    \item \textbf{Constante} : $S(d) = 1$ si $d < R$, 0 sinon (zone de couverture binaire).
+    \item \textbf{Frontend} : React.js (Vite), Leaflet pour la cartographie, et Web Workers (implicites via l'asynchronicité) pour les calculs lourds.
+    \item \textbf{Données} : Scripts Python pour l'extraction et le traitement des données OpenStreetMap (OSM) et WorldPop.
+    \item \textbf{Format de Données} : GeoJSON pour les points d'intérêt et Grilles raster (JSON/FloatArray) pour la population et la friction.
 \end{itemize}
 
-L'accumulateur final somme les scores de toutes les catégories activées pour donner un indice global d'accessibilité en tout point de l'île.
+\section{Modélisation Algorithmique de l'Accessibilité}
+L'innovation principale réside dans le calcul dynamique de l'"Isochrone" ou de la zone d'influence via un algorithme de propagation de coût.
 
-\section{Paramètres Avancés}
-L'application permet un réglage fin via une fenêtre de paramètres avancés :
+\subsection{Quadrillage (Grille)}
+L'espace géographique de l'île est discrétisé en une grille régulière.
 \begin{itemize}
-    \item \textbf{Portée Max} : Définit jusqu'à quelle distance un service a de l'influence.
-    \item \textbf{Tortuosité Max} : Permet d'augmenter l'échelle de la tortuosité (jusqu'à 100x) pour simuler des terrains extrêmement difficiles.
-    \item \textbf{Opacité Max} : Contrôle l'intensité visuelle de la superposition de la densité de population.
+    \item \textbf{Résolution} : Environ 0.002 degrés ($\approx 200$ mètres).
+    \item \textbf{Dimensions} : La grille couvre l'étendue [Lon 57.2 - 63.6, Lat -20.6 - -19.4], incluant Rodrigues.
+\end{itemize}
+
+\subsection{Propagation : Algorithme de Dijkstra}
+Pour calculer le temps ou la difficulté d'accès, nous utilisons l'algorithme de Dijkstra multi-sources. Chaque point d'intérêt (POI) d'une catégorie donnée (ex: Hôpital) initialise la distance à 0. L'algorithme propage ensuite cette valeur aux cellules voisines en ajoutant un \textbf{coût de déplacement}.
+
+Soit $d(u)$ le coût accumulé à la cellule $u$. Pour un voisin $v$ :
+$$ d(v) = \min(d(v), d(u) + \text{Dist}(u, v) \times \text{Friction}(v)) $$
+
+Où $\text{Dist}(u, v)$ est la distance euclidienne réelle (en mètres) et $\text{Friction}(v)$ est un coefficient $\ge 1.0$ représentant la difficulté de traversée.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.7\textwidth]{images/fig_propagation}
+    \caption{Propagation via réseau routier. Le "Road Factor" crée des corridors de déplacement rapide (zones sombres), tandis que les zones hors-route (fonds clairs) sont coûteuses à traverser.}
+    \label{fig:propagation}
+\end{figure}
+
+\subsection{Estimation de la Traversabilité (Friction)}
+La friction modélise la vitesse de déplacement. Une friction de 1.0 correspond à un déplacement idéal (vol d'oiseau ou autoroute parfaite). Une friction élevée correspond à un terrain difficile ou une absence de routes.
+
+L'utilisateur peut choisir entre trois modes d'estimation de la traversabilité :
+
+\subsubsection{1. Vol d'Oiseau (Friction Constante)}
+C'est le mode le plus simple.
+$$ \text{Friction} = 1.0 $$
+La distance calculée est purement géométrique. Utile pour une estimation brute sans contraintes.
+
+\subsubsection{2. Estimation par Densité de Population (Mode Hybride)}
+En l'absence de données routières précises sur toute la surface, nous utilisons la densité de population comme proxy de l'infrastructure. L'hypothèse est que les zones densément peuplées disposent de meilleures routes.
+
+$$ \text{Friction} = 1.0 + (\text{Tortuosité}_{max} - 1.0) \times (1 - \text{RatioPop}) $$
+
+\begin{itemize}
+    \item $\text{RatioPop} = \min(1, \frac{\sqrt{\text{Densité}}}{5})$ : Normalise la densité.
+    \item Dans les villes ($\text{RatioPop} \approx 1$), $\text{Friction} \to 1.0$.
+    \item En zone rurale vide ($\text{RatioPop} \approx 0$), $\text{Friction} \to \text{Tortuosité}_{max}$ (paramètre définissant la pénalité maximale).
+\end{itemize}
+
+\subsubsection{3. Estimation par Réseau Routier (OSM)}
+Ce mode utilise une grille de friction pré-calculée à partir des types de routes OpenStreetMap.
+$$ \text{Friction} = 1.0 + (\text{Val}_{OSM} - 1.0) \times \frac{(\text{Facteur} - 1.0)}{4.0} $$
+Les valeurs de base $\text{Val}_{OSM}$ sont :
+\begin{itemize}
+    \item Autoroute : 1.0
+    \item Route Principale : 1.5
+    \item Route Secondaire : 2.5
+    \item Piste / Pas de route : 5.0
+\end{itemize}
+Le paramètre de "Tortuosité" ou "Facteur" permet à l'utilisateur d'accentuer ou de diminuer l'impact de ces différences (par exemple, pour simuler un véhicule tout-terrain vs une voiture de ville).
+
+\section{Calcul du Score et Visualisation}
+
+Une fois la carte des distances $D(x, y)$ calculée, elle est transformée en un \textbf{Score d'Accessibilité} normalisé entre 0 et 1.
+
+\subsection{Fonctions de Décroissance}
+L'utilisateur peut choisir la forme de la diminution du score avec la distance (paramètre Portée $R$) :
+
+\begin{enumerate}
+    \item \textbf{Linéaire} : Décroissance constante.
+    $$ S(d) = \max(0, 1 - \frac{d}{R}) $$
+    \item \textbf{Exponentielle} : Décroissance rapide mais portée infinie théorique.
+    $$ S(d) = e^{-d/R} $$
+    \item \textbf{Constante} (Binaire) : Zone de couverture stricte.
+    $$ S(d) = \begin{cases} 1 & \text{si } d < R \\ 0 & \text{sinon} \end{cases} $$
+\end{enumerate}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/fig_functions}
+    \caption{Comparaison des fonctions de décroissance du score.}
+    \label{fig:functions}
+\end{figure}
+
+\subsection{Agrégation Multi-Critères}
+Le score final en un point est la somme pondérée des scores de chaque catégorie active :
+$$ \text{ScoreFinal}(x, y) = \sum_{c \in \text{Catégories}} w_c \times S_c(D_c(x, y)) $$
+Où $w_c$ est le poids (weight) défini dans le profil utilisateur.
+
+\section{Profils et Paramétrage}
+
+L'application est conçue pour être adaptative via un système de profils.
+
+\subsection{Structure d'un Profil}
+Un profil est un fichier JSON définissant les priorités d'un type d'utilisateur. Exemple pour une "Famille" :
+\begin{verbatim}
+{
+    "id": "family",
+    "heatmapSettings": {
+        "roadFactor": 2.0,       // Pénalité moyenne pour les trajets
+        "densityInfluence": 1.0
+    },
+    "amenities": {
+        "school": { "weight": 10, "visible": true }, // Écoles prioritaires
+        "hospital": { "weight": 15, "visible": true } // Hôpital crucial
+    }
+}
+\end{verbatim}
+
+\subsection{Paramètres Utilisateur}
+L'interface permet d'ajuster en temps réel :
+\begin{itemize}
+    \item \textbf{Portée Max ($R$)} : Définit l'échelle de l'analyse (ex: 5km pour la marche, 20km pour la voiture).
+    \item \textbf{Tortuosité ($F_{max}$)} : Simule la difficulté du terrain. Augmenter ce facteur réduit l'accessibilité des zones rurales.
+    \item \textbf{Filtres de Routes} : Possibilité d'exclure les autoroutes ou les pistes locales du calcul.
 \end{itemize}
 
 \section{Conclusion}
-Cette méthode permet de générer des "Heatmaps" dynamiques qui ne montrent pas seulement la densité des points, mais la véritable accessibilité fonctionnelle, en tenant compte des contraintes géographiques et démographiques de l'Île Maurice.
+Geo Maurice offre une analyse fine de l'accessibilité territoriale. En combinant des algorithmes de graphes (Dijkstra) appliqués à des grilles raster et des données démographiques, elle permet de dépasser la simple "distance à vol d'oiseau" pour proposer une métrique d'accessibilité fonctionnelle et réaliste.
 
 \end{document}
