@@ -25,7 +25,7 @@ function getColor(value) {
 function generateHeatmapImage(gridData, secondaryGrid, mode, densityInfluence) {
     if (!gridData || !gridData.values) return null;
 
-    const { values, width, height, maxScore } = gridData;
+    const { values, width, height, maxScore, landMask } = gridData;
     const canvas = document.createElement('canvas');
     canvas.width = width;
     canvas.height = height;
@@ -58,13 +58,14 @@ function generateHeatmapImage(gridData, secondaryGrid, mode, densityInfluence) {
 
             const pixelIndex = (y * width + x) * 4;
 
-            // Decide if we should render this pixel
-            // 1. Accessibility score > 0
-            // 2. OR Hybrid mode: we want to show density even if no accessibility (background)
-            //    But user specifically asked for "Constant" mode background. 
-            //    Let's enable it for Hybrid mode in general, as it makes sense.
-            //    Color will be Blue (low score).
+            // Check land mask - only render on land
+            const isLand = landMask ? landMask[i] : true;
+            if (!isLand) {
+                data[pixelIndex + 3] = 0; // Transparent for ocean
+                continue;
+            }
 
+            // Decide if we should render this pixel
             const hasAccess = score > 0;
             const showBackground = mode === 'hybrid' && popValues && popValues[i] > 0;
 

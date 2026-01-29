@@ -1,85 +1,131 @@
-# Geo Maurice
+# Geo Maurice - Carte d'Accessibilité
 
-An interactive map application for visualizing amenities and services in Mauritius.
+Une application de cartographie interactive pour visualiser l'accessibilité aux services et commodités à Maurice.
 
-## Project Structure
+## 📁 Structure du Projet
 
-- **geo-maurice-app/**: The React frontend application (Vite + Leaflet).
-- **scripts/**: Python scripts for fetching and processing OSM data.
-- **data/**: Contains raw data files (CSVs, Shapefiles).
-  - `shapefiles/`: Tourist spots shapefiles.
-  - `*.csv`: Various raw datasets.
+```
+geo-maurice-app/     # Application React (Vite + Leaflet)
+scripts/             # Scripts Python pour récupérer les données
+data/                # Données brutes (CSV, Shapefiles)
+```
 
-## Prerequisites
+## 🔧 Prérequis
 
-- Node.js (v18+ recommended)
-- Python 3.8+
+- **Node.js** v18+
+- **Python** 3.8+
+- **pip** pour les packages Python
 
-## Installation
-
-### 1. Setup Python Environment & Dependencies
-
-Install the required Python packages for the data fetching scripts:
+## 🚀 Installation Rapide (avec Makefile)
 
 ```bash
+# Installation complète (venv + données + app)
+make all
+
+# Lancer l'application
+make run
+```
+
+Ouvrir http://localhost:5173 dans le navigateur.
+
+### Commandes Makefile disponibles
+
+| Commande | Description |
+|----------|-------------|
+| `make install` | Crée le venv Python et installe les dépendances |
+| `make data` | Télécharge toutes les données (OSM, population, routes) |
+| `make install-app` | Installe les dépendances Node.js |
+| `make run` | Lance l'application en développement |
+| `make build` | Build de production |
+| `make clean` | Nettoie les fichiers générés |
+| `make all` | Installation complète |
+| `make help` | Affiche l'aide |
+
+---
+
+## 🔧 Installation Manuelle
+
+### 1. Environnement Python
+
+```bash
+python -m venv .venv
+source .venv/bin/activate  # Linux/Mac
 pip install -r requirements.txt
 ```
 
-### 2. Setup Frontend Application
+### 2. Télécharger les données
 
-Navigate to the application directory and install dependencies:
+```bash
+python scripts/fetch_osm.py          # Points OSM (~5-10 min)
+python scripts/fetch_population.py   # Population (~2 min)
+python scripts/fetch_roads_friction.py  # Routes (~5-10 min)
+```
+
+### 3. Application
 
 ```bash
 cd geo-maurice-app
 npm install
-```
-
-## Data Preparation
-
-Before running the application, you may want to fetch the latest data from OpenStreetMap. The `fetch_osm.py` script queries OSM for various amenities (Health, Security, Education, etc.) and saves them as GeoJSON files directly into the frontend's public directory (`geo-maurice-app/public/data/osm`).
-
-To run the fetch script:
-
-```bash
-python scripts/fetch_osm.py
-```
-
-This will create/update the GeoJSON files used by the application to display points of interest.
-
-## Running the Application
-
-Start the development server:
-
-```bash
-cd geo-maurice-app
 npm run dev
 ```
 
-Open your browser and navigate to the URL shown (usually `http://localhost:5173`).
+---
 
-### Stopping the Application
+## 📊 Description des Scripts
 
-To stop the development server, press `Ctrl + C` in the terminal where the server is running.
+| Script | Description | Fichier généré |
+|--------|-------------|----------------|
+| `fetch_osm.py` | Points OSM (écoles, hôpitaux, etc.) | `public/data/osm/*.geojson` |
+| `fetch_population.py` | Densité de population WorldPop | `public/data/population.json` |
+| `fetch_roads_friction.py` | Grille de friction routière | `public/data/roads_friction.json` |
 
-### Building for Production
+---
 
-To create a production-ready build of the application:
+## 🗂️ Fichiers de données attendus
 
-```bash
-cd geo-maurice-app
-npm run build
+```
+geo-maurice-app/public/data/
+├── osm/                    # Points OSM par catégorie
+│   ├── hospital.geojson
+│   ├── school.geojson
+│   └── ...
+├── population.json         # Grille de densité de population
+├── roads_friction.json     # Grille de friction routière (optionnel)
+└── districts_mauritius.geojson  # Frontières des districts
 ```
 
-The built files will be in the `dist` directory.
+---
 
+## 🖥️ Utilisation
 
-## Scripts Overview
+### Lancer en développement
+```bash
+cd geo-maurice-app && npm run dev
+```
 
-- **scripts/fetch_osm.py**: Main script to fetch amenity data from OSM using Overpass API.
-- **scripts/amenities.py**: Defines the categories and lists of amenities to fetch.
-- **scripts/fetch_point_mauritus.py**: Utility script for fetching points (imported by `fetch_osm.py`).
+### Build production
+```bash
+cd geo-maurice-app && npm run build
+```
 
-## Data Sources
+Les fichiers sont générés dans `dist/`.
 
-- **OpenStreetMap**: Primary source for dynamic amenity data.
+---
 
+## 📚 Sources de données
+
+- **OpenStreetMap** : Commodités (Overpass API)
+- **WorldPop** : Densité de population 2020 (1km)
+- **OpenStreetMap** : Réseau routier
+
+---
+
+## ⚙️ Paramètres avancés
+
+L'application supporte :
+- **3 fonctions de score** : Linéaire, Exponentielle, Constante
+- **2 sources de friction** : Population ou Routes OSM
+- **Filtrage par type de route** : Autoroutes, Principales, Secondaires, Locales
+- **Profils personnalisables** : Famille, Tourisme, Seniors, etc.
+
+Consultez le bouton **❓ Aide** dans l'application pour plus de détails.

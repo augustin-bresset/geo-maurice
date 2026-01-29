@@ -9,6 +9,7 @@ export function useAmenityData() {
     const [progress, setProgress] = useState(0);
 
     const [populationData, setPopulationData] = useState(null);
+    const [roadsFrictionData, setRoadsFrictionData] = useState(null);
 
     useEffect(() => {
         let isMounted = true;
@@ -33,6 +34,17 @@ export function useAmenityData() {
             } finally {
                 loadedCount++;
                 if (isMounted) setProgress((loadedCount / total) * 100);
+            }
+
+            // Fetch Roads Friction Data
+            try {
+                const roadsRes = await fetch('/data/roads_friction.json');
+                if (roadsRes.ok) {
+                    const roadsJson = await roadsRes.json();
+                    if (isMounted) setRoadsFrictionData(roadsJson);
+                }
+            } catch (e) {
+                console.warn("Failed to load roads friction data", e);
             }
 
             // Parallel fetching by category could be efficient, but let's just do bulk promises
@@ -94,5 +106,5 @@ export function useAmenityData() {
         return () => { isMounted = false; };
     }, []);
 
-    return { data, spatialIndices, populationData, loading, progress };
+    return { data, spatialIndices, populationData, roadsFrictionData, loading, progress };
 }

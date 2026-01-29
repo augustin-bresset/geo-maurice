@@ -59,7 +59,7 @@ class PriorityQueue {
     }
 }
 
-export function calculateHeatmap(spatialIndices, activeConfig, GROUPS, heatmapSettings, populationData) {
+export function calculateHeatmap(spatialIndices, activeConfig, GROUPS, heatmapSettings, populationData, roadsFrictionData) {
     const { minLat, maxLat, minLon, maxLon, step } = GRID_BBOX;
     const width = Math.ceil((maxLon - minLon) / step);
     const height = Math.ceil((maxLat - minLat) / step);
@@ -71,17 +71,15 @@ export function calculateHeatmap(spatialIndices, activeConfig, GROUPS, heatmapSe
     // 1. Initialize Sources (This section is now handled within the loop per label)
     // The original comment block for "1. Initialize Sources" is replaced by the per-label loop.
 
-    // 2. Prepare Friction Map (Population-based)
+    // 2. Prepare Friction Map
     let roadFactor = heatmapSettings?.params?.roadFactor || 1.0;
+    const allowedRoads = heatmapSettings?.params?.allowedRoads || {};
 
-    // Apply "allowedRoads" heuristic
-    // If fast roads are disabled, increase tortuosity/friction (simulate slower travel)
-    const allowedRoads = heatmapSettings?.params?.allowedRoads;
-    if (allowedRoads) {
-        if (!allowedRoads.motorway) roadFactor += 0.4; // Strong penalty if no motorways
-        if (!allowedRoads.primary) roadFactor += 0.2;
-        if (!allowedRoads.secondary) roadFactor += 0.1;
-        // local roads usually exist everywhere, removing them might be weird, but let's say small penalty
+    // Apply "allowedRoads" penalty when using population source
+    if (heatmapSettings?.params?.frictionSource !== 'roads') {
+        if (allowedRoads.motorway === false) roadFactor += 0.4;
+        if (allowedRoads.primary === false) roadFactor += 0.2;
+        if (allowedRoads.secondary === false) roadFactor += 0.1;
         if (allowedRoads.local === false) roadFactor += 0.1;
     }
 
@@ -143,7 +141,9 @@ export function calculateHeatmap(spatialIndices, activeConfig, GROUPS, heatmapSe
                 localPQ.push({ idx, dist: 0 });
             });
 
-            const labelMaxScanDist = rangeMeters * roadFactor * 1.5; // Buffer for propagation
+            // For exponential, extend propagation range (exp(-5) ≈ 0.7%)
+            const isExponential = settings.type === 'exponential';
+            const labelMaxScanDist = rangeMeters * roadFactor * (isExponential ? 5 : 1.5);
 
             while (localPQ.size() > 0) {
                 const { idx, dist } = localPQ.pop();
@@ -153,25 +153,25 @@ export function calculateHeatmap(spatialIndices, activeConfig, GROUPS, heatmapSe
                 if (dist > labelMaxScanDist) continue; // Optimization: stop propagating far beyond range
 
                 // Score Calculation for current pixel (idx)
-                if (dist < rangeMeters) {
-                    let val = 0;
-                    const distRefMeters = (params.distanceRef || 5) * 1000; // For exponential: score = 0.5 at this distance
-                    switch (settings.type) {
-                        case 'constant': val = 1; break;
-                        case 'exponential':
-                            // exp(-dist / distRef) → ~37% at distRef, ~5% at 3×distRef
-                            val = Math.exp(-dist / distRefMeters);
-                            break;
-                        case 'linear':
-                        default:
-                            // Linear: score = 1 at dist=0, score = 0 at rangeMeters (portée)
+                let val = 0;
+                switch (settings.type) {
+                    case 'constant':
+                        if (dist < rangeMeters) val = 1;
+                        break;
+                    case 'exponential':
+                        // No hard cutoff - natural decay
+                        val = Math.exp(-dist / rangeMeters);
+                        break;
+                    case 'linear':
+                    default:
+                        // Linear: score = 1 at dist=0, score = 0 at rangeMeters
+                        if (dist < rangeMeters) {
                             val = 1 - dist / rangeMeters;
-                            break;
-                    }
-                    // Threshold: ignore negligible values
-                    if (val > 0.01) {
-                        values[idx] += val;
-                    }
+                        }
+                        break;
+                }
+                if (val > 0) {
+                    values[idx] += val;
                 }
 
                 const x = idx % width;
@@ -184,14 +184,26 @@ export function calculateHeatmap(spatialIndices, activeConfig, GROUPS, heatmapSe
                     if (nx >= 0 && nx < width && ny >= 0 && ny < height) {
                         const nIdx = ny * width + nx;
                         if (!visited[nIdx]) {
-                            // Friction logic
-                            // popRatio represents how 'developed' an area is (0 = empty, 1 = dense)
-                            // friction interpolates: popRatio=0 -> roadFactor, popRatio=1 -> 1.0
-                            let popRatio = 0;
-                            if (popValues) {
-                                popRatio = Math.min(1, Math.sqrt(popValues[nIdx]) / 5); // Saturation at 25 ppl/km2
+                            // Friction logic - choose source
+                            const frictionSource = params.frictionSource || 'population';
+                            let friction = 1.0;
+
+                            if (frictionSource === 'roads' && roadsFrictionData && roadsFrictionData.values) {
+                                // Use pre-calculated roads friction grid directly
+                                const roadVal = roadsFrictionData.values[nIdx] || 5.0;
+                                // roadVal: 1.0 = good road, 5.0 = off-road
+                                // Apply roadFactor: higher roadFactor = more penalty for off-road
+                                friction = 1.0 + (roadVal - 1.0) * (roadFactor - 1.0) / 4.0;
+                            } else {
+                                // Population-based friction
+                                let popRatio = 0;
+                                if (popValues) {
+                                    popRatio = Math.min(1, Math.sqrt(popValues[nIdx]) / 5);
+                                }
+                                // friction: 1.0 for dense areas (roads), roadFactor for empty areas
+                                friction = 1.0 + (roadFactor - 1.0) * (1 - popRatio);
                             }
-                            const friction = 1.0 + (roadFactor - 1.0) * (1 - popRatio);
+
                             const newDist = dist + n.cost * friction;
                             if (newDist < distGrid[nIdx]) {
                                 distGrid[nIdx] = newDist;
@@ -204,13 +216,53 @@ export function calculateHeatmap(spatialIndices, activeConfig, GROUPS, heatmapSe
         }
     }
 
-    // 4. Find max score for normalization
+    // 4. Create land mask based on population data (land = pop > 0)
+    // Apply morphological dilation to include uninhabited land areas near populated ones
+    const landMask = new Uint8Array(size);
+    if (popValues) {
+        // First pass: mark pixels with population
+        const rawMask = new Uint8Array(size);
+        for (let k = 0; k < size; k++) {
+            rawMask[k] = popValues[k] > 0 ? 1 : 0;
+        }
+
+        // Dilate the mask (radius ~10 pixels = ~2km) to include nearby uninhabited land
+        const dilateRadius = 10;
+        for (let y = 0; y < height; y++) {
+            for (let x = 0; x < width; x++) {
+                const idx = y * width + x;
+                if (rawMask[idx]) {
+                    landMask[idx] = 1;
+                    continue;
+                }
+                // Check neighborhood for any populated pixel
+                let found = false;
+                for (let dy = -dilateRadius; dy <= dilateRadius && !found; dy++) {
+                    for (let dx = -dilateRadius; dx <= dilateRadius && !found; dx++) {
+                        const ny = y + dy;
+                        const nx = x + dx;
+                        if (ny >= 0 && ny < height && nx >= 0 && nx < width) {
+                            if (rawMask[ny * width + nx]) {
+                                found = true;
+                            }
+                        }
+                    }
+                }
+                landMask[idx] = found ? 1 : 0;
+            }
+        }
+    } else {
+        // No population data, assume everywhere is land
+        landMask.fill(1);
+    }
+
+    // 5. Find max score for normalization
     let maxScore = 0;
     for (let k = 0; k < size; k++) {
         if (values[k] > maxScore) maxScore = values[k];
     }
 
     return {
-        values, width, height, minLat, minLon, maxLat, maxLon, step, maxScore
+        values, width, height, minLat, minLon, maxLat, maxLon, step, maxScore, landMask
     };
 }

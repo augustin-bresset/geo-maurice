@@ -29,8 +29,8 @@ Plus une zone est rouge, plus elle est proche des commodités sélectionnées.`
         content: `**Linéaire** : Le score décroît uniformément de 1 (à distance 0) à 0 (à la portée définie).
 Formule : Score = 1 - distance/portée
 
-**Exponentielle** : Décroissance progressive. Le score est proche de 0 à la distance de référence.
-Formule : Score = exp(-distance/distRef)
+**Exponentielle** : Décroissance progressive basée sur la portée de chaque commodité.
+Formule : Score = exp(-distance/portée)
 
 **Constante** : Score = 1 partout dans la portée (binaire).`
     },
@@ -45,14 +45,20 @@ Chaque type de commodité peut avoir sa propre portée, ajustable via les slider
     },
     {
         id: 'tortuosity',
-        title: '🛤️ Tortuosité',
-        content: `Ce facteur simule le fait que les routes ne sont pas en ligne droite.
+        title: '🛤️ Tortuosité et Friction',
+        content: `Contrôle l'importance des routes dans le calcul de distance.
 
-- **1.0** = Vol d'oiseau (distance euclidienne)
-- **1.3** = Route typique (+30% de distance)
-- **1.5+** = Terrain montagneux ou routes sinueuses
+**Tortuosité (Intensité) :**
+- **1.0** = Pas d'effet des routes (vol d'oiseau)
+- **2.0** = Effet modéré (routes accélèrent le déplacement)
+- **5.0** = Effet maximum (routes très importantes, hors-route difficile)
 
-La tortuosité augmente artificiellement les distances calculées.`
+**Source de friction (Paramètres Avancés) :**
+- **Population** : Estime les routes via la densité de population
+- **Routes OSM** : Utilise les vraies routes OpenStreetMap
+
+**Types de routes :**
+Désactiver un type = retirer son bonus de vitesse.`
     },
     {
         id: 'profiles',

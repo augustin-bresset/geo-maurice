@@ -9,7 +9,7 @@ import { GROUPS, CATEGORY_COLORS } from './config/amenities';
 import { DEFAULT_PROFILES } from './config/profiles';
 
 function App() {
-  const { data, spatialIndices, populationData, loading, progress } = useAmenityData();
+  const { data, spatialIndices, populationData, roadsFrictionData, loading, progress } = useAmenityData();
 
   // Helper to get a clean base config
   const getBaseConfig = () => {
@@ -40,6 +40,7 @@ function App() {
       distanceRef: 5, // Distance (km) à laquelle le score = 0.5 (passage rouge → vert)
       densityInfluence: 1.0, // Multiplier for population opacity effect
       roadFactor: 1.0, // Tortuosity factor (1.0 = bird, >1.0 = road approx)
+      frictionSource: 'population', // 'population' or 'roads'
       allowedRoads: {
         motorway: true,
         primary: true,
@@ -114,7 +115,7 @@ function App() {
     // Use setTimeout to allow UI to render spinner before heavy calc locks thread
     setTimeout(() => {
       try {
-        const points = calculateHeatmap(spatialIndices, config, GROUPS, heatmapSettings, populationData);
+        const points = calculateHeatmap(spatialIndices, config, GROUPS, heatmapSettings, populationData, roadsFrictionData);
         setHeatmapPoints(points);
       } catch (e) {
         console.error("Heatmap calc error", e);
@@ -245,6 +246,42 @@ function App() {
                     </label>
                   ))}
                 </div>
+              </div>
+
+              {/* Friction Source Toggle */}
+              <div style={{ padding: '8px 0', borderTop: '1px solid #eee' }}>
+                <span style={{ fontSize: 14, fontWeight: 'bold' }}>Source de friction:</span>
+                <div style={{ display: 'flex', gap: 8, marginTop: 6 }}>
+                  <button
+                    onClick={() => setHeatmapSettings(prev => ({ ...prev, params: { ...prev.params, frictionSource: 'population' } }))}
+                    style={{
+                      flex: 1, padding: '8px', cursor: 'pointer', borderRadius: 4,
+                      border: '1px solid #ccc',
+                      background: heatmapSettings.params.frictionSource === 'population' ? '#27ae60' : '#f8f9fa',
+                      color: heatmapSettings.params.frictionSource === 'population' ? 'white' : '#333',
+                      fontWeight: heatmapSettings.params.frictionSource === 'population' ? 'bold' : 'normal'
+                    }}
+                  >
+                    Population
+                  </button>
+                  <button
+                    onClick={() => setHeatmapSettings(prev => ({ ...prev, params: { ...prev.params, frictionSource: 'roads' } }))}
+                    style={{
+                      flex: 1, padding: '8px', cursor: 'pointer', borderRadius: 4,
+                      border: '1px solid #ccc',
+                      background: heatmapSettings.params.frictionSource === 'roads' ? '#e74c3c' : '#f8f9fa',
+                      color: heatmapSettings.params.frictionSource === 'roads' ? 'white' : '#333',
+                      fontWeight: heatmapSettings.params.frictionSource === 'roads' ? 'bold' : 'normal'
+                    }}
+                  >
+                    Routes OSM
+                  </button>
+                </div>
+                <span style={{ fontSize: 10, color: '#888', marginTop: 4, display: 'block' }}>
+                  {heatmapSettings.params.frictionSource === 'roads'
+                    ? 'Utilise les routes réelles de la carte OpenStreetMap'
+                    : 'Estime les routes à partir de la densité de population'}
+                </span>
               </div>
             </div>
 

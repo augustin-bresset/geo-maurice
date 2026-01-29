@@ -127,21 +127,6 @@ export function ControlPanel({
                             </select>
                         </div>
 
-                        {heatmapSettings?.type === 'exponential' && (
-                            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                                <span style={{ fontSize: 12, minWidth: 80 }}>Dist. ref (km):</span>
-                                <input
-                                    type="number"
-                                    step="0.5"
-                                    min="0.5"
-                                    value={heatmapSettings.params?.distanceRef || 5}
-                                    onChange={(e) => setHeatmapSettings(prev => ({ ...prev, params: { ...prev.params, distanceRef: parseFloat(e.target.value) } }))}
-                                    style={{ flex: 1, padding: 4, borderRadius: 4, border: '1px solid #ccc' }}
-                                />
-                                <span style={{ fontSize: 10, color: '#888' }}>~0 à d km</span>
-                            </div>
-                        )}
-
                     </div>
 
                     {/* Advanced Settings Button */}
