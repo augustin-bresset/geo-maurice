@@ -123,6 +123,7 @@ function App() {
       name: name,
       description: 'Profil personnalisé',
       config: config,
+      heatmapSettings: heatmapSettings, // Save heatmap settings too
       isCustom: true
     };
     setCustomProfiles([...customProfiles, newProfile]);
