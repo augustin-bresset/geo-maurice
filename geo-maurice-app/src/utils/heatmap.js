@@ -140,6 +140,8 @@ export function calculateHeatmap(spatialIndices, activeConfig, GROUPS, heatmapSe
                 distGrid[idx] = 0;
                 localPQ.push({ idx, dist: 0 });
             });
+            console.log(`[Heatmap] Processing ${label}: ${startingNodes.length} source points found / ${coords.length} total coords.`);
+
 
             // For exponential, extend propagation range (exp(-5) ≈ 0.7%)
             const isExponential = settings.type === 'exponential';

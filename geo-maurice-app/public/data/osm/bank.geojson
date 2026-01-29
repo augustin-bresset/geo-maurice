@@ -1,0 +1,515 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5243974,
+          -20.3179036
+        ]
+      },
+      "properties": {
+        "id": 223523810,
+        "name": "Mauritius Commercial Bank",
+        "amenity": "bank"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5250821,
+          -20.3190891
+        ]
+      },
+      "properties": {
+        "id": 223523812,
+        "name": "State Bank",
+        "amenity": "bank"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5234526,
+          -20.3150361
+        ]
+      },
+      "properties": {
+        "id": 223529935,
+        "name": "HSBC",
+        "amenity": "bank"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5245125,
+          -20.3182534
+        ]
+      },
+      "properties": {
+        "id": 223529937,
+        "name": "Absa",
+        "amenity": "bank"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5093507,
+          -20.5119123
+        ]
+      },
+      "properties": {
+        "id": 223537920,
+        "name": "SBM",
+        "amenity": "bank"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4676177,
+          -20.2250601
+        ]
+      },
+      "properties": {
+        "id": 238061626,
+        "name": "Mauritius Commercial Bank Beau Bassin Branch",
+        "amenity": "bank"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4826411,
+          -20.1695379
+        ]
+      },
+      "properties": {
+        "id": 305852772,
+        "name": "SBM",
+        "amenity": "bank"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4959945,
+          -20.2413537
+        ]
+      },
+      "properties": {
+        "id": 357801729,
+        "name": "MAU Bank",
+        "amenity": "bank"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4764373,
+          -20.2686314
+        ]
+      },
+      "properties": {
+        "id": 371852127,
+        "name": "SBM",
+        "amenity": "bank"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.6631086,
+          -20.2858932
+        ]
+      },
+      "properties": {
+        "id": 445064383,
+        "name": "Mauritius Commercial Bank",
+        "amenity": "bank"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5364203,
+          -20.2220478
+        ]
+      },
+      "properties": {
+        "id": 467778128,
+        "name": "State Bank of Mauritius",
+        "amenity": "bank"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.6606316,
+          -20.285401
+        ]
+      },
+      "properties": {
+        "id": 474075664,
+        "name": "SBI",
+        "amenity": "bank"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5094081,
+          -20.1597322
+        ]
+      },
+      "properties": {
+        "id": 495633070,
+        "name": "SBM",
+        "amenity": "bank"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5022898,
+          -20.1625217
+        ]
+      },
+      "properties": {
+        "id": 495650803,
+        "name": "HSBC",
+        "amenity": "bank"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5048667,
+          -20.1626994
+        ]
+      },
+      "properties": {
+        "id": 495653576,
+        "name": "MAU Bank",
+        "amenity": "bank"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4756305,
+          -20.2441899
+        ]
+      },
+      "properties": {
+        "id": 495659773,
+        "name": "Unknown",
+        "amenity": "bank"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5039024,
+          -20.1627445
+        ]
+      },
+      "properties": {
+        "id": 495754040,
+        "name": "State Bank of India",
+        "amenity": "bank"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.511383,
+          -20.1592538
+        ]
+      },
+      "properties": {
+        "id": 495757755,
+        "name": "S.B.M",
+        "amenity": "bank"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.7066665,
+          -20.4090138
+        ]
+      },
+      "properties": {
+        "id": 508437610,
+        "name": "SBM",
+        "amenity": "bank"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.7062875,
+          -20.4089721
+        ]
+      },
+      "properties": {
+        "id": 508450702,
+        "name": "Bank One",
+        "amenity": "bank"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.528545,
+          -20.1324786
+        ]
+      },
+      "properties": {
+        "id": 509080824,
+        "name": "MAU Bank",
+        "amenity": "bank"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4165352,
+          -20.2573777
+        ]
+      },
+      "properties": {
+        "id": 509335982,
+        "name": "SBM",
+        "amenity": "bank"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4784327,
+          -20.2662789
+        ]
+      },
+      "properties": {
+        "id": 510516462,
+        "name": "MCB",
+        "amenity": "bank"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4810633,
+          -20.2638041
+        ]
+      },
+      "properties": {
+        "id": 510531840,
+        "name": "Bank one",
+        "amenity": "bank"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4830662,
+          -20.2612961
+        ]
+      },
+      "properties": {
+        "id": 510531844,
+        "name": "State Bank of India",
+        "amenity": "bank"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.6673476,
+          -20.1908224
+        ]
+      },
+      "properties": {
+        "id": 574313285,
+        "name": "MCB",
+        "amenity": "bank"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5032118,
+          -20.1621118
+        ]
+      },
+      "properties": {
+        "id": 751292876,
+        "name": "Bank One",
+        "amenity": "bank"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          63.4432757,
+          -19.7063074
+        ]
+      },
+      "properties": {
+        "id": 1031620669,
+        "name": "Unknown",
+        "amenity": "bank"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4865984,
+          -20.1681945
+        ]
+      },
+      "properties": {
+        "id": 1182010789,
+        "name": "Unknown",
+        "amenity": "bank"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5230454,
+          -20.3189519
+        ]
+      },
+      "properties": {
+        "id": 1183402438,
+        "name": "DBM",
+        "amenity": "bank"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5717273,
+          -20.1514228
+        ]
+      },
+      "properties": {
+        "id": 1211628815,
+        "name": "SBM Montagne Longue",
+        "amenity": "bank"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.5377356,
+          -20.224662
+        ]
+      },
+      "properties": {
+        "id": 1215871893,
+        "name": "MCB - Saint-Pierre Branch",
+        "amenity": "bank"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.502651,
+          -20.2824789
+        ]
+      },
+      "properties": {
+        "id": 1222962000,
+        "name": "ABSA Bank Jumbo Phoenix ATM",
+        "amenity": "bank"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          57.4975037,
+          -20.2761006
+        ]
+      },
+      "properties": {
+        "id": 1326431864,
+        "name": "Warwyck Private Bank",
+        "amenity": "bank"
+      }
+    }
+  ]
+}

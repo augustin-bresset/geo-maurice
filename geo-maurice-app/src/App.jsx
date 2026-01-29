@@ -141,26 +141,58 @@ function App() {
     }
   };
 
-  const handleSaveProfile = (profileData) => {
-    const newProfile = {
-      id: `custom_${Date.now()}`,
-      ...profileData,
-      isCustom: true
-    };
-    const updatedProfiles = [...customProfiles, newProfile];
-    setCustomProfiles(updatedProfiles);
-    setActiveProfileId(newProfile.id);
-    // Force immediate save to storage to be safe
-    localStorage.setItem('geo_maurice_profiles', JSON.stringify(updatedProfiles));
+  const handleSaveProfile = async (profileData) => {
+    try {
+      // 1. Prepare the profile object
+      const newProfile = {
+        id: `custom_${Date.now()}`,
+        ...profileData,
+        isCustom: true // Or maybe false if we want it to become a "native" profile once saved to disk? 
+        // User request: "registering a profile... creates a json file".
+        // If it's on disk, it's effectively a "preset" for everyone?
+        // Let's keep isCustom: true for now or maybe remove it so it acts like a system profile?
+        // If I save to src/assets/profiles, it behaves like the other JSON profiles.
+        // Existing JSON profiles don't have isCustom: true usually.
+        // Let's remove isCustom: true so it's treated as a permanent file profile.
+      };
 
-    // DOWNLOAD JSON as requested
-    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(newProfile, null, 2));
-    const downloadAnchorNode = document.createElement('a');
-    downloadAnchorNode.setAttribute("href", dataStr);
-    downloadAnchorNode.setAttribute("download", `${newProfile.name.replace(/\s+/g, '_').toLowerCase()}.json`);
-    document.body.appendChild(downloadAnchorNode); // required for firefox
-    downloadAnchorNode.click();
-    downloadAnchorNode.remove();
+      // 2. Send to server (Vite middleware)
+      const response = await fetch('/save-profile', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(newProfile)
+      });
+
+      if (!response.ok) {
+        throw new Error(`Server error: ${response.statusText}`);
+      }
+
+      const result = await response.json();
+      console.log('Profile saved:', result);
+
+      // 3. Update local state
+      // Logic: If we saved to disk, HMR might reload the list of profiles in useProfiles?
+      // But useProfiles uses import.meta.glob.
+      // Ideally we shouldn't need to manually update customProfiles if it's now a "file" profile.
+      // However, HMR might take a moment or might not auto-reload the list if the glob isn't re-evaluated?
+      // import.meta.glob is usually live.
+      // Let's Alert user.
+      alert(`Profil "${newProfile.name}" sauvegardé avec succès dans ${result.filename} !`);
+
+      // We can also add it to customProfiles temporarily so the user sees it immediately 
+      // without waiting for HMR or reload, but we should mark it so we don't save it to localStorage too?
+      // Actually, if it's on disk, we DON'T want it in localStorage 'geo_maurice_profiles' anymore.
+
+      // Let's just reload the page or let the user know? 
+      // Or we can rely on HMR.
+      // Let's try to just let it be.
+
+    } catch (e) {
+      console.error('Failed to save profile:', e);
+      alert('Erreur lors de la sauvegarde du profil: ' + e.message);
+    }
   };
 
   const deleteProfile = (id) => {

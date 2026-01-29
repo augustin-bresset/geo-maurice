@@ -131,7 +131,7 @@ export function ControlPanel({
                             >
                                 <option value="linear">Linéaire (Défaut)</option>
                                 <option value="constant">Constante</option>
-                                <option value="exponential">Exponentielle (exp(-x/d))</option>
+                                <option value="exponential">Exponentielle</option>
                             </select>
                         </div>
 
