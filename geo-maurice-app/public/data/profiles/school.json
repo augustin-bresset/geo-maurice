@@ -3,6 +3,7 @@
     "name": "École",
     "description": "Écoles uniquement (10km)",
     "heatmapSettings": {
+        "type": "linear",
         "roadFactor": 1.5,
         "densityInfluence": 1.0
     },

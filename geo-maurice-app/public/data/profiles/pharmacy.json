@@ -3,6 +3,7 @@
     "name": "Pharmacie",
     "description": "Pharmacies uniquement (5km)",
     "heatmapSettings": {
+        "type": "exponential",
         "roadFactor": 1.5,
         "densityInfluence": 1.0
     },

@@ -3,6 +3,7 @@
     "name": "Bus",
     "description": "Arrêts de bus (3km)",
     "heatmapSettings": {
+        "type": "linear",
         "roadFactor": 2.0,
         "densityInfluence": 1.0
     },

@@ -3,6 +3,7 @@
     "name": "Seniors",
     "description": "Hôpital (30km) + Pharmacie (5km)",
     "heatmapSettings": {
+        "type": "exponential",
         "roadFactor": 2.5,
         "densityInfluence": 1.2
     },

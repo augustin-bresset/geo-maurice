@@ -3,6 +3,7 @@
     "name": "Hôpital",
     "description": "Hôpitaux uniquement (30km)",
     "heatmapSettings": {
+        "type": "exponential",
         "roadFactor": 2.0,
         "densityInfluence": 1.0
     },

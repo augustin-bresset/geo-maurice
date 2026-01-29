@@ -87,6 +87,7 @@ function App() {
       if (jsonProfile.heatmapSettings) {
         setHeatmapSettings(prev => ({
           ...prev,
+          type: jsonProfile.heatmapSettings.type || prev.type,
           params: {
             ...prev.params,
             roadFactor: jsonProfile.heatmapSettings.roadFactor ?? prev.params.roadFactor,
