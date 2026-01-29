@@ -1,0 +1,12 @@
+{
+    "profiles": [
+        "default",
+        "hospital",
+        "school",
+        "pharmacy",
+        "bus",
+        "family",
+        "tourism",
+        "senior"
+    ]
+}

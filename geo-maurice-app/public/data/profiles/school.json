@@ -1,0 +1,16 @@
+{
+    "id": "school",
+    "name": "École",
+    "description": "Écoles uniquement (10km)",
+    "heatmapSettings": {
+        "roadFactor": 1.5,
+        "densityInfluence": 1.0
+    },
+    "amenities": {
+        "school": {
+            "weight": 10,
+            "score": true,
+            "visible": true
+        }
+    }
+}

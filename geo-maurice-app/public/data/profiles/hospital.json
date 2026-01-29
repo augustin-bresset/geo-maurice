@@ -1,0 +1,16 @@
+{
+    "id": "hospital",
+    "name": "Hôpital",
+    "description": "Hôpitaux uniquement (30km)",
+    "heatmapSettings": {
+        "roadFactor": 2.0,
+        "densityInfluence": 1.0
+    },
+    "amenities": {
+        "hospital": {
+            "weight": 30,
+            "score": true,
+            "visible": true
+        }
+    }
+}

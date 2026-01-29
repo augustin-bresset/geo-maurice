@@ -1,0 +1,41 @@
+{
+    "id": "tourism",
+    "name": "Tourisme",
+    "description": "Restos + Transports",
+    "heatmapSettings": {
+        "roadFactor": 1.5,
+        "densityInfluence": 0.8
+    },
+    "amenities": {
+        "restaurant": {
+            "weight": 5,
+            "score": true,
+            "visible": true
+        },
+        "cafe": {
+            "weight": 3,
+            "score": true,
+            "visible": true
+        },
+        "bar": {
+            "weight": 3,
+            "score": true,
+            "visible": true
+        },
+        "bus_stop": {
+            "weight": 10,
+            "score": true,
+            "visible": true
+        },
+        "taxi": {
+            "weight": 5,
+            "score": true,
+            "visible": true
+        },
+        "atm": {
+            "weight": 5,
+            "score": true,
+            "visible": true
+        }
+    }
+}

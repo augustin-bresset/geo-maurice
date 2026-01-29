@@ -1,0 +1,16 @@
+{
+    "id": "pharmacy",
+    "name": "Pharmacie",
+    "description": "Pharmacies uniquement (5km)",
+    "heatmapSettings": {
+        "roadFactor": 1.5,
+        "densityInfluence": 1.0
+    },
+    "amenities": {
+        "pharmacy": {
+            "weight": 5,
+            "score": true,
+            "visible": true
+        }
+    }
+}

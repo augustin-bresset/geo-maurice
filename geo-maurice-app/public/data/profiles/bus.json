@@ -1,0 +1,21 @@
+{
+    "id": "bus",
+    "name": "Bus",
+    "description": "Arrêts de bus (3km)",
+    "heatmapSettings": {
+        "roadFactor": 2.0,
+        "densityInfluence": 1.0
+    },
+    "amenities": {
+        "bus_stop": {
+            "weight": 3,
+            "score": true,
+            "visible": true
+        },
+        "bus_station": {
+            "weight": 5,
+            "score": true,
+            "visible": true
+        }
+    }
+}

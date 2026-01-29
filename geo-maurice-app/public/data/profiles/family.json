@@ -1,0 +1,36 @@
+{
+    "id": "family",
+    "name": "Famille",
+    "description": "École (10km) + Santé (15km)",
+    "heatmapSettings": {
+        "roadFactor": 2.0,
+        "densityInfluence": 1.0
+    },
+    "amenities": {
+        "school": {
+            "weight": 10,
+            "score": true,
+            "visible": true
+        },
+        "kindergarten": {
+            "weight": 8,
+            "score": true,
+            "visible": true
+        },
+        "hospital": {
+            "weight": 15,
+            "score": true,
+            "visible": true
+        },
+        "doctors": {
+            "weight": 10,
+            "score": true,
+            "visible": true
+        },
+        "pharmacy": {
+            "weight": 5,
+            "score": true,
+            "visible": true
+        }
+    }
+}

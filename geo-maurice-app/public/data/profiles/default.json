@@ -1,0 +1,10 @@
+{
+    "id": "default",
+    "name": "Standard",
+    "description": "Aucune sélection",
+    "heatmapSettings": {
+        "roadFactor": 1.0,
+        "densityInfluence": 1.0
+    },
+    "amenities": {}
+}

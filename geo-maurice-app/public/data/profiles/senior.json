@@ -1,0 +1,31 @@
+{
+    "id": "senior",
+    "name": "Seniors",
+    "description": "Hôpital (30km) + Pharmacie (5km)",
+    "heatmapSettings": {
+        "roadFactor": 2.5,
+        "densityInfluence": 1.2
+    },
+    "amenities": {
+        "hospital": {
+            "weight": 30,
+            "score": true,
+            "visible": true
+        },
+        "doctors": {
+            "weight": 15,
+            "score": true,
+            "visible": true
+        },
+        "pharmacy": {
+            "weight": 5,
+            "score": true,
+            "visible": true
+        },
+        "post_office": {
+            "weight": 10,
+            "score": true,
+            "visible": true
+        }
+    }
+}

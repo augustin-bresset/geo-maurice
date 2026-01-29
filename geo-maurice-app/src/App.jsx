@@ -4,12 +4,13 @@ import { Legend } from './components/Map/Legend';
 import { ControlPanel } from './components/Controls/ControlPanel';
 import { HelpModal, HelpButton } from './components/Controls/HelpModal';
 import { useAmenityData } from './hooks/useAmenityData';
+import { useProfiles } from './hooks/useProfiles';
 import { calculateHeatmap } from './utils/heatmap';
 import { GROUPS, CATEGORY_COLORS } from './config/amenities';
-import { DEFAULT_PROFILES } from './config/profiles';
 
 function App() {
   const { data, spatialIndices, populationData, roadsFrictionData, loading, progress } = useAmenityData();
+  const { profiles: jsonProfiles, loading: profilesLoading } = useProfiles();
 
   // Helper to get a clean base config
   const getBaseConfig = () => {
@@ -67,20 +68,51 @@ function App() {
   const loadProfile = (profileId) => {
     setActiveProfileId(profileId);
 
-    // Check if it's a default profile
-    const defaultProfile = DEFAULT_PROFILES.find(p => p.id === profileId);
-    if (defaultProfile) {
-      setConfig(defaultProfile.config(getBaseConfig()));
+    // Check if it's a JSON profile
+    const jsonProfile = jsonProfiles.find(p => p.id === profileId);
+    if (jsonProfile) {
+      const base = getBaseConfig();
+      // Reset all amenities
+      Object.keys(base).forEach(k => { base[k].weight = 0; base[k].score = false; base[k].visible = false; });
+      // Apply profile amenities
+      if (jsonProfile.amenities) {
+        Object.entries(jsonProfile.amenities).forEach(([key, val]) => {
+          if (base[key]) {
+            base[key] = { ...base[key], ...val };
+          }
+        });
+      }
+      setConfig(base);
+      // Apply heatmap settings
+      if (jsonProfile.heatmapSettings) {
+        setHeatmapSettings(prev => ({
+          ...prev,
+          params: {
+            ...prev.params,
+            roadFactor: jsonProfile.heatmapSettings.roadFactor ?? prev.params.roadFactor,
+            densityInfluence: jsonProfile.heatmapSettings.densityInfluence ?? prev.params.densityInfluence
+          }
+        }));
+      }
       return;
     }
 
-    // Check if it's a custom profile
+    // Check if it's a custom (localStorage) profile
     const custom = customProfiles.find(p => p.id === profileId);
     if (custom) {
-      // Merge with base config to ensure all keys exist (if new amenities added)
       const base = getBaseConfig();
       const merged = { ...base, ...custom.config };
       setConfig(merged);
+      if (custom.heatmapSettings) {
+        setHeatmapSettings(prev => ({
+          ...prev,
+          params: {
+            ...prev.params,
+            roadFactor: custom.heatmapSettings.roadFactor ?? prev.params.roadFactor,
+            densityInfluence: custom.heatmapSettings.densityInfluence ?? prev.params.densityInfluence
+          }
+        }));
+      }
     }
   };
 
@@ -151,7 +183,7 @@ function App() {
         setHeatmapSettings={setHeatmapSettings}
 
         // Profile props
-        profiles={[...DEFAULT_PROFILES, ...customProfiles]}
+        profiles={[...jsonProfiles, ...customProfiles]}
         activeProfileId={activeProfileId}
         onLoadProfile={loadProfile}
         onSaveProfile={saveProfile}
