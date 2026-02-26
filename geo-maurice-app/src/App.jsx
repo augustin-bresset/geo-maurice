@@ -310,7 +310,7 @@ function App() {
           background: 'rgba(0,0,0,0.5)', zIndex: 9999, display: 'flex', alignItems: 'center', justifyContent: 'center'
         }}>
           <div style={{ background: 'white', padding: 20, borderRadius: 8, maxWidth: 400, width: '90%', boxShadow: '0 4px 6px rgba(0,0,0,0.1)' }}>
-            <h3 style={{ marginTop: 0, color: '#333' }}>Paramètres Avancés (Intervalle)</h3>
+            <h3 style={{ marginTop: 0, color: '#333' }}>Paramètres Avancés</h3>
             <p style={{ fontSize: 12, color: '#666' }}>Ajustez les valeurs maximales des curseurs de réglage.</p>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>

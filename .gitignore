@@ -6,7 +6,7 @@ cache/*
 *.tmp
 *.csv
 **.tif
-
+sources/
 !geo-maurice-app/public/data/**/*.geojson
 !geo-maurice-app/public/data/**/*.json
 

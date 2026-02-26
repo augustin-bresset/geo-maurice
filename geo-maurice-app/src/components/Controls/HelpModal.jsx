@@ -203,7 +203,7 @@ export function HelpModal({ isOpen, onClose }) {
                     color: '#888',
                     textAlign: 'center'
                 }}>
-                    Projet RSE - Accessibilité à Maurice 🇲🇺
+                    Accessibilité à Maurice 
                 </div>
             </div>
         </div>
