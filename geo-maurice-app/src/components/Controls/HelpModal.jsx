@@ -1,77 +1,38 @@
 import React, { useState } from 'react';
 import { HelpCircle, X, ChevronDown, ChevronRight } from 'lucide-react';
+import { useLanguage } from '../../i18n/LanguageContext';
 
-const helpSections = [
+const getHelpSections = (t) => [
     {
         id: 'reading',
-        title: '🗺️ Lecture de la carte',
-        content: `La carte affiche un score d'accessibilité pour chaque zone de l'île Maurice.
-
-**Couleurs :**
-- 🔴 **Rouge** = Zone très accessible (proche des services)
-- 🟡 **Jaune/Vert** = Accessibilité moyenne
-- 🔵 **Bleu** = Zone peu accessible (éloignée des services)
-
-Plus une zone est rouge, plus elle est proche des commodités sélectionnées.`
+        title: t('helpReading_title'),
+        content: t('helpReading_content'),
     },
     {
         id: 'modes',
-        title: '📊 Modes d\'affichage',
-        content: `**Accessibilité** : Affiche le score basé sur la proximité aux commodités.
-
-**Population** : Affiche la densité de population.
-
-**Combinaison** : Combine accessibilité et densité. L'opacité varie selon la population (zones peuplées plus visibles).`
+        title: t('helpModes_title'),
+        content: t('helpModes_content'),
     },
     {
         id: 'functions',
-        title: '📈 Fonctions de score',
-        content: `**Linéaire** : Le score décroît uniformément de 1 (à distance 0) à 0 (à la portée définie).
-Formule : Score = 1 - distance/portée
-
-**Exponentielle** : Décroissance progressive basée sur la portée de chaque commodité.
-Formule : Score = exp(-distance/portée)
-
-**Constante** : Score = 1 partout dans la portée (binaire).`
+        title: t('helpFunctions_title'),
+        content: t('helpFunctions_content'),
     },
     {
         id: 'range',
-        title: '📏 Portée (km)',
-        content: `La portée définit la distance maximale d'influence d'une commodité.
-
-Exemple : Une école avec portée de 5 km contribuera au score de toutes les zones dans un rayon de 5 km.
-
-Chaque type de commodité peut avoir sa propre portée, ajustable via les sliders.`
+        title: t('helpRange_title'),
+        content: t('helpRange_content'),
     },
     {
         id: 'tortuosity',
-        title: '🛤️ Tortuosité et Friction',
-        content: `Contrôle l'importance des routes dans le calcul de distance.
-
-**Tortuosité (Intensité) :**
-- **1.0** = Pas d'effet des routes (vol d'oiseau)
-- **2.0** = Effet modéré (routes accélèrent le déplacement)
-- **5.0** = Effet maximum (routes très importantes, hors-route difficile)
-
-**Source de friction (Paramètres Avancés) :**
-- **Population** : Estime les routes via la densité de population
-- **Routes OSM** : Utilise les vraies routes OpenStreetMap
-
-**Types de routes :**
-Désactiver un type = retirer son bonus de vitesse.`
+        title: t('helpTortuosity_title'),
+        content: t('helpTortuosity_content'),
     },
     {
         id: 'profiles',
-        title: '👤 Profils',
-        content: `Les profils sont des configurations pré-définies :
-
-- **Standard** : Aucune sélection
-- **Famille** : Focus sur écoles et santé
-- **Tourisme** : Plages, restaurants, transports
-- **Seniors** : Santé et services publics
-
-Vous pouvez créer et sauvegarder vos propres profils.`
-    }
+        title: t('helpProfiles_title'),
+        content: t('helpProfiles_content'),
+    },
 ];
 
 const HelpSection = ({ section, isOpen, onToggle }) => (
@@ -121,6 +82,7 @@ const HelpSection = ({ section, isOpen, onToggle }) => (
 );
 
 export function HelpModal({ isOpen, onClose }) {
+    const { t } = useLanguage();
     const [openSections, setOpenSections] = useState({ reading: true });
 
     const toggleSection = (id) => {
@@ -128,6 +90,8 @@ export function HelpModal({ isOpen, onClose }) {
     };
 
     if (!isOpen) return null;
+
+    const helpSections = getHelpSections(t);
 
     return (
         <div style={{
@@ -164,7 +128,7 @@ export function HelpModal({ isOpen, onClose }) {
                     color: 'white'
                 }}>
                     <h2 style={{ margin: 0, fontSize: 18, display: 'flex', alignItems: 'center', gap: 8 }}>
-                        <HelpCircle size={20} /> Aide - Maurice Map
+                        <HelpCircle size={20} /> {t('helpTitle')}
                     </h2>
                     <button
                         onClick={onClose}
@@ -203,7 +167,7 @@ export function HelpModal({ isOpen, onClose }) {
                     color: '#888',
                     textAlign: 'center'
                 }}>
-                    Accessibilité à Maurice 
+                    {t('helpFooter')}
                 </div>
             </div>
         </div>
@@ -211,6 +175,7 @@ export function HelpModal({ isOpen, onClose }) {
 }
 
 export function HelpButton({ onClick }) {
+    const { t } = useLanguage();
     return (
         <button
             onClick={onClick}
@@ -230,7 +195,7 @@ export function HelpButton({ onClick }) {
                 cursor: 'pointer',
                 boxShadow: '0 2px 6px rgba(0,0,0,0.2)'
             }}
-            title="Aide"
+            title={t('help')}
         >
             <HelpCircle size={20} color="#3498db" />
         </button>

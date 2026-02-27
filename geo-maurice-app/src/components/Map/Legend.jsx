@@ -1,6 +1,10 @@
 import React from 'react';
+import { useLanguage } from '../../i18n/LanguageContext';
 
-export const Legend = () => {
+export const Legend = ({ gradientColors }) => {
+    const { t } = useLanguage();
+    const low = (gradientColors && gradientColors.low) || '#0000ff';
+    const high = (gradientColors && gradientColors.high) || '#ff0000';
     return (
         <div style={{
             position: 'absolute',
@@ -16,21 +20,21 @@ export const Legend = () => {
             color: '#333'
         }}>
             <div style={{ fontWeight: 'bold', marginBottom: '8px', textAlign: 'center' }}>
-                Accessibilité
+                {t('accessibility')}
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <span style={{ color: 'blue', fontWeight: 500 }}>Éloigné</span>
+                <span style={{ color: low, fontWeight: 500 }}>{t('far')}</span>
                 <div style={{
                     width: '120px',
                     height: '12px',
-                    background: 'linear-gradient(to right, blue, cyan, lime, yellow, red)',
+                    background: `linear-gradient(to right, ${low}, ${high})`,
                     borderRadius: '6px',
                     border: '1px solid #ddd'
                 }} />
-                <span style={{ color: 'red', fontWeight: 500 }}>Proche</span>
+                <span style={{ color: high, fontWeight: 500 }}>{t('near')}</span>
             </div>
             <div style={{ marginTop: '5px', fontSize: '10px', color: '#666', textAlign: 'center', fontStyle: 'italic' }}>
-                (Estimation temporelle)
+                {t('timeEstimate')}
             </div>
         </div>
     );

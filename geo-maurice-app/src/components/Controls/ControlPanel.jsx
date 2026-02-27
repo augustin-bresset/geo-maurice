@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './ControlPanel.css';
 import { Settings, RefreshCw, Eye, EyeOff, BarChart2, Layers, Save, Trash2 } from 'lucide-react';
+import { useLanguage } from '../../i18n/LanguageContext';
+import { LanguageSelector } from './LanguageSelector';
 
 export function ControlPanel({
     groups,
@@ -33,6 +35,8 @@ export function ControlPanel({
     populationWeighting,
     setPopulationWeighting
 }) {
+    const { t } = useLanguage();
+
     // DEBUG: console log to inspect props
     if (!groups) {
         console.error("ControlPanel: groups prop is missing!", { groups, config });
@@ -57,8 +61,6 @@ export function ControlPanel({
     };
 
     const toggleCategoryAll = (cat, field) => {
-        // Toggle based on first item's state or just force true/false?
-        // Let's check if all are true, then set false, else set true
         const labels = groups[cat];
         const allTrue = labels.every(l => config[l]?.[field]);
         const newVal = !allTrue;
@@ -97,19 +99,20 @@ export function ControlPanel({
     return (
         <div className="control-panel">
             <div className="panel-header">
-                <h2>Maurice Map</h2>
-                <div style={{ display: 'flex', gap: 4 }}>
+                <h2>{t('appTitle')}</h2>
+                <div style={{ display: 'flex', gap: 4, alignItems: 'center' }}>
+                    <LanguageSelector />
                     <button
                         onClick={toggleAllVisibility}
                         style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4 }}
-                        title="Tout afficher / Tout masquer"
+                        title={t('toggleVisibility')}
                     >
                         <Eye size={18} color="#555" />
                     </button>
                     <button
                         onClick={() => setShowSettings(!showSettings)}
                         style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4 }}
-                        title="Paramètres de calcul"
+                        title={t('calcSettings')}
                     >
                         <Settings size={18} color={showSettings ? "#3498db" : "#666"} />
                     </button>
@@ -119,19 +122,19 @@ export function ControlPanel({
             {/* Settings Modal / Popover */}
             {showSettings && (
                 <div style={{ padding: '10px 16px', borderBottom: '1px solid #eee', background: '#f0f8ff' }}>
-                    <div style={{ fontSize: '0.85rem', fontWeight: 'bold', marginBottom: 8, color: '#0056b3' }}>Paramètres de la Heatmap</div>
+                    <div style={{ fontSize: '0.85rem', fontWeight: 'bold', marginBottom: 8, color: '#0056b3' }}>{t('settings')}</div>
 
                     <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                            <span style={{ fontSize: 12, minWidth: 60 }}>Fonction:</span>
+                            <span style={{ fontSize: 12, minWidth: 60 }}>{t('function')}:</span>
                             <select
                                 value={heatmapSettings?.type || 'linear'}
                                 onChange={(e) => setHeatmapSettings(prev => ({ ...prev, type: e.target.value }))}
                                 style={{ flex: 1, padding: 4, borderRadius: 4, border: '1px solid #ccc' }}
                             >
-                                <option value="linear">Linéaire (Défaut)</option>
-                                <option value="constant">Constante</option>
-                                <option value="exponential">Exponentielle</option>
+                                <option value="linear">{t('linear')}</option>
+                                <option value="constant">{t('constant')}</option>
+                                <option value="exponential">{t('exponential')}</option>
                             </select>
                         </div>
 
@@ -143,14 +146,14 @@ export function ControlPanel({
                             onClick={() => setShowAdvancedModal(true)}
                             style={{ width: '100%', padding: '6px', cursor: 'pointer', background: '#e0efff', border: '1px solid #3498db', borderRadius: 4, color: '#0056b3', fontSize: 11, fontWeight: 'bold' }}
                         >
-                            Ouvrir les paramètres avancés
+                            {t('openAdvanced')}
                         </button>
                     </div>
 
                     <div style={{ marginTop: 8, borderTop: '1px solid #ddd', paddingTop: 8 }}>
-                        <div style={{ fontSize: 11, fontWeight: 'bold', color: '#555', marginBottom: 4 }}>Mode Hybride</div>
+                        <div style={{ fontSize: 11, fontWeight: 'bold', color: '#555', marginBottom: 4 }}>{t('hybridMode')}</div>
                         <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                            <span style={{ fontSize: 12, minWidth: 60 }}>Opacité:</span>
+                            <span style={{ fontSize: 12, minWidth: 60 }}>{t('opacity')}:</span>
                             <input
                                 type="range"
                                 min={sliderLimits?.opacity?.min || 0.2}
@@ -166,9 +169,9 @@ export function ControlPanel({
                     </div>
 
                     <div style={{ marginTop: 8, borderTop: '1px solid #ddd', paddingTop: 8 }}>
-                        <div style={{ fontSize: 11, fontWeight: 'bold', color: '#555', marginBottom: 4 }}>Estimation Routière</div>
+                        <div style={{ fontSize: 11, fontWeight: 'bold', color: '#555', marginBottom: 4 }}>{t('roadEstimation')}</div>
                         <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                            <span style={{ fontSize: 12, minWidth: 60 }}>Tortuosité:</span>
+                            <span style={{ fontSize: 12, minWidth: 60 }}>{t('tortuosity')}:</span>
                             <input
                                 type="range"
                                 min={sliderLimits?.tortuosity?.min || 1.0}
@@ -182,7 +185,7 @@ export function ControlPanel({
                             <span style={{ fontSize: 10 }}>{heatmapSettings.params.roadFactor || 1.0}x</span>
                         </div>
                         <div style={{ fontSize: 9, color: '#888', fontStyle: 'italic', marginTop: 2 }}>
-                            1.0 = Vol d'oiseau. &gt;1.0 = Sinueux.
+                            {t('birdFlight')}
                         </div>
                     </div>
                 </div>
@@ -201,12 +204,12 @@ export function ControlPanel({
                                 {p.name} {p.isCustom ? '(Custom)' : ''}
                             </option>
                         ))}
-                        {activeProfileId === 'custom_unsaved' && <option value="custom_unsaved" disabled>-- Modifié --</option>}
+                        {activeProfileId === 'custom_unsaved' && <option value="custom_unsaved" disabled>{t('modified')}</option>}
                     </select>
 
                     <button
                         onClick={handleSaveClick}
-                        title="Sauvegarder comme nouveau profil"
+                        title={t('saveProfileTitle')}
                         style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4 }}
                     >
                         <Save size={16} color="#333" />
@@ -215,9 +218,9 @@ export function ControlPanel({
                     {profiles.find(p => p.id === activeProfileId)?.isCustom && (
                         <button
                             onClick={() => {
-                                if (confirm('Supprimer ce profil ?')) onDeleteProfile(activeProfileId);
+                                if (confirm(t('deleteConfirm'))) onDeleteProfile(activeProfileId);
                             }}
-                            title="Supprimer ce profil"
+                            title={t('deleteProfileTitle')}
                             style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4 }}
                         >
                             <Trash2 size={16} color="#e41a1c" />
@@ -239,7 +242,7 @@ export function ControlPanel({
                         color: applicationMode === 'services' ? '#2c3e50' : '#7f8c8d'
                     }}
                 >
-                    Services
+                    {t('services')}
                 </button>
                 <button
                     onClick={() => setApplicationMode('risks')}
@@ -252,7 +255,7 @@ export function ControlPanel({
                         color: applicationMode === 'risks' ? '#c0392b' : '#7f8c8d'
                     }}
                 >
-                    Risques
+                    {t('risks')}
                 </button>
             </div>
 
@@ -260,7 +263,7 @@ export function ControlPanel({
                 <>
                     {/* View Mode Switcher */}
                     <div style={{ padding: '10px 16px', borderBottom: '1px solid #eee', background: '#fff' }}>
-                        <div style={{ fontSize: '0.85rem', fontWeight: 'bold', marginBottom: 8, color: '#555' }}>Mode d'affichage</div>
+                        <div style={{ fontSize: '0.85rem', fontWeight: 'bold', marginBottom: 8, color: '#555' }}>{t('displayMode')}</div>
                         <div style={{ display: 'flex', gap: 8 }}>
                             <button
                                 onClick={() => setViewMode('accessibility')}
@@ -272,7 +275,7 @@ export function ControlPanel({
                                     fontWeight: viewMode === 'accessibility' ? 'bold' : 'normal'
                                 }}
                             >
-                                Accessibilité
+                                {t('accessibility')}
                             </button>
                             <button
                                 onClick={() => setViewMode('population')}
@@ -284,7 +287,7 @@ export function ControlPanel({
                                     fontWeight: viewMode === 'population' ? 'bold' : 'normal'
                                 }}
                             >
-                                Population
+                                {t('population')}
                             </button>
                             <button
                                 onClick={() => setViewMode('hybrid')}
@@ -296,7 +299,7 @@ export function ControlPanel({
                                     fontWeight: viewMode === 'hybrid' ? 'bold' : 'normal'
                                 }}
                             >
-                                Combinaison
+                                {t('combination')}
                             </button>
                         </div>
                     </div>
@@ -305,7 +308,7 @@ export function ControlPanel({
                         loading && (
                             <div style={{ padding: '10px 16px', background: '#f9f9f9', borderBottom: '1px solid #eee' }}>
                                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 4, fontSize: 12 }}>
-                                    <span>Chargement des données...</span>
+                                    <span>{t('loading')}</span>
                                     <span>{Math.round(progress)}%</span>
                                 </div>
                                 <div style={{ width: '100%', height: 4, background: '#eee', borderRadius: 2 }}>
@@ -320,7 +323,7 @@ export function ControlPanel({
                             <div key={cat} className="category-block">
                                 <div className="category-header">
                                     <div style={{ display: 'flex', alignItems: 'center', gap: 8, cursor: 'pointer' }} onClick={() => toggleCat(cat)}>
-                                        <span className="category-title">{cat}</span>
+                                        <span className="category-title">{t(`cat_${cat}`) || cat}</span>
                                     </div>
                                     <div className="control-group">
                                         <button title="Toggle Visibility" onClick={() => toggleCategoryAll(cat, 'visible')} style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
@@ -360,7 +363,7 @@ export function ControlPanel({
 
                                             {c.score && (
                                                 <div className="weight-slider-container">
-                                                    <span style={{ fontSize: 10, minWidth: 60 }}>Portée: {c.weight} km</span>
+                                                    <span style={{ fontSize: 10, minWidth: 60 }}>{t('range')}: {c.weight} km</span>
                                                     <input
                                                         type="range"
                                                         className="weight-slider"
@@ -369,7 +372,7 @@ export function ControlPanel({
                                                         step={sliderLimits?.range?.step || 1}
                                                         value={c.weight}
                                                         onChange={e => updateConfig(label, 'weight', parseFloat(e.target.value))}
-                                                        title={`Portée d'influence: ${c.weight} km`}
+                                                        title={`${t('range')}: ${c.weight} km`}
                                                     />
                                                 </div>
                                             )}
@@ -381,16 +384,16 @@ export function ControlPanel({
                     </div>
                 </>
             ) : (
-                // RISK MODE PANEl
+                // RISK MODE PANEL
                 <div style={{ padding: 20 }}>
-                    <h3 style={{ marginTop: 0, color: '#e74c3c' }}>Cartes des Risques</h3>
+                    <h3 style={{ marginTop: 0, color: '#e74c3c' }}>{t('riskMaps')}</h3>
                     <p style={{ fontSize: 13, color: '#666' }}>
-                        Visualisez les zones à risques naturels. L'accès aux commodités est désactivé dans ce mode pour plus de clarté.
+                        {t('riskMapsDesc')}
                     </p>
 
                     <div style={{ marginTop: 20, background: '#fff', border: '1px solid #eee', borderRadius: 8, padding: 12 }}>
                         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 12 }}>
-                            <strong style={{ color: '#2c3e50' }}>Type de Risque</strong>
+                            <strong style={{ color: '#2c3e50' }}>{t('riskType')}</strong>
                         </div>
 
                         <div style={{ display: 'flex', gap: 8, marginBottom: 16 }}>
@@ -405,7 +408,7 @@ export function ControlPanel({
                                     fontSize: 12
                                 }}
                             >
-                                Crue Rivière (HAND)
+                                {t('riverFlood')}
                             </button>
                             <button
                                 onClick={() => setRiskMode('sea')}
@@ -418,12 +421,12 @@ export function ControlPanel({
                                     fontSize: 12
                                 }}
                             >
-                                Montée Océan
+                                {t('seaRise')}
                             </button>
                         </div>
 
                         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 8 }}>
-                            <strong style={{ color: '#2c3e50' }}>Niveau: {riskMode === 'river' ? "Crue" : "Mer"} (+{floodLevel}m)</strong>
+                            <strong style={{ color: '#2c3e50' }}>{t('floodLevel')}: {riskMode === 'river' ? t('flood') : t('sea')} (+{floodLevel}m)</strong>
                         </div>
 
                         <input
@@ -438,13 +441,11 @@ export function ControlPanel({
 
                         <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 4, fontSize: 10, color: '#888' }}>
                             <span>0m</span>
-                            <span>{riskMode === 'river' ? '20m (Crue Extrême)' : '800m (Sommet)'}</span>
+                            <span>{riskMode === 'river' ? t('extremeFlood') : t('summit')}</span>
                         </div>
 
                         <p style={{ fontSize: 11, color: '#666', marginTop: 8, lineHeight: 1.4 }}>
-                            {riskMode === 'river'
-                                ? "Simule la crue des rivières et lacs (modèle HAND)."
-                                : "Simule la montée absolue du niveau de la mer (Tsunami/Fonte glaces)."}
+                            {riskMode === 'river' ? t('riverFloodDesc') : t('seaRiseDesc')}
                         </p>
                     </div>
 
@@ -456,9 +457,9 @@ export function ControlPanel({
                                 onChange={(e) => setPopulationWeighting(e.target.checked)}
                             />
                             <div>
-                                <strong style={{ display: 'block', color: '#e74c3c' }}>Impact Humain (Densité)</strong>
+                                <strong style={{ display: 'block', color: '#e74c3c' }}>{t('humanImpact')}</strong>
                                 <span style={{ fontSize: 11, color: '#888' }}>
-                                    Met en évidence les zones habitées inondées.
+                                    {t('humanImpactDesc')}
                                 </span>
                             </div>
                         </label>
@@ -469,7 +470,7 @@ export function ControlPanel({
 
             <div className="action-bar">
                 <button className="btn-primary" onClick={onRecalculate} disabled={loading}>
-                    {loading ? 'Chargement...' : 'Recalculer la Heatmap'}
+                    {loading ? t('calculating') : t('recalculate')}
                 </button>
             </div>
         </div >

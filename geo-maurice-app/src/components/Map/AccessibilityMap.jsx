@@ -15,15 +15,13 @@ let DefaultIcon = L.icon({
 });
 L.Marker.prototype.options.icon = DefaultIcon;
 
-// Color ramp: Blue (low) -> Green -> Yellow -> Red (high)
-function getColor(value) {
-    // value is 0..1
-    const h = (1.0 - value) * 240; // 240(blue) -> 0(red)
-    return `hsla(${h}, 100%, 50%, 0.6)`;
+function hexToRgb(hex) {
+    const n = parseInt(hex.replace('#', ''), 16);
+    return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
 }
 
 // Helper to generate Data URL from grid
-function generateHeatmapImage(gridData, secondaryGrid, mode, densityInfluence) {
+function generateHeatmapImage(gridData, secondaryGrid, mode, densityInfluence, gradientColors) {
     if (!gridData || !gridData.values) return null;
 
     const { values, width, height, maxScore, landMask } = gridData;
@@ -46,6 +44,10 @@ function generateHeatmapImage(gridData, secondaryGrid, mode, densityInfluence) {
     }
 
     const influence = densityInfluence || 1.0;
+
+    const low = gradientColors || { low: '#0000ff', high: '#ff0000' };
+    const rgbLow = hexToRgb(low.low);
+    const rgbHigh = hexToRgb(low.high);
 
     for (let y = 0; y < height; y++) {
         // Grid row index (0 is MinLat (South))
@@ -72,25 +74,13 @@ function generateHeatmapImage(gridData, secondaryGrid, mode, densityInfluence) {
 
             if (hasAccess || showBackground) {
                 // Normalize score relative to MaxScore for coloring
-                // If score is 0, norm is 0 -> Blue
+                // If score is 0, norm is 0 -> low color
                 const norm = Math.min(1, score / (maxScore || 1));
 
-                // Optimized color mapping: H from 240 (blue) down to 0 (red)
-                const hue = (1.0 - norm) * 240;
-
-                // Simple Hue to RGB conversion for canvas pixel manipulation
-                // (Using HSL-to-RGB logic inline for speed and simplicity)
-                const H = hue;
-                const C = 1;
-                const X = C * (1 - Math.abs(((H / 60) % 2) - 1));
-                let r = 0, g = 0, b = 0;
-
-                if (0 <= H && H < 60) { r = C; g = X; b = 0; }
-                else if (60 <= H && H < 120) { r = X; g = C; b = 0; }
-                else if (120 <= H && H < 180) { r = 0; g = C; b = X; }
-                else if (180 <= H && H < 240) { r = 0; g = X; b = C; }
-                else if (240 <= H && H < 300) { r = X; g = 0; b = C; }
-                else { r = C; g = 0; b = X; }
+                // Linear RGB interpolation between low and high gradient colors
+                const r = Math.round(rgbLow[0] + norm * (rgbHigh[0] - rgbLow[0]));
+                const g = Math.round(rgbLow[1] + norm * (rgbHigh[1] - rgbLow[1]));
+                const b = Math.round(rgbLow[2] + norm * (rgbHigh[2] - rgbLow[2]));
 
                 // Default Opacity
                 let alpha = 150; // ~0.6
@@ -115,9 +105,9 @@ function generateHeatmapImage(gridData, secondaryGrid, mode, densityInfluence) {
                     // Blue + Density opacity is fine.
                 }
 
-                data[pixelIndex] = r * 255;     // R
-                data[pixelIndex + 1] = g * 255; // G
-                data[pixelIndex + 2] = b * 255; // B
+                data[pixelIndex] = r;     // R
+                data[pixelIndex + 1] = g; // G
+                data[pixelIndex + 2] = b; // B
                 data[pixelIndex + 3] = alpha;   // Alpha (0-255)
             } else {
                 data[pixelIndex + 3] = 0; // Transparent
@@ -129,7 +119,7 @@ function generateHeatmapImage(gridData, secondaryGrid, mode, densityInfluence) {
     return canvas.toDataURL();
 }
 
-const CustomHeatmapLayer = ({ gridData, secondaryGrid, mode, settings }) => {
+const CustomHeatmapLayer = ({ gridData, secondaryGrid, mode, settings, gradientColors }) => {
     const [imageUrl, setImageUrl] = useState(null);
     const [bounds, setBounds] = useState(null);
 
@@ -146,7 +136,7 @@ const CustomHeatmapLayer = ({ gridData, secondaryGrid, mode, settings }) => {
         }
 
         try {
-            const url = generateHeatmapImage(gridData, secondaryGrid, mode, densityInfluence);
+            const url = generateHeatmapImage(gridData, secondaryGrid, mode, densityInfluence, gradientColors);
             setImageUrl(url);
 
             const { minLat, maxLat, minLon, maxLon } = gridData;
@@ -162,7 +152,7 @@ const CustomHeatmapLayer = ({ gridData, secondaryGrid, mode, settings }) => {
             setImageUrl(null);
         }
 
-    }, [gridData, secondaryGrid, mode, densityInfluence]);
+    }, [gridData, secondaryGrid, mode, densityInfluence, gradientColors]);
 
     if (!imageUrl || !bounds) return null;
 
@@ -353,6 +343,7 @@ export default function AccessibilityMap({
     config,
     groups,
     categoryColors,
+    gradientColors,
     heatmapSettings,
     applicationMode = 'services',
     floodLevel = 0, // New Prop
@@ -406,6 +397,7 @@ export default function AccessibilityMap({
                         secondaryGrid={viewMode === 'hybrid' ? populationData : null}
                         mode={viewMode}
                         settings={heatmapSettings}
+                        gradientColors={gradientColors}
                     />
 
                     {/* Point Layers */}

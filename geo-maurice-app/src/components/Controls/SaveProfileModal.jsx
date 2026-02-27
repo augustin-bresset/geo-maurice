@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Save, X } from 'lucide-react';
+import { useLanguage } from '../../i18n/LanguageContext';
 
 export function SaveProfileModal({ isOpen, onClose, onSave, currentConfig, currentHeatmapSettings }) {
+    const { t } = useLanguage();
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
     const [includeAmenities, setIncludeAmenities] = useState(true);
@@ -19,14 +21,14 @@ export function SaveProfileModal({ isOpen, onClose, onSave, currentConfig, curre
 
     const handleSave = () => {
         if (!name.trim()) {
-            alert("Veuillez entrer un nom pour le profil.");
+            alert(t('profileNameRequired'));
             return;
         }
 
         const profileData = {
             name,
             description,
-            amenities: includeAmenities ? currentConfig : null, // If null, base config will be used on load
+            amenities: includeAmenities ? currentConfig : null,
             heatmapSettings: includeHeatmap ? currentHeatmapSettings : null,
             includeAmenities,
             includeHeatmap
@@ -72,7 +74,7 @@ export function SaveProfileModal({ isOpen, onClose, onSave, currentConfig, curre
                     color: 'white'
                 }}>
                     <h2 style={{ margin: 0, fontSize: 18, display: 'flex', alignItems: 'center', gap: 8 }}>
-                        <Save size={20} /> Sauvegarder le Profil
+                        <Save size={20} /> {t('saveProfile')}
                     </h2>
                     <button
                         onClick={onClose}
@@ -94,29 +96,29 @@ export function SaveProfileModal({ isOpen, onClose, onSave, currentConfig, curre
                 <div style={{ padding: '20px', display: 'flex', flexDirection: 'column', gap: 16 }}>
 
                     <div>
-                        <label style={{ display: 'block', marginBottom: 6, fontWeight: 'bold', fontSize: 14 }}>Nom du Profil :</label>
+                        <label style={{ display: 'block', marginBottom: 6, fontWeight: 'bold', fontSize: 14 }}>{t('profileName')} :</label>
                         <input
                             type="text"
                             value={name}
                             onChange={(e) => setName(e.target.value)}
-                            placeholder="Ex: Ma configuration..."
+                            placeholder={t('profileNamePlaceholder')}
                             style={{ width: '100%', padding: '8px', border: '1px solid #ddd', borderRadius: 4 }}
                             autoFocus
                         />
                     </div>
 
                     <div>
-                        <label style={{ display: 'block', marginBottom: 6, fontWeight: 'bold', fontSize: 14 }}>Description (optionnel) :</label>
+                        <label style={{ display: 'block', marginBottom: 6, fontWeight: 'bold', fontSize: 14 }}>{t('description')} :</label>
                         <textarea
                             value={description}
                             onChange={(e) => setDescription(e.target.value)}
-                            placeholder="Petite note pour ce profil..."
+                            placeholder={t('descriptionPlaceholder')}
                             style={{ width: '100%', padding: '8px', border: '1px solid #ddd', borderRadius: 4, minHeight: 60 }}
                         />
                     </div>
 
                     <div style={{ background: '#f8f9fa', padding: 12, borderRadius: 6, border: '1px solid #eee' }}>
-                        <span style={{ display: 'block', marginBottom: 8, fontSize: 13, fontWeight: 'bold', color: '#555' }}>Options de sauvegarde :</span>
+                        <span style={{ display: 'block', marginBottom: 8, fontSize: 13, fontWeight: 'bold', color: '#555' }}>{t('saveOptions')}</span>
 
                         <label style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 8, cursor: 'pointer', fontSize: 13 }}>
                             <input
@@ -124,7 +126,7 @@ export function SaveProfileModal({ isOpen, onClose, onSave, currentConfig, curre
                                 checked={includeAmenities}
                                 onChange={(e) => setIncludeAmenities(e.target.checked)}
                             />
-                            Inclure la configuration des services (poids, visibilité)
+                            {t('includeServices')}
                         </label>
 
                         <label style={{ display: 'flex', alignItems: 'center', gap: 10, cursor: 'pointer', fontSize: 13 }}>
@@ -133,7 +135,7 @@ export function SaveProfileModal({ isOpen, onClose, onSave, currentConfig, curre
                                 checked={includeHeatmap}
                                 onChange={(e) => setIncludeHeatmap(e.target.checked)}
                             />
-                            Inclure les réglages de calcul (Tortuosité, Portée, etc.)
+                            {t('includeCalc')}
                         </label>
                     </div>
 
@@ -159,7 +161,7 @@ export function SaveProfileModal({ isOpen, onClose, onSave, currentConfig, curre
                             color: '#555'
                         }}
                     >
-                        Annuler
+                        {t('cancel')}
                     </button>
                     <button
                         onClick={handleSave}
@@ -173,7 +175,7 @@ export function SaveProfileModal({ isOpen, onClose, onSave, currentConfig, curre
                             fontWeight: 'bold'
                         }}
                     >
-                        Sauvegarder
+                        {t('save')}
                     </button>
                 </div>
             </div>

@@ -4,12 +4,15 @@ import { Legend } from './components/Map/Legend';
 import { ControlPanel } from './components/Controls/ControlPanel';
 import { HelpModal, HelpButton } from './components/Controls/HelpModal';
 import { SaveProfileModal } from './components/Controls/SaveProfileModal';
+import { ColorSettingsModal } from './components/Controls/ColorSettingsModal';
 import { useAmenityData } from './hooks/useAmenityData';
 import { useProfiles } from './hooks/useProfiles';
 import { calculateHeatmap } from './utils/heatmap';
 import { GROUPS, CATEGORY_COLORS } from './config/amenities';
+import { useLanguage } from './i18n/LanguageContext';
 
 function App() {
+  const { t } = useLanguage();
   const { data, spatialIndices, populationData, roadsFrictionData, loading, progress } = useAmenityData();
   const { profiles: jsonProfiles, loading: profilesLoading } = useProfiles();
 
@@ -60,6 +63,16 @@ function App() {
   });
 
   const [showAdvancedModal, setShowAdvancedModal] = useState(false);
+  const [showColorModal, setShowColorModal] = useState(false);
+
+  const DEFAULT_GRADIENT = { low: '#0000ff', high: '#ff0000' };
+
+  const [categoryColors, setCategoryColors] = useState(() =>
+    JSON.parse(localStorage.getItem('geo_maurice_cat_colors')) || CATEGORY_COLORS
+  );
+  const [gradientColors, setGradientColors] = useState(() =>
+    JSON.parse(localStorage.getItem('geo_maurice_gradient')) || DEFAULT_GRADIENT
+  );
 
   const [showSaveModal, setShowSaveModal] = useState(false);
   const [applicationMode, setApplicationMode] = useState('services'); // 'services' | 'risks'
@@ -71,6 +84,14 @@ function App() {
   useEffect(() => {
     localStorage.setItem('geo_maurice_profiles', JSON.stringify(customProfiles));
   }, [customProfiles]);
+
+  useEffect(() => {
+    localStorage.setItem('geo_maurice_cat_colors', JSON.stringify(categoryColors));
+  }, [categoryColors]);
+
+  useEffect(() => {
+    localStorage.setItem('geo_maurice_gradient', JSON.stringify(gradientColors));
+  }, [gradientColors]);
 
   const loadProfile = (profileId) => {
     setActiveProfileId(profileId);
@@ -179,7 +200,7 @@ function App() {
       // However, HMR might take a moment or might not auto-reload the list if the glob isn't re-evaluated?
       // import.meta.glob is usually live.
       // Let's Alert user.
-      alert(`Profil "${newProfile.name}" sauvegardé avec succès dans ${result.filename} !`);
+      alert(t('alertSavedOk')(newProfile.name, result.filename));
 
       // We can also add it to customProfiles temporarily so the user sees it immediately 
       // without waiting for HMR or reload, but we should mark it so we don't save it to localStorage too?
@@ -191,7 +212,7 @@ function App() {
 
     } catch (e) {
       console.error('Failed to save profile:', e);
-      alert('Erreur lors de la sauvegarde du profil: ' + e.message);
+      alert(t('alertSaveError')(e.message));
     }
   };
 
@@ -294,14 +315,15 @@ function App() {
         geoData={data}
         config={config}
         groups={GROUPS}
-        categoryColors={CATEGORY_COLORS}
+        categoryColors={categoryColors}
+        gradientColors={gradientColors}
         heatmapSettings={heatmapSettings}
         applicationMode={applicationMode}
         floodLevel={floodLevel}
         riskMode={riskMode}
         populationWeighting={populationWeighting}
       />
-      <Legend />
+      <Legend gradientColors={gradientColors} />
 
       {/* Advanced Settings Modal - Rendered here to avoid stacking context issues */}
       {showAdvancedModal && (
@@ -310,12 +332,12 @@ function App() {
           background: 'rgba(0,0,0,0.5)', zIndex: 9999, display: 'flex', alignItems: 'center', justifyContent: 'center'
         }}>
           <div style={{ background: 'white', padding: 20, borderRadius: 8, maxWidth: 400, width: '90%', boxShadow: '0 4px 6px rgba(0,0,0,0.1)' }}>
-            <h3 style={{ marginTop: 0, color: '#333' }}>Paramètres Avancés</h3>
-            <p style={{ fontSize: 12, color: '#666' }}>Ajustez les valeurs maximales des curseurs de réglage.</p>
+            <h3 style={{ marginTop: 0, color: '#333' }}>{t('advancedSettings')}</h3>
+            <p style={{ fontSize: 12, color: '#666' }}>{t('advancedSettingsDesc')}</p>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
               <label style={{ display: 'flex', flexDirection: 'column', gap: 4, fontSize: 14 }}>
-                Portée Max (Range) [km]:
+                {t('maxRange')}:
                 <input
                   type="number"
                   value={sliderLimits?.range?.max || 100}
@@ -325,7 +347,7 @@ function App() {
               </label>
 
               <label style={{ display: 'flex', flexDirection: 'column', gap: 4, fontSize: 14 }}>
-                Tortuosité Max:
+                {t('maxTortuosity')}:
                 <input
                   type="number"
                   value={sliderLimits?.tortuosity?.max || 20}
@@ -335,7 +357,7 @@ function App() {
               </label>
 
               <label style={{ display: 'flex', flexDirection: 'column', gap: 4, fontSize: 14 }}>
-                Opacité Max:
+                {t('maxOpacity')}:
                 <input
                   type="number"
                   value={sliderLimits?.opacity?.max || 3.0}
@@ -347,7 +369,7 @@ function App() {
 
               {/* Friction Source Toggle */}
               <div style={{ padding: '8px 0', borderTop: '1px solid #eee' }}>
-                <span style={{ fontSize: 14, fontWeight: 'bold' }}>Source de friction:</span>
+                <span style={{ fontSize: 14, fontWeight: 'bold' }}>{t('frictionSource')}:</span>
                 <div style={{ display: 'flex', gap: 8, marginTop: 6 }}>
                   <button
                     onClick={() => setHeatmapSettings(prev => ({ ...prev, params: { ...prev.params, frictionSource: 'population' } }))}
@@ -359,7 +381,7 @@ function App() {
                       fontWeight: heatmapSettings.params.frictionSource === 'population' ? 'bold' : 'normal'
                     }}
                   >
-                    Population
+                    {t('population')}
                   </button>
                   <button
                     onClick={() => setHeatmapSettings(prev => ({ ...prev, params: { ...prev.params, frictionSource: 'roads' } }))}
@@ -371,28 +393,46 @@ function App() {
                       fontWeight: heatmapSettings.params.frictionSource === 'roads' ? 'bold' : 'normal'
                     }}
                   >
-                    Routes OSM
+                    {t('osmRoads')}
                   </button>
                 </div>
                 <span style={{ fontSize: 10, color: '#888', marginTop: 4, display: 'block' }}>
                   {heatmapSettings.params.frictionSource === 'roads'
-                    ? 'Utilise les routes réelles de la carte OpenStreetMap'
-                    : 'Estime les routes à partir de la densité de population'}
+                    ? t('frictionRoadsHint')
+                    : t('frictionPopHint')}
                 </span>
               </div>
             </div>
 
-            <div style={{ marginTop: 20, display: 'flex', justifyContent: 'flex-end' }}>
+            <div style={{ marginTop: 20, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <button
+                onClick={() => setShowColorModal(true)}
+                style={{ padding: '8px 14px', background: '#8e44ad', color: 'white', border: 'none', borderRadius: 4, cursor: 'pointer', fontSize: 13 }}
+              >
+                {t('openColorSettings')}
+              </button>
               <button
                 onClick={() => setShowAdvancedModal(false)}
                 style={{ padding: '8px 16px', background: '#3498db', color: 'white', border: 'none', borderRadius: 4, cursor: 'pointer', fontWeight: 'bold' }}
               >
-                Fermer
+                {t('close')}
               </button>
             </div>
           </div>
         </div>
       )}
+
+      {/* Color Settings Modal */}
+      <ColorSettingsModal
+        isOpen={showColorModal}
+        onClose={() => setShowColorModal(false)}
+        categoryColors={categoryColors}
+        onCategoryColorChange={(key, value) => setCategoryColors(prev => ({ ...prev, [key]: value }))}
+        gradientColors={gradientColors}
+        onGradientColorChange={(key, value) => setGradientColors(prev => ({ ...prev, [key]: value }))}
+        defaultCategoryColors={CATEGORY_COLORS}
+        defaultGradientColors={DEFAULT_GRADIENT}
+      />
 
       {/* Save Profile Modal */}
       <SaveProfileModal
