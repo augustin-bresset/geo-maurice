@@ -65,14 +65,28 @@ function App() {
   const [showAdvancedModal, setShowAdvancedModal] = useState(false);
   const [showColorModal, setShowColorModal] = useState(false);
 
-  const DEFAULT_GRADIENT = { low: '#0000ff', high: '#ff0000' };
+  const DEFAULT_GRADIENT = ['#0000ff', '#00ffff', '#00ff00', '#ffff00', '#ff0000'];
+
+  const hexToRgb = (hex) => {
+    const n = parseInt(hex.replace('#', ''), 16);
+    return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
+  };
+  const rgbToHex = ([r, g, b]) =>
+    '#' + [r, g, b].map(v => v.toString(16).padStart(2, '0')).join('');
 
   const [categoryColors, setCategoryColors] = useState(() =>
     JSON.parse(localStorage.getItem('geo_maurice_cat_colors')) || CATEGORY_COLORS
   );
-  const [gradientColors, setGradientColors] = useState(() =>
-    JSON.parse(localStorage.getItem('geo_maurice_gradient')) || DEFAULT_GRADIENT
-  );
+  const [gradientColors, setGradientColors] = useState(() => {
+    const saved = localStorage.getItem('geo_maurice_gradient');
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      // Rétrocompatibilité avec l'ancien format { low, high }
+      if (!Array.isArray(parsed)) return [parsed.low, parsed.high];
+      return parsed;
+    }
+    return DEFAULT_GRADIENT;
+  });
 
   const [showSaveModal, setShowSaveModal] = useState(false);
   const [applicationMode, setApplicationMode] = useState('services'); // 'services' | 'risks'
@@ -367,7 +381,6 @@ function App() {
 
 
 
-              {/* Friction Source Toggle */}
               <div style={{ padding: '8px 0', borderTop: '1px solid #eee' }}>
                 <span style={{ fontSize: 14, fontWeight: 'bold' }}>{t('frictionSource')}:</span>
                 <div style={{ display: 'flex', gap: 8, marginTop: 6 }}>
@@ -429,7 +442,20 @@ function App() {
         categoryColors={categoryColors}
         onCategoryColorChange={(key, value) => setCategoryColors(prev => ({ ...prev, [key]: value }))}
         gradientColors={gradientColors}
-        onGradientColorChange={(key, value) => setGradientColors(prev => ({ ...prev, [key]: value }))}
+        onGradientColorChange={(index, value) => setGradientColors(prev => prev.map((c, i) => i === index ? value : c))}
+        onGradientStopAdd={() => setGradientColors(prev => {
+          const n = prev.length;
+          const a = hexToRgb(prev[n - 2]);
+          const b = hexToRgb(prev[n - 1]);
+          const mid = rgbToHex([
+            Math.round((a[0] + b[0]) / 2),
+            Math.round((a[1] + b[1]) / 2),
+            Math.round((a[2] + b[2]) / 2),
+          ]);
+          return [...prev.slice(0, n - 1), mid, prev[n - 1]];
+        })}
+        onGradientStopRemove={(index) => setGradientColors(prev => prev.filter((_, i) => i !== index))}
+        onGradientReset={() => setGradientColors(DEFAULT_GRADIENT)}
         defaultCategoryColors={CATEGORY_COLORS}
         defaultGradientColors={DEFAULT_GRADIENT}
       />

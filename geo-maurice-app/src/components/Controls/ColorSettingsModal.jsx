@@ -10,6 +10,9 @@ export const ColorSettingsModal = ({
   onCategoryColorChange,
   gradientColors,
   onGradientColorChange,
+  onGradientStopAdd,
+  onGradientStopRemove,
+  onGradientReset,
   defaultCategoryColors,
   defaultGradientColors,
 }) => {
@@ -19,9 +22,10 @@ export const ColorSettingsModal = ({
 
   const handleResetAll = () => {
     CATEGORY_KEYS.forEach(key => onCategoryColorChange(key, defaultCategoryColors[key]));
-    onGradientColorChange('low', defaultGradientColors.low);
-    onGradientColorChange('high', defaultGradientColors.high);
+    onGradientReset();
   };
+
+  const gradientCSS = `linear-gradient(to right, ${gradientColors.join(', ')})`;
 
   return (
     <div style={{
@@ -63,28 +67,53 @@ export const ColorSettingsModal = ({
         {/* Section 2: Accessibility Gradient */}
         <div style={{ borderTop: '1px solid #eee', paddingTop: 14, marginBottom: 16 }}>
           <h4 style={{ margin: '0 0 10px 0', color: '#555', fontSize: 14 }}>{t('gradientSection')}</h4>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 8 }}>
-            <span style={{ flex: 1, fontSize: 13 }}>{t('gradientLow')}</span>
-            <input
-              type="color"
-              value={gradientColors.low}
-              onChange={(e) => onGradientColorChange('low', e.target.value)}
-              style={{ width: 36, height: 28, padding: 2, border: '1px solid #ccc', borderRadius: 4, cursor: 'pointer' }}
-            />
-          </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 12 }}>
-            <span style={{ flex: 1, fontSize: 13 }}>{t('gradientHigh')}</span>
-            <input
-              type="color"
-              value={gradientColors.high}
-              onChange={(e) => onGradientColorChange('high', e.target.value)}
-              style={{ width: 36, height: 28, padding: 2, border: '1px solid #ccc', borderRadius: 4, cursor: 'pointer' }}
-            />
-          </div>
+
+          {gradientColors.map((color, index) => (
+            <div key={index} style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 8 }}>
+              <span style={{ fontSize: 12, color: '#888', width: 60, flexShrink: 0 }}>
+                {index === 0
+                  ? t('gradientLow')
+                  : index === gradientColors.length - 1
+                    ? t('gradientHigh')
+                    : `${Math.round((index / (gradientColors.length - 1)) * 100)}%`}
+              </span>
+              <input
+                type="color"
+                value={color}
+                onChange={(e) => onGradientColorChange(index, e.target.value)}
+                style={{ width: 36, height: 28, padding: 2, border: '1px solid #ccc', borderRadius: 4, cursor: 'pointer' }}
+              />
+              <button
+                onClick={() => onGradientStopRemove(index)}
+                disabled={gradientColors.length <= 2}
+                title={t('removeStop')}
+                style={{
+                  padding: '4px 8px', fontSize: 11, cursor: gradientColors.length <= 2 ? 'not-allowed' : 'pointer',
+                  border: '1px solid #ccc', borderRadius: 4,
+                  background: gradientColors.length <= 2 ? '#f0f0f0' : '#fde8e8',
+                  color: gradientColors.length <= 2 ? '#bbb' : '#c0392b'
+                }}
+              >
+                ✕
+              </button>
+            </div>
+          ))}
+
+          <button
+            onClick={onGradientStopAdd}
+            style={{
+              width: '100%', padding: '6px', marginTop: 4, marginBottom: 14,
+              background: '#f0f7ff', border: '1px dashed #3498db', borderRadius: 4,
+              color: '#3498db', cursor: 'pointer', fontSize: 13
+            }}
+          >
+            + {t('addGradientStop')}
+          </button>
+
           <div style={{ fontSize: 12, color: '#666', marginBottom: 6 }}>{t('gradientPreview')}</div>
           <div style={{
             height: 16,
-            background: `linear-gradient(to right, ${gradientColors.low}, ${gradientColors.high})`,
+            background: gradientCSS,
             borderRadius: 6,
             border: '1px solid #ddd'
           }} />

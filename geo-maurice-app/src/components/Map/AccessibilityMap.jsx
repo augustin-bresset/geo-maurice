@@ -45,9 +45,10 @@ function generateHeatmapImage(gridData, secondaryGrid, mode, densityInfluence, g
 
     const influence = densityInfluence || 1.0;
 
-    const low = gradientColors || { low: '#0000ff', high: '#ff0000' };
-    const rgbLow = hexToRgb(low.low);
-    const rgbHigh = hexToRgb(low.high);
+    const stops = (Array.isArray(gradientColors) && gradientColors.length >= 2)
+      ? gradientColors.map(hexToRgb)
+      : [hexToRgb('#0000ff'), hexToRgb('#00ffff'), hexToRgb('#00ff00'), hexToRgb('#ffff00'), hexToRgb('#ff0000')];
+    const nStops = stops.length - 1;
 
     for (let y = 0; y < height; y++) {
         // Grid row index (0 is MinLat (South))
@@ -77,10 +78,14 @@ function generateHeatmapImage(gridData, secondaryGrid, mode, densityInfluence, g
                 // If score is 0, norm is 0 -> low color
                 const norm = Math.min(1, score / (maxScore || 1));
 
-                // Linear RGB interpolation between low and high gradient colors
-                const r = Math.round(rgbLow[0] + norm * (rgbHigh[0] - rgbLow[0]));
-                const g = Math.round(rgbLow[1] + norm * (rgbHigh[1] - rgbLow[1]));
-                const b = Math.round(rgbLow[2] + norm * (rgbHigh[2] - rgbLow[2]));
+                // Interpolation multi-stops
+                const pos = norm * nStops;
+                const si = Math.min(Math.floor(pos), nStops - 1);
+                const t = pos - si;
+                const a = stops[si], b2 = stops[si + 1];
+                const r = Math.round(a[0] + t * (b2[0] - a[0]));
+                const g = Math.round(a[1] + t * (b2[1] - a[1]));
+                const b = Math.round(a[2] + t * (b2[2] - a[2]));
 
                 // Default Opacity
                 let alpha = 150; // ~0.6
